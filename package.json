@@ -1,0 +1,34 @@
+{
+	"name": "runmany",
+	"displayName": "RunManyExt",
+	"description": "Syntax highlighting and more for .many file syntax of https://pypi.org/project/runmany.",
+	"version": "0.0.1",
+	"engines": {
+		"vscode": "^1.60.0"
+	},
+	"categories": [
+		"Programming Languages"
+	],
+	"contributes": {
+		"languages": [
+			{
+				"id": "many",
+				"aliases": [
+					"RunMany",
+					"many"
+				],
+				"extensions": [
+					".many"
+				],
+				"configuration": "./language-configuration.json"
+			}
+		],
+		"grammars": [
+			{
+				"language": "many",
+				"scopeName": "source.many",
+				"path": "./syntaxes/many.tmLanguage.json"
+			}
+		]
+	}
+}

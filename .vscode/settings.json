@@ -1,0 +1,9 @@
+{
+	"cSpell.words": [
+		"runmany"
+	],
+	"files.exclude": {
+		"desktop.ini": true,
+		"package-lock.json": true
+	}
+}
