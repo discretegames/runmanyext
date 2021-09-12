@@ -4,6 +4,15 @@
 	],
 	"files.exclude": {
 		"desktop.ini": true,
-		"package-lock.json": true
+		"package-lock.json": true,
+		"node_modules/": true
+	},
+	"yaml.schemas": { // not working
+		"https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json": "many.tmLanguage.yaml"
 	}
+	/*
+
+	foo
+
+	*/
 }

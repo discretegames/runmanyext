@@ -17,7 +17,13 @@ https://github.com/microsoft/vscode/blob/main/extensions/markdown-basics/package
 
 could support highlighting for any files like json and ini too? 
 
+yaml schema worked for a moment kinda then stopped https://github.com/redhat-developer/yaml-language-server#using-inlined-schema
 
+good jsonc grammar example 
+https://github.com/microsoft/vscode/blob/main/extensions/json/syntaxes/JSONC.tmLanguage.json
+
+
+bracket color options in the config json?
 
 More Languages to support: ~20 seems a nice number, see what CodeRunner supports
 - Python

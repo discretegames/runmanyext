@@ -3,6 +3,11 @@
 	"displayName": "RunManyExt",
 	"description": "Syntax highlighting and more for .many file syntax of https://pypi.org/project/runmany.",
 	"version": "0.0.1",
+	"license": "MIT",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/discretegames/runmanyext"
+	},
 	"engines": {
 		"vscode": "^1.60.0"
 	},
@@ -42,5 +47,8 @@
 				}
 			}
 		]
+	},
+	"devDependencies": {
+		"js-yaml": "^4.1.0"
 	}
 }

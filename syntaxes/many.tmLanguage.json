@@ -2,38 +2,30 @@
 	"$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
 	"scopeName": "source.many",
 	"name": "RunMany",
-	"patterns": [{ "include": "#expression" }],
+	"patterns": [{ "include": "#comments" }],
 	"repository": {
-		"expression": {
-			"patterns": [{ "include": "#letter" }, { "include": "#paren-expression" }, { "include": "#js-code" }]
-		},
-		"letter": {
-			"match": "a|b|c|d",
-			"name": "keyword.letter"
-		},
-		"paren-expression": {
-			"begin": "\\(",
-			"end": "\\)",
-			"beginCaptures": {
-				"0": { "name": "punctuation.paren.open" }
-			},
-			"endCaptures": {
-				"0": { "name": "punctuation.paren.close" }
-			},
-			"name": "expression.group",
-			"patterns": [{ "include": "#expression" }]
-		},
-		"js-code": {
-			"begin": "^\\{$",
-			"end": "^\\}$",
-			"beginCaptures": {
-				"0": { "name": "punctuation.js.open" }
-			},
-			"endCaptures": {
-				"0": { "name": "punctuation.js.close" }
-			},
-			"name": "meta.embedded.block.javascript",
-			"patterns": [{ "include": "source.js" }]
+		"comments": {
+			"patterns": [
+				{
+					"begin": "^/%",
+					"captures": {
+						"0": {
+							"name": "punctuation.definition.comment.many.comments"
+						}
+					},
+					"end": "^%/\\s*$",
+					"name": "comment.block.many.comments"
+				},
+				{
+					"captures": {
+						"1": {
+							"name": "punctuation.definition.comment.many.comments"
+						}
+					},
+					"match": "^(%).*$\\n?",
+					"name": "comment.line.percent-sign.many"
+				}
+			]
 		}
 	}
 }

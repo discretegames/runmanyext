@@ -1,0 +1,41 @@
+# can't get the schema to work but dank, yaml would be nicer than json
+name: RunMany
+scopeName: source.many
+grammar:
+  patterns:
+    - include: "#inline-comment"
+    - include: "#expression"
+  repository:
+    expression:
+      patterns:
+        - include: "#letter"
+        - include: "#paren-expression"
+        - include: "#js-code"
+    letter:
+      match: a|b|c|d
+      name: keyword.letter
+
+    paren-expression:
+      begin: "\\("
+      end: "\\)"
+      beginCaptures:
+        "0":
+          name: punctuation.paren.open
+      endCaptures:
+        "0":
+          name: punctuation.paren.close
+      name: expression.group
+      patterns:
+        - include: "#expression"
+    js-code:
+      begin: "^\\{$"
+      end: "^\\}$"
+      beginCaptures:
+        "0":
+          name: punctuation.js.open
+      endCaptures:
+        "0":
+          name: punctuation.js.close
+      name: meta.embedded.block.javascript
+      patterns:
+        - include: source.js
