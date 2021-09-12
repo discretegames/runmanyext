@@ -12,6 +12,11 @@ Goals:
 - Thin debugger wrapper extension so when VSC user presses F5 in .many file it prompts a debug config that just runs it. No actual debugging.
 - In reality, package all the above extensions into one big VSC extension so the user only installs extension and pip installs runmany and they are ready to go.
 
+se how markdown does meta.embedded.block
+https://github.com/microsoft/vscode/blob/main/extensions/markdown-basics/package.json
+
+could support highlighting for any files like json and ini too? 
+
 
 
 More Languages to support: ~20 seems a nice number, see what CodeRunner supports
