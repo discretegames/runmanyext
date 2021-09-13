@@ -2,7 +2,7 @@
 	"$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
 	"scopeName": "source.many",
 	"name": "RunMany",
-	"patterns": [{ "include": "#comments" }],
+	"patterns": [{ "include": "#comments" }, { "include": "#exit" }],
 	"repository": {
 		"comments": {
 			"patterns": [
@@ -13,7 +13,7 @@
 							"name": "punctuation.definition.comment.many.comments"
 						}
 					},
-					"end": "^%/\\s*$",
+					"end": "^%/\\s*$\\n?",
 					"name": "comment.block.many.comments"
 				},
 				{
@@ -24,6 +24,14 @@
 					},
 					"match": "^(%).*$\\n?",
 					"name": "comment.line.percent-sign.many"
+				}
+			]
+		},
+		"exit": {
+			"patterns": [
+				{
+					"match": "^Exit\\.\\s*$\\n?",
+					"name": "keyword.exit"
 				}
 			]
 		}

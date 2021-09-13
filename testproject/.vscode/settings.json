@@ -1,0 +1,29 @@
+{
+	"editor.tokenColorCustomizations": {
+		"textMateRules": [
+			{
+				"scope": "comment",
+				"settings": {
+					"foreground": "#FF0000",
+					"fontStyle": "bold"
+				}
+			},
+			{
+				"scope": [
+					"punctuation.definition.comment.many.comments",
+					"comment.block.many.comments",
+					"comment.line.percent-sign.many"
+				],
+				"settings": {
+					"foreground": "#FA7000"
+				}
+			},
+			{
+				"scope": "keyword.exit",
+				"settings": {
+					"foreground": "#FA2020"
+				}
+			}
+		]
+	}
+}
