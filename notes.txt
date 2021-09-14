@@ -149,4 +149,26 @@ part 2
 foo
 
 
-^(?!!?Also| )
+^(?!!?(?:Also|Stdin(\\s+for)?|Argv(\\s+for)?  )
+
+^[^ ](?!!?)
+
+
+
+match anything that doesn't start with space and doesn't contain a colon, but not blank lines
+
+hang on, disabled section while has trouble seeing through comments like in
+!Python:
+Also 	:
+% umm
+junk
+Also:
+    print(7)
+
+share language list
+
+since I need to allow comments and block comments in argv/stdin.code sections I need tot totally rethink
+
+Grammar:
+
+program -> 

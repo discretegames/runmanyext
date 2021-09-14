@@ -13,7 +13,13 @@
 			"include": "#exit"
 		},
 		{
+			"include": "#argv-section"
+		},
+		{
 			"include": "#invalid-header"
+		},
+		{
+			"include": "#disabled-section"
 		}
 	],
 	"repository": {
@@ -34,12 +40,17 @@
 		},
 		"exit": {
 			"name": "keyword.exit.many",
-			"match": "^Exit\\.\\s*$"
+			"match": "^Exit\\.\\s*$ "
+		},
+		"argv-section": {
+			"name": "keyword.argv.section.many",
+			"begin": "^Argv\\s*:",
+			"while": "idk"
 		},
 		"invalid-header": {
 			"patterns": [
-				{ "name": "invalid.malformed.header.section.many", "match": "^(?!\\s*$) {1,3}[^ ].*$" },
-				{ "name": "invalid.unindented.header.section.many", "match": "^!?[^ ]NONOBAD" }
+				{ "name": "invalid.badly-indented.header.section.many", "match": "^(?!\\s*$) {1,3}[^ ].*$" },
+				{ "name": "invalid.unrecognized.header.section.many", "match": "^(?!\\s*$| {4}|\t)(?!.*:)[^ ].*$" }
 			]
 		},
 		"disabled-section": {
