@@ -8,22 +8,12 @@
 			"patterns": [
 				{
 					"begin": "^/%",
-					"captures": {
-						"0": {
-							"name": "punctuation.definition.comment.many.comments"
-						}
-					},
 					"end": "^%/\\s*$\\n?",
-					"name": "comment.block.many.comments"
+					"name": "comment.many"
 				},
 				{
-					"captures": {
-						"1": {
-							"name": "punctuation.definition.comment.many.comments"
-						}
-					},
 					"match": "^(%).*$\\n?",
-					"name": "comment.line.percent-sign.many"
+					"name": "comment.many"
 				}
 			]
 		},
@@ -31,7 +21,7 @@
 			"patterns": [
 				{
 					"match": "^Exit\\.\\s*$\\n?",
-					"name": "keyword.exit"
+					"name": "keyword.exit.many"
 				}
 			]
 		}

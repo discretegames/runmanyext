@@ -12,16 +12,21 @@ Goals:
 - Thin debugger wrapper extension so when VSC user presses F5 in .many file it prompts a debug config that just runs it. No actual debugging.
 - In reality, package all the above extensions into one big VSC extension so the user only installs extension and pip installs runmany and they are ready to go.
 
-se how markdown does meta.embedded.block
+see how markdown does meta.embedded.block
 https://github.com/microsoft/vscode/blob/main/extensions/markdown-basics/package.json
-
 could support highlighting for any files like json and ini too? 
+
+this guy can't get colors to work nicely either without making whole required theme
+https://stackoverflow.com/questions/46377151/how-to-customize-the-color-of-custom-syntax-tokens-in-vscode-extension
 
 yaml schema worked for a moment kinda then stopped https://github.com/redhat-developer/yaml-language-server#using-inlined-schema
 
 good jsonc grammar example 
 https://github.com/microsoft/vscode/blob/main/extensions/json/syntaxes/JSONC.tmLanguage.json
 
+
+my own resource for default colors
+https://gist.github.com/discretegames/a4d2ccd19f0d62485e53345a56e6ba60
 
 check contrast ratios - https://webaim.org/resources/contrastchecker/
 
