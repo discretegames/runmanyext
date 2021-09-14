@@ -10,16 +10,19 @@ Exit.
 # //
 % hmm
 
-Exit.
 
-/%
+/% 
+Exit.
 /%
 hmm
-ok
-%/ 
+%/
+nested comments work
+%/
+
 %/
 
 
+% it works!
 	// foo
 
 {

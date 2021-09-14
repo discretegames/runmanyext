@@ -2,28 +2,26 @@
 	"$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
 	"scopeName": "source.many",
 	"name": "RunMany",
-	"patterns": [{ "include": "#comments" }, { "include": "#exit" }],
+	"patterns": [{ "include": "#block-comment" }, { "include": "#inline-comment" }, { "include": "#exit" }],
 	"repository": {
-		"comments": {
+		"block-comment": {
+			"applyEndPatternLast": 1,
+			"begin": "^/%",
+			"end": "^%/\\s*$\\n?",
+			"name": "comment.block.many",
 			"patterns": [
 				{
-					"begin": "^/%",
-					"end": "^%/\\s*$\\n?",
-					"name": "comment.many"
-				},
-				{
-					"match": "^(%).*$\\n?",
-					"name": "comment.many"
+					"include": "#block-comment"
 				}
 			]
 		},
+		"inline-comment": {
+			"match": "^(%).*$\\n?",
+			"name": "comment.line.many"
+		},
 		"exit": {
-			"patterns": [
-				{
-					"match": "^Exit\\.\\s*$\\n?",
-					"name": "keyword.exit.many"
-				}
-			]
+			"match": "^Exit\\.\\s*$\\n?",
+			"name": "keyword.exit.many"
 		}
 	}
 }

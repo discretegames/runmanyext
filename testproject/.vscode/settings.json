@@ -2,7 +2,10 @@
 	"editor.tokenColorCustomizations": {
 		"textMateRules": [
 			{
-				"scope": "comment.many",
+				"scope": [
+					"comment.block.many",
+					"comment.line.many"
+				],
 				"settings": {
 					"foreground": "#FA7000"
 				}

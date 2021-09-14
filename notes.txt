@@ -19,11 +19,14 @@ could support highlighting for any files like json and ini too?
 this guy can't get colors to work nicely either without making whole required theme
 https://stackoverflow.com/questions/46377151/how-to-customize-the-color-of-custom-syntax-tokens-in-vscode-extension
 
-yaml schema worked for a moment kinda then stopped https://github.com/redhat-developer/yaml-language-server#using-inlined-schema
+
+haskell has nesting block comments too https://github.com/theia-ide/haskell-theia-extension/blob/master/haskell/data/haskell.tmLanguage.json
 
 good jsonc grammar example 
 https://github.com/microsoft/vscode/blob/main/extensions/json/syntaxes/JSONC.tmLanguage.json
 
+
+make sure custom colors work when no
 
 my own resource for default colors
 https://gist.github.com/discretegames/a4d2ccd19f0d62485e53345a56e6ba60
