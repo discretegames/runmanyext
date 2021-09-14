@@ -1,4 +1,5 @@
 {
+	"editor.renderWhitespace": "all",
 	"editor.tokenColorCustomizations": {
 		"textMateRules": [
 			{
@@ -13,9 +14,9 @@
 			{
 				"scope": "keyword.exit",
 				"settings": {
-					"foreground": "#FA2020"
+					"foreground": "#FA00A0"
 				}
-			}
+			},
 		]
 	}
 }

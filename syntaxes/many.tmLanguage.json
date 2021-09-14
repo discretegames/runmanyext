@@ -2,13 +2,26 @@
 	"$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
 	"scopeName": "source.many",
 	"name": "RunMany",
-	"patterns": [{ "include": "#block-comment" }, { "include": "#inline-comment" }, { "include": "#exit" }],
+	"patterns": [
+		{
+			"include": "#block-comment"
+		},
+		{
+			"include": "#inline-comment"
+		},
+		{
+			"include": "#exit"
+		},
+		{
+			"include": "#invalid-header"
+		}
+	],
 	"repository": {
 		"block-comment": {
+			"name": "comment.block.many",
 			"applyEndPatternLast": 1,
 			"begin": "^/%",
-			"end": "^%/\\s*$\\n?",
-			"name": "comment.block.many",
+			"end": "^%/\\s*$",
 			"patterns": [
 				{
 					"include": "#block-comment"
@@ -16,12 +29,23 @@
 			]
 		},
 		"inline-comment": {
-			"match": "^(%).*$\\n?",
-			"name": "comment.line.many"
+			"name": "comment.line.many",
+			"match": "^(%).*$\\n?"
 		},
 		"exit": {
-			"match": "^Exit\\.\\s*$\\n?",
-			"name": "keyword.exit.many"
+			"name": "keyword.exit.many",
+			"match": "^Exit\\.\\s*$"
+		},
+		"invalid-header": {
+			"patterns": [
+				{ "name": "invalid.malformed.header.section.many", "match": "^(?!\\s*$) {1,3}[^ ].*$" },
+				{ "name": "invalid.unindented.header.section.many", "match": "^!?[^ ]NONOBAD" }
+			]
+		},
+		"disabled-section": {
+			"name": "comment.disabled.section.many",
+			"begin": "^![^:]*:",
+			"while": "^!?Also\\s*:"
 		}
 	}
 }

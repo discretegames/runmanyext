@@ -111,3 +111,42 @@ More Languages to support: ~20 seems a nice number, see what CodeRunner supports
 	"fortran_fixed-form": "cd $dir && gfortran $fileName -o $fileNameWithoutExt && $dir$fileNameWithoutExt",
 	"fortran": "cd $dir && gfortran $fileName -o $fileNameWithoutExt && $dir$fileNameWithoutExt"
 }
+
+
+10*Python: syntax to run in python 10 times then have average time shown?
+
+
+todo maybe rethink grammar naming conventions but the things other langs have are so weird
+
+I'm kinda wondering if a non-overwriting color theme would work after all
+
+Colors todo:
+	argv string
+	stdin string
+	language name
+	comma?
+	colon?
+	keywords
+	exit
+	comments
+	disabled
+
+
+disabled match exact?
+
+
+invalid header
+
+1, 2, or 3 spaces followed by nonspace, but not totally empty
+or 
+0 spaces followed by invalid header
+
+
+part 2
+
+!also:
+!also
+foo
+
+
+^(?!!?Also| )
