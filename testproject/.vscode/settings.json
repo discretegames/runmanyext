@@ -4,17 +4,16 @@
 		"textMateRules": [
 			{
 				"scope": [
-					"comment.block.many",
-					"comment.line.many"
+					"comment.inline.many"
 				],
 				"settings": {
 					"foreground": "#FA7000"
 				}
 			},
 			{
-				"scope": "keyword.exit",
+				"scope": "comment.exit",
 				"settings": {
-					"foreground": "#FA00A0"
+					"foreground": "#D05070"
 				}
 			},
 		]

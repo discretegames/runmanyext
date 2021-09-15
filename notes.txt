@@ -167,8 +167,19 @@ Also:
 
 share language list
 
+
+https://raw.githubusercontent.com/microsoft/vscode/main/extensions/python/syntaxes/MagicPython.tmLanguage.json
+how does python do indenting?? can't tell
+
 since I need to allow comments and block comments in argv/stdin.code sections I need tot totally rethink
 
 Grammar:
 
-program -> 
+program -> ugh
+
+
+while: not !?Argv nor !?Stdin nor code section
+
+realizing block comments are simply not possible?
+
+"while": "^(?=\\s*$| {4}|\t|%|/%)",

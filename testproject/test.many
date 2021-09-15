@@ -1,75 +1,73 @@
-% hmm
-
-   	
-	hmm
-
-A @ @bar @hmm Z
-
-!Stdin for Python:
-Also:
-
-!Also  : foo
-
- !Also:
-    Also:
- wtf
- umm
- w
-
-   	 uhh
-
-					
-					d
- in
-Also:
-
- d
-  
-   
-
-
-	print(9)
-Also: @fo
-	hmm
-
-Python:
-
-   
-
-
-Argv: content
-	content
-    spaces
-	tab
-
-	blah
-	
-Also:
-	stuff
-	
-Argv: hmm
-Argv: ok
-
-Exit.    			
-
+Argv: uhh
+    ok
+    % comment
+% comment
+    foo
+	ok
+% comment
+    foo
+Also: ok
+	right
+	% hmm
+% how
+	will alsos work
+Stdin:
+	ffjfkj
 
 % hmm
+Argv:
 
 
 
-/% 
 Exit.
-/%
-hmm
+
+% stuff
+Exit.
 %/
-nested comments work
-%/   
 
+
+Exit.
+/% block
+Exit.
+comment
+/% nestable
+yep
+Exit.
 %/
-code
-bla bla bla
+Exit.
+nestable indeed
+%/
+Exit.
+	still argv content line
 
 
 
+Also:
+	hmm
 
-% it works!
+huh
+
+% inline comment
+
+stuff
+
+Exit.
+
+umm
+
+/% block
+Exit.
+comment
+/% nestable
+yep
+Exit.
+%/
+Exit.
+nestable indeed
+%/
+
+% comment
+
+Exit.
+
+

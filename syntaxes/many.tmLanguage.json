@@ -2,61 +2,44 @@
 	"$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
 	"scopeName": "source.many",
 	"name": "RunMany",
-	"patterns": [
-		{
-			"include": "#block-comment"
-		},
-		{
-			"include": "#inline-comment"
-		},
-		{
-			"include": "#exit"
-		},
-		{
-			"include": "#argv-section"
-		},
-		{
-			"include": "#invalid-header"
-		},
-		{
-			"include": "#disabled-section"
-		}
-	],
+	"patterns": [{ "include": "#comment" }, { "include": "#exit" }, { "include": "#argv-section" }],
 	"repository": {
-		"block-comment": {
-			"name": "comment.block.many",
-			"applyEndPatternLast": 1,
-			"begin": "^/%",
-			"end": "^%/\\s*$",
+		"comment": {
+			"name": "comment.inline.many",
+			"match": "^%.*$\\n?"
+		},
+		"exit": {
+			"name": "comment.exit.many",
+			"begin": "^Exit\\.\\s*$",
+			"while": ""
+		},
+		"argv-section": {
+			"name": "meta.structure.argv-section.section.many",
 			"patterns": [
 				{
-					"include": "#block-comment"
+					"include": "#argv-all"
 				}
 			]
 		},
-		"inline-comment": {
-			"name": "comment.line.many",
-			"match": "^(%).*$\\n?"
+		"argv-all": {
+			"name": "keyword.argv-all.section.many",
+			"begin": "^Argv\\s*:\\s*(.*$\\n?)",
+			"beginCaptures": {
+				"1": { "name": "string.argv-content-line.section.many" }
+			},
+			"while": "^(?=%|\\s*$| {4}|\t|Also\\s*:)",
+			"patterns": [{ "include": "#comment" }, { "include": "#argv-content-line" }, { "include": "#argv-also" }]
 		},
-		"exit": {
-			"name": "keyword.exit.many",
-			"match": "^Exit\\.\\s*$ "
+		"argv-content-line": {
+			"name": "string.argv-content-line.section.many",
+			"match": "^(?:\\s*| {4}.*|\t.*)$\\n?"
 		},
-		"argv-section": {
-			"name": "keyword.argv.section.many",
-			"begin": "^Argv\\s*:",
-			"while": "idk"
-		},
-		"invalid-header": {
-			"patterns": [
-				{ "name": "invalid.badly-indented.header.section.many", "match": "^(?!\\s*$) {1,3}[^ ].*$" },
-				{ "name": "invalid.unrecognized.header.section.many", "match": "^(?!\\s*$| {4}|\t)(?!.*:)[^ ].*$" }
-			]
-		},
-		"disabled-section": {
-			"name": "comment.disabled.section.many",
-			"begin": "^![^:]*:",
-			"while": "^!?Also\\s*:"
+		"argv-also": {
+			"name": "keyword.argv-also.section.many",
+			"match": "^Also\\s*:\\s*(.*$\\n?)",
+			"captures": {
+				"1": { "name": "string.argv-content-line.section.many" }
+			}
 		}
 	}
 }
