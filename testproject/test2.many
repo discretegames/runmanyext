@@ -1,4 +1,8 @@
-	{ "show_equal": false }
+% comment
+	{"foo": 0
+% comment
+% comment
+	}
 % Python and C++ programs that output the product of the ints on stdin and argv.
 Argv:
 	2
@@ -13,32 +17,32 @@ Stdin:
 Also : 100
 Also : 1000
 
-Python: 'bar\
-	foo'
-	a = 9 # variables are semantically highlighted, I see
-	print(b)
-	if True:
+Python, JavaScript: import sys
+	print(9)
+	Exit.
+	print(9)
 % comment # huh
-		print(800)
-	# woah
-    """
-	a = int(sys.argv[1])
-	s = int(input())
-	print(a * s)
-
-C++:
-	using namespace std;
-	#include <iostream>
+	print(9)"""
+Also: import math
+	"""
+	print(800)
 % comment
-	int main(int argc, char *argv[]) {
-		int a = stoi(argv[1]);
-		int s;
-% comment
-		cin >> s;
-		cout << s * a << endl;
-		return 0;
-	}
+ 
+  
+	print(0)
+Also: print(0)
+Also: print(0)
+Also: print(0)
+Also: print(0)
+Also: print(0)
+Also: print(0)
+Also: print(0)
+Also: print(0)
+Also: print(0)
+Also: print(0)
+Also: print(0)
+Also: print(0)
+Also: print(0)
+Also: print(0)
 
-Exit.
-Stdin:
-	% comment
+Python: print(0.5)

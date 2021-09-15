@@ -9,7 +9,7 @@
 		{ "include": "#exit" },
 		{ "include": "#argv-section-list" },
 		{ "include": "#stdin-section-list" },
-		{ "include": "#python-section-list" }
+		{ "include": "#python-lead-section" }
 	],
 	"repository": {
 		"hardcoded-settings-json": {
@@ -99,16 +99,27 @@
 			}
 		},
 
-		"python-section-list": {
-			"name": "meta.list.code.section.many",
+		"python-lead-section": {
+			"name": "meta.lead.code.section.many",
 			"begin": "(?i)^(Python\\b.*?)(:)",
 			"beginCaptures": {
 				"0": { "name": "meta.header.lead.code.section.many" },
 				"1": { "name": "constant.language.language-list.code.section.many" },
 				"2": { "name": "punctuation.definition.header-end.section.many" }
 			},
-			"while": "^(?=%|\\s*$| {4}|\t)",
-			"patterns": [{ "include": "#comment" }, { "include": "source.python" }]
+			"while": "^(?=%|\\s*$| {4}|\t|Also\\s*:)",
+			"patterns": [{ "include": "#python-also-section" }, { "include": "source.python" }]
+		},
+		"python-also-section": {
+			"name": "meta.also.code.section.many",
+			"begin": "^(Also)\\s*(:)",
+			"beginCaptures": {
+				"0": { "name": "meta.header.also.code.section.many" },
+				"1": { "name": "keyword.control.also.code.section.many" },
+				"2": { "name": "punctuation.definition.header-end.section.many" }
+			},
+			"while": "^(?=%|\\s*$| {4}|\t|Also\\s*:)",
+			"patterns": [{ "include": "#python-also-section" }, { "include": "source.python" }]
 		}
 	}
 }
