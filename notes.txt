@@ -187,3 +187,7 @@ realizing block comments are simply not possible?
 "begin": "^Argv\\s*(?:\\sfor(?=\\s|:)(?:([^,:]*),)*([^,:]*))?:\\s*(.*$\\n?)",
 
 don't forget about json at the top
+
+follow naming conventions and other stuff at https://macromates.com/manual/en/language_grammars
+
+use word boundaries more \b

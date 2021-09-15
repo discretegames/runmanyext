@@ -2,8 +2,21 @@
 	"$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
 	"scopeName": "source.many",
 	"name": "RunMany",
-	"patterns": [{ "include": "#comment" }, { "include": "#exit" }, { "include": "#argv-section" }],
+	"fileTypes": [".many"],
+	"patterns": [
+		{ "include": "#json" },
+		{ "include": "#comment" },
+		{ "include": "#exit" },
+		{ "include": "#argv-section" },
+		{ "include": "#test" }
+	],
 	"repository": {
+		"json": {
+			"name": "meta.embedded.block.json",
+			"begin": "^(?=\\{)",
+			"end": "$",
+			"patterns": [{ "include": "source.json" }]
+		},
 		"comment": {
 			"name": "comment.inline.many",
 			"match": "^%.*$\\n?"
