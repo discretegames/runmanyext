@@ -183,3 +183,7 @@ while: not !?Argv nor !?Stdin nor code section
 realizing block comments are simply not possible?
 
 "while": "^(?=\\s*$| {4}|\t|%|/%)",
+
+"begin": "^Argv\\s*(?:\\sfor(?=\\s|:)(?:([^,:]*),)*([^,:]*))?:\\s*(.*$\\n?)",
+
+don't forget about json at the top

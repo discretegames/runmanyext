@@ -1,4 +1,9 @@
-Argv for a,b,for,foo,bar,baz: uhh
+	{"show_code": true}
+
+Argv for Python      ,, JavaScript:
+
+
+Argv for,,,,: uhh
     ok
     % comment
 % comment
@@ -15,7 +20,23 @@ Stdin:
 	ffjfkj
 
 % hmm
+Argv for ,:
+Argv for ,,,,,:
+Argv for SomeLang  :
+Argv for x,y,z:
+Argv for x , y , z  :
+Argv for 	for, x , y , z  :
+Argvfor:
+Argv for:
+Argv foo:
+Argv ::
+A rgv:
 Argv:
+Also:
+Also:
+
+
+
 
 
 

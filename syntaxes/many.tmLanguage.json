@@ -14,41 +14,28 @@
 			"while": ""
 		},
 		"argv-section": {
-			"name": "meta.structure.argv-section.section.many",
-			"patterns": [{ "include": "#argv-all-section" }, { "include": "#argv-for-section" }]
-		},
-		"argv-all-section": {
-			"name": "meta.structure.argv-all-section.section.many",
-			"begin": "^(Argv)\\s*:\\s*(.*$\\n?)",
+			"name": "meta.argv-section.section.many",
+			"begin": "^(?:(Argv)\\s*|(Argv\\s+for(?=\\s|:|,)((?:[^,:]*,)*[^,:]*))):\\s*(.*$\\n?)",
 			"beginCaptures": {
-				"1": { "name": "keyword.argv-all-section.section.many" },
-				"2": { "name": "string.argv-content.section.many" }
+				"1": { "name": "keyword.argv-section.section.many" },
+				"2": { "name": "keyword.argv-section.section.many" },
+				"3": { "name": "entity.name.type.languages.argv-section.section.many" },
+				"4": { "name": "string.argv-content.section.many" }
 			},
 			"while": "^(?=%|\\s*$| {4}|\t|Also\\s*:)",
 			"patterns": [{ "include": "#comment" }, { "include": "#argv-content" }, { "include": "#argv-also" }]
 		},
-		"argv-for-section": {
-			"name": "meta.structure.argv-for-section.section.many",
-			"begin": "^Argv\\s+for\\s",
-			"end": ":",
-			"beginCaptures": {
-				"0": { "name": "keyword.argv-for-section.section.many" }
-			},
-			"while": "^(?=%|\\s*$| {4}|\t|Also\\s*:)",
-			"patterns": [{ "include": "#comment" }, { "include": "#argv-content" }, { "include": "#argv-also" }]
-		},
-
 		"argv-content": {
 			"name": "string.argv-content.section.many",
 			"match": "^(?:\\s*| {4}.*|\t.*)$\\n?"
 		},
 		"argv-also": {
-			"name": "keyword.argv-also.section.many",
-			"match": "^Also\\s*:\\s*(.*$\\n?)",
+			"name": "meta.argv-also.section.many",
+			"match": "^(Also)\\s*:\\s*(.*$\\n?)",
 			"captures": {
-				"1": { "name": "string.argv-content.section.many" }
+				"1": { "name": "keyword.argv-also.section.many" },
+				"2": { "name": "string.argv-content.section.many" }
 			}
-		},
-		"language-list": {}
+		}
 	}
 }
