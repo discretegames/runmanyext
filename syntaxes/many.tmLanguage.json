@@ -17,9 +17,9 @@
 			"name": "meta.argv-section.section.many",
 			"begin": "^(?:(Argv)\\s*|(Argv\\s+for(?=\\s|:|,)((?:[^,:]*,)*[^,:]*))):\\s*(.*$\\n?)",
 			"beginCaptures": {
-				"1": { "name": "keyword.argv-section.section.many" },
-				"2": { "name": "keyword.argv-section.section.many" },
-				"3": { "name": "entity.name.type.languages.argv-section.section.many" },
+				"1": { "name": "keyword.control.flow.argv-section.section.many" },
+				"2": { "name": "keyword.control.flow.argv-section.section.many" },
+				"3": { "name": "constant.language.argv-section.section.many" },
 				"4": { "name": "string.argv-content.section.many" }
 			},
 			"while": "^(?=%|\\s*$| {4}|\t|Also\\s*:)",
@@ -33,7 +33,7 @@
 			"name": "meta.argv-also.section.many",
 			"match": "^(Also)\\s*:\\s*(.*$\\n?)",
 			"captures": {
-				"1": { "name": "keyword.argv-also.section.many" },
+				"1": { "name": "keyword.control.flow.argv-also.section.many" },
 				"2": { "name": "string.argv-content.section.many" }
 			}
 		}

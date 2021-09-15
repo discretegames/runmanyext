@@ -38,7 +38,6 @@ r'this is a string'
 while 0:
     pass
 
-
 # 4. Numbers (numbers: 'constant.numeric'), int or float, are faded light green - #B5CEA8
 
 1234567890
