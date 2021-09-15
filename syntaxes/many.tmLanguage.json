@@ -13,7 +13,7 @@
 	"repository": {
 		"json": {
 			"name": "meta.embedded.block.json",
-			"begin": "^(?=\\{)",
+			"begin": "^(?=(?: {4}|\t)\\s*\\{)",
 			"end": "$",
 			"patterns": [{ "include": "source.json" }]
 		},
