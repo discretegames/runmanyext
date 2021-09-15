@@ -14,16 +14,30 @@
 			"while": ""
 		},
 		"argv-section": {
-			"name": "keyword.argv-section.section.many",
-			"begin": "^Argv\\s*(?:\\sfor(?=\\s|:)(?:([^,:]*),)*([^,:]*))?:\\s*(.*$\\n?)",
+			"name": "meta.structure.argv-section.section.many",
+			"patterns": [{ "include": "#argv-all-section" }, { "include": "#argv-for-section" }]
+		},
+		"argv-all-section": {
+			"name": "meta.structure.argv-all-section.section.many",
+			"begin": "^(Argv)\\s*:\\s*(.*$\\n?)",
 			"beginCaptures": {
-				"1": { "name": "entity.name.type.language-list.section.many" },
-				"2": { "name": "entity.name.type.language-list.section.many" },
-				"3": { "name": "string.argv-content.section.many" }
+				"1": { "name": "keyword.argv-all-section.section.many" },
+				"2": { "name": "string.argv-content.section.many" }
 			},
 			"while": "^(?=%|\\s*$| {4}|\t|Also\\s*:)",
 			"patterns": [{ "include": "#comment" }, { "include": "#argv-content" }, { "include": "#argv-also" }]
 		},
+		"argv-for-section": {
+			"name": "meta.structure.argv-for-section.section.many",
+			"begin": "^Argv\\s+for\\s",
+			"end": ":",
+			"beginCaptures": {
+				"0": { "name": "keyword.argv-for-section.section.many" }
+			},
+			"while": "^(?=%|\\s*$| {4}|\t|Also\\s*:)",
+			"patterns": [{ "include": "#comment" }, { "include": "#argv-content" }, { "include": "#argv-also" }]
+		},
+
 		"argv-content": {
 			"name": "string.argv-content.section.many",
 			"match": "^(?:\\s*| {4}.*|\t.*)$\\n?"
@@ -34,6 +48,7 @@
 			"captures": {
 				"1": { "name": "string.argv-content.section.many" }
 			}
-		}
+		},
+		"language-list": {}
 	}
 }
