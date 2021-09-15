@@ -8,7 +8,8 @@
 		{ "include": "#comment" },
 		{ "include": "#exit" },
 		{ "include": "#argv-section-list" },
-		{ "include": "#stdin-section-list" }
+		{ "include": "#stdin-section-list" },
+		{ "include": "#python-section-list" }
 	],
 	"repository": {
 		"hardcoded-settings-json": {
@@ -96,6 +97,18 @@
 				"2": { "name": "punctuation.definition.header-end.section.many" },
 				"3": { "name": "string.unquoted.content.stdin.section.many" }
 			}
+		},
+
+		"python-section-list": {
+			"name": "meta.list.code.section.many",
+			"begin": "(?i)^(Python\\b.*?)(:)",
+			"beginCaptures": {
+				"0": { "name": "meta.header.lead.code.section.many" },
+				"1": { "name": "constant.language.language-list.code.section.many" },
+				"2": { "name": "punctuation.definition.header-end.section.many" }
+			},
+			"while": "^(?=%|\\s*$| {4}|\t)",
+			"patterns": [{ "include": "#comment" }, { "include": "source.python" }]
 		}
 	}
 }

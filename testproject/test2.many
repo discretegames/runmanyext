@@ -6,13 +6,22 @@ Argv:
 Also: 4
 Also: 6
 
-Stdin: 10
+Stdin:
+	10
+% fjkl
+	go
 Also : 100
 Also : 1000
 
-Python:
-	import sys
-% comment
+Python: 'bar\
+	foo'
+	a = 9 # variables are semantically highlighted, I see
+	print(b)
+	if True:
+% comment # huh
+		print(800)
+	# woah
+    """
 	a = int(sys.argv[1])
 	s = int(input())
 	print(a * s)
