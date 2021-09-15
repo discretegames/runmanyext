@@ -1,0 +1,46 @@
+	{
+	"languages": [
+{
+	"name": "Python"	
+}
+	],
+	"timeout": 10.0,
+	"stderr": "nzec",
+	"ext": "",
+	"spacing": 1,
+	"show_runs": true,
+	"show_time": false
+	} 
+Argv 	for		,	 	,		foofjdj  j dsjk,	: , , ::::f
+	hello
+		{
+Argv for Python:
+   
+	"languages": [],
+	"timeout": 10.0,
+	"stderr": "nzec",
+ 
+	
+	"ext": "",
+	"spacing": 1,
+	"show_runs": true,
+	"show_time": false
+	}^(?:(Argv)\\s*|(Argv\\s+for(?=\\s|:|,)((?:[^,:]*,)*[^,:]*)))  
+Also  :   hnn
+	other stuff
+	
+% hi    
+
+hola
+	hi
+Also:
+
+
+
+Exit.
+Argv:
+	hello
+% hi
+hola
+	hi
+Also:

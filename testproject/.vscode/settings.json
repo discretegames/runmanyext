@@ -1,17 +1,18 @@
 {
+	"editor.bracketPairColorization.enabled": false,
 	"editor.renderWhitespace": "all",
 	"editor.tokenColorCustomizations": {
 		"textMateRules": [
 			{
 				"scope": [
-					"comment.inline.many"
+					"comment.line.percentage.many"
 				],
 				"settings": {
-					"foreground": "#EA7000"
+					"foreground": "#20AA40"
 				}
 			},
 			{
-				"scope": "comment.exit",
+				"scope": "comment.block.exit.keyword",
 				"settings": {
 					"foreground": "#D05070"
 				}
