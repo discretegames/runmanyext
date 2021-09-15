@@ -4,17 +4,21 @@
 	"editor.tokenColorCustomizations": {
 		"textMateRules": [
 			{
-				"scope": [
-					"comment.line.percentage.many"
-				],
+				"scope": "comment.line.percentage.many",
 				"settings": {
 					"foreground": "#20AA40"
 				}
 			},
 			{
-				"scope": "comment.block.exit.keyword",
+				"scope": "comment.block.exit",
 				"settings": {
 					"foreground": "#D05070"
+				}
+			},
+			{
+				"scope": "string.unquoted.content.stdin",
+				"settings": {
+					"foreground": "#FFFF00"
 				}
 			},
 		]

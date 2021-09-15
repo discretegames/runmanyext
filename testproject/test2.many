@@ -1,46 +1,35 @@
-	{
-	"languages": [
-{
-	"name": "Python"	
-}
-	],
-	"timeout": 10.0,
-	"stderr": "nzec",
-	"ext": "",
-	"spacing": 1,
-	"show_runs": true,
-	"show_time": false
-	} 
-Argv 	for		,	 	,		foofjdj  j dsjk,	: , , ::::f
-	hello
-		{
-Argv for Python:
-   
-	"languages": [],
-	"timeout": 10.0,
-	"stderr": "nzec",
- 
-	
-	"ext": "",
-	"spacing": 1,
-	"show_runs": true,
-	"show_time": false
-	}^(?:(Argv)\\s*|(Argv\\s+for(?=\\s|:|,)((?:[^,:]*,)*[^,:]*)))  
-Also  :   hnn
-	other stuff
-	
-% hi    
+	{ "show_equal": false }
+% Python and C++ programs that output the product of the ints on stdin and argv.
+Argv:
+	2
+% 3 argvs tested (2, 4, 6) times 3 stdins tested (10, 100, 1000) times 2 languages gives 18 runs overall.
+Also: 4
+Also: 6
 
-hola
-	hi
-Also:
+Stdin: 10
+Also : 100
+Also : 1000
 
+Python:
+	import sys
+% comment
+	a = int(sys.argv[1])
+	s = int(input())
+	print(a * s)
 
+C++:
+	using namespace std;
+	#include <iostream>
+% comment
+	int main(int argc, char *argv[]) {
+		int a = stoi(argv[1]);
+		int s;
+% comment
+		cin >> s;
+		cout << s * a << endl;
+		return 0;
+	}
 
 Exit.
-Argv:
-	hello
-% hi
-hola
-	hi
-Also:
+Stdin:
+	% comment

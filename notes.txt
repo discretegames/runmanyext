@@ -155,6 +155,7 @@ foo
 
 
 
+
 match anything that doesn't start with space and doesn't contain a colon, but not blank lines
 
 hang on, disabled section while has trouble seeing through comments like in
@@ -191,3 +192,8 @@ don't forget about json at the top
 follow naming conventions and other stuff at https://macromates.com/manual/en/language_grammars
 
 use word boundaries more \b
+
+
+Maybe I should do semantic highlighting for just comments -- yeah, block comments even?
+Maybe not block comments since then while will still have issues, but at least inline comments in json
+or other languages could be highlighted semantically - yeah! should work
