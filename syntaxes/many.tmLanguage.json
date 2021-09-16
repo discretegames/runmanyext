@@ -7,11 +7,32 @@
 		{ "include": "#hardcoded-settings-json" },
 		{ "include": "#comment" },
 		{ "include": "#exit" },
-		{ "include": "#argv-section-list" },
-		{ "include": "#stdin-section-list" },
-		{ "include": "#python-lead-section" }
+		{ "include": "#argv2" },
+
+		{ "xinclude": "#argv-section-list" },
+		{ "xinclude": "#stdin-section-list" },
+		{ "xinclude": "#python-lead-section" }
 	],
 	"repository": {
+		"language-list": {
+			"name": "keyword.langlist",
+			"xbegin": "^(?:Argv\\s+for\\b|Stdin\\s+for\\b)",
+			"begin": "(?=.*?:)",
+			"end": ":",
+			"patterns": [{ "include": "#language" }, { "name": "punctuation.separator.array", "match": "," }]
+		},
+		"language": {
+			"name": "variable.lang",
+			"match": "[^,:]+"
+		},
+
+		"argv2": {
+			"name": "keyword.control.argvfor",
+			"begin": "^Argv\\s+for\\b(?=.*?:)",
+			"while": "^(?=%|\\s*$| {4}|\t|Also\\s*:)",
+			"patterns": [{ "include": "#language-list" }]
+		},
+
 		"hardcoded-settings-json": {
 			"name": "meta.embedded.block.json",
 			"begin": "^(?: {4}|\t)\\s*(?=\\{)",
