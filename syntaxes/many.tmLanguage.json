@@ -5,7 +5,7 @@
 	"fileTypes": [".many"],
 	"patterns": [
 		{ "include": "#exit" },
-		{ "include": "todoremove#comment" },
+		{ "include": "#comment" },
 		{ "include": "#argv-section-list" },
 		{ "include": "#hardcoded-settings-json" }
 	],
@@ -15,7 +15,7 @@
 			"begin": "^(Exit\\.)\\s*$",
 			"while": "",
 			"captures": {
-				"1": { "name": "comment.block.exit.command.many" }
+				"1": { "name": "comment.block.exit.definition.many" }
 			}
 		},
 		"comment": {
@@ -26,7 +26,7 @@
 			}
 		},
 		"language-list": {
-			"name": "meta.language-list.section.many",
+			"name": "meta.language-list.many",
 			"patterns": [
 				{
 					"name": "constant.language.language-name.many",
@@ -41,9 +41,7 @@
 		"argv-section-list": {
 			"name": "meta.section-list.argv.many",
 			"begin": "^(Argv)\\s*(?:\\b(for)\\b([^:]*))?(:)\\s*(.*)$",
-			"xwhile": "^(?=\\s*$| {4}|\\t|(%.*$))",
-			"ywhile": "^(?: {4}|\\t|\\s*$|(?=(%.*$)))(.*)",
-			"while": "(^%.*$)|^(?: {4}|\\t|\\s*$)(.*)$",
+			"while": "(^%.*$)|^(?: {4}|\\t|\\s*$|(Also)\\s*(:))(.*)$",
 			"beginCaptures": {
 				"1": { "name": "keyword.control.argv.many" },
 				"2": { "name": "keyword.control.for.many" },
@@ -53,26 +51,15 @@
 			},
 			"whileCaptures": {
 				"1": { "patterns": [{ "include": "#comment" }] },
-				"2": { "name": "string.unquoted.content.argv.many" }
-			},
-			"xpatterns": [{ "name": "string.this.unquoted.content.argv.many", "match": ".*" }]
-		},
-
-		"argv-also-section-header": {
-			"name": "meta.header.also.argv.section.many",
-			"match": "^(Also)\\s*(:)\\s*(.*)$",
-			"captures": {
-				"1": { "name": "keyword.control.also.argv.section.many" },
-				"2": { "name": "punctuation.definition.header-end.section.many" },
-				"3": { "name": "string.unquoted.content.argv.section.many" }
+				"2": { "name": "keyword.control.also.many" },
+				"3": { "name": "punctuation.definition.header.end.many" },
+				"4": { "name": "string.unquoted.content.argv.many" }
 			}
 		},
-
 		"hardcoded-settings-json": {
 			"name": "meta.embedded.block.json",
 			"begin": "^(?: {4}|\\t)\\s*(?=\\{)",
 			"while": "(^%.*$)|^(?: {4}|\\t|\\s*$)",
-			"xwhile": "^(?: {4}|\\t|\\s*$|(?=(%.*$)))",
 			"whileCaptures": {
 				"1": { "patterns": [{ "include": "#comment" }] }
 			},
