@@ -14,13 +14,7 @@
 				"settings": {
 					"foreground": "#D05070"
 				}
-			},
-			{
-				"scope": "string.unquoted.content.stdin",
-				"settings": {
-					"foreground": "#FFFF00"
-				}
-			},
+			}
 		]
 	}
 }

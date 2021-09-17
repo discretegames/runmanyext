@@ -36,11 +36,24 @@
 			},
 			"patterns": [{ "include": "source.json" }]
 		},
+		"input-language-list": {
+			"name": "meta.input-language-list.many",
+			"patterns": [
+				{
+					"name": "entity.name.type.language-name.many",
+					"match": "[^,:]+"
+				},
+				{
+					"name": "punctuation.separator.input-language-list.many",
+					"match": ","
+				}
+			]
+		},
 		"language-list": {
 			"name": "meta.language-list.many",
 			"patterns": [
 				{
-					"name": "constant.language.language-name.many",
+					"name": "keyword.language.language-name.many",
 					"match": "[^,:]+"
 				},
 				{
@@ -56,7 +69,7 @@
 			"beginCaptures": {
 				"1": { "name": "keyword.control.argv.many" },
 				"2": { "name": "keyword.control.for.many" },
-				"3": { "patterns": [{ "include": "#language-list" }] },
+				"3": { "patterns": [{ "include": "#input-language-list" }] },
 				"4": { "name": "punctuation.definition.header.end.many" },
 				"5": { "name": "string.unquoted.content.argv.many" }
 			},
@@ -74,7 +87,7 @@
 			"beginCaptures": {
 				"1": { "name": "keyword.control.stdin.many" },
 				"2": { "name": "keyword.control.for.many" },
-				"3": { "patterns": [{ "include": "#language-list" }] },
+				"3": { "patterns": [{ "include": "#input-language-list" }] },
 				"4": { "name": "punctuation.definition.header.end.many" },
 				"5": { "name": "string.unquoted.content.stdin.many" }
 			},
@@ -87,7 +100,7 @@
 		},
 
 		"python-section-list": {
-			"name": "meta.section-list.code.many",
+			"name": "meta.section-list.code.python.many",
 			"begin": "(?i)^(?=Python\\s*[,:])([^:]*)(:)\\s*",
 			"beginCaptures": {
 				"1": { "patterns": [{ "include": "#language-list" }] },
@@ -100,10 +113,10 @@
 			"patterns": [{ "include": "#python-also-section" }, { "include": "source.python" }]
 		},
 		"python-also-section": {
-			"name": "meta.also-section.code.many",
+			"name": "meta.also-section.code.python.many",
 			"begin": "^(Also)\\s*(:)",
 			"beginCaptures": {
-				"1": { "name": "keyword.control.also.code.many" },
+				"1": { "name": "keyword.language.also.code.many" },
 				"2": { "name": "punctuation.definition.header.end.many" }
 			},
 			"while": "(^%.*$)|^(?: {4}|\\t|\\s*$)",

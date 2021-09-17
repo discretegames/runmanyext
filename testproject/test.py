@@ -13,6 +13,7 @@
 # 8. n/a: 'constant.language' (does not autocomplete for some reason)
 
 # See also:
+# https://macromates.com/manual/en/language_grammars#naming-conventions
 # https://stackoverflow.com/a/45637405
 # https://cdn.discordapp.com/attachments/470168395770363905/887061550454693938/unknown.png
 # https://github.com/microsoft/vscode/blob/main/extensions/theme-defaults/themes/dark_vs.json
@@ -37,6 +38,7 @@ r'this is a string'
 # while and pass are keywords (https://www.programiz.com/python-programming/keyword-list)
 while 0:
     pass
+
 
 # 4. Numbers (numbers: 'constant.numeric'), int or float, are faded light green - #B5CEA8
 
