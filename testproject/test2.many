@@ -1,4 +1,4 @@
-Stdin for Python, Foo, Bar:
+!Stdin for Python, Foo, Bar:
 	helo bob
 Also:
 	stuff
@@ -8,7 +8,7 @@ Also:
 % comment
 
 
-Python,Unknown, hmm:
+!Python,Unknown, hmm:
 	print(9990)
 Also: fhfjhdk
 	some code
@@ -25,7 +25,9 @@ Also:
 	[
 	print(7)
 	'''
+% comment
 Also: print(999)
+% comment
 	]
 Also: print(6)
 	'''
