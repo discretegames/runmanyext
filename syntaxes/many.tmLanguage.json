@@ -9,7 +9,8 @@
 		{ "include": "#hardcoded-settings-json" },
 		{ "include": "#argv-section-list" },
 		{ "include": "#stdin-section-list" },
-		{ "include": "#python-section-list" }
+		{ "include": "#python-section-list" },
+		{ "include": "#unknown-section-list" }
 	],
 	"repository": {
 		"exit": {
@@ -124,6 +125,32 @@
 				"1": { "patterns": [{ "include": "#comment" }] }
 			},
 			"patterns": [{ "include": "source.python" }]
+		},
+
+		"unknown-section-list": {
+			"name": "meta.section-list.code.unknown.many",
+			"begin": "([^:]*)(:)\\s*",
+			"beginCaptures": {
+				"1": { "patterns": [{ "include": "#language-list" }] },
+				"2": { "name": "punctuation.definition.header.end.many" }
+			},
+			"while": "^(?=(%.*$)| {4}|\\t|\\s*$|Also\\s*:)",
+			"whileCaptures": {
+				"1": { "patterns": [{ "include": "#comment" }] }
+			},
+			"patterns": [{ "include": "#unknown-also-section" }]
+		},
+		"unknown-also-section": {
+			"name": "meta.also-section.code.unknown.many",
+			"begin": "^(Also)\\s*(:)",
+			"beginCaptures": {
+				"1": { "name": "keyword.language.also.code.many" },
+				"2": { "name": "punctuation.definition.header.end.many" }
+			},
+			"while": "(^%.*$)|^(?: {4}|\\t|\\s*$)",
+			"whileCaptures": {
+				"1": { "patterns": [{ "include": "#comment" }] }
+			}
 		}
 	}
 }
