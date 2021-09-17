@@ -87,6 +87,22 @@
 		},
 
 		"python-section-list": {
+			"name": "meta.section-list.code.python.many",
+			"begin": "(?i)^(?=Python\\s*[,:])([^:]*)(:)\\s*",
+			"while": "(^%.*$)|^(?: {4}|\\t|\\s*$|(Also)\\s*(:))",
+			"beginCaptures": {
+				"1": { "patterns": [{ "include": "#language-list" }] },
+				"2": { "name": "punctuation.definition.header.end.many" }
+			},
+			"whileCaptures": {
+				"1": { "patterns": [{ "include": "#comment" }] },
+				"2": { "name": "keyword.control.also.many" },
+				"3": { "name": "punctuation.definition.header.end.many" }
+			},
+			"patterns": [{ "include": "source.python" }]
+		},
+
+		"xpython-section-list": {
 			"name": "meta.section-list.code.many",
 			"begin": "(?i)^(?=Python\\s*[,:])([^:]*)(:)\\s*",
 			"beginCaptures": {
@@ -94,8 +110,8 @@
 				"2": { "name": "punctuation.definition.header.end.many" }
 			},
 			"xwhile": "(?=^Also\\s*:)|(^%.*$)|^(?: {4}|\\t|\\s*$)",
-			"qwhile": "^(?=(^%.*$)| {4}|\\t|\\s*$|Also\\s*:)",
-			"while": "(?=^Also\\s*:.*$)|^\\t",
+			"while": "^(?=(^%.*$)| {4}|\\t|\\s*$|Also\\s*:)",
+			"zwhile": "(?=^Also\\s*:.*$)|^\\t",
 			"whileCaptures": {
 				"1": { "patterns": [{ "include": "#comment" }] }
 			},
@@ -112,7 +128,7 @@
 			"whileCaptures": {
 				"1": { "patterns": [{ "include": "#comment" }] }
 			},
-			"patterns": [{ "include": "source.js" }]
+			"patterns": [{ "include": "source.python" }]
 		}
 	}
 }
