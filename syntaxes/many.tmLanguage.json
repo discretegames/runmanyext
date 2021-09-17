@@ -131,6 +131,43 @@
 			"match": ".+"
 		},
 
+		"stdin-section-list": {
+			"name": "meta.section-list.stdin.many",
+			"begin": "^(Stdin)\\s*(?:\\b(for)\\b([^:]*))?(:)\\s*",
+			"beginCaptures": {
+				"1": { "name": "storage.section.stdin.many" },
+				"2": { "name": "storage.section.stdin.for.many" },
+				"3": { "patterns": [{ "include": "#input-language-list" }] },
+				"4": { "name": "punctuation.definition.header.end.many" }
+			},
+			"while": "^(?=(%.*$)| {4}|\\t|\\s*$|(?:!\\s*)?Also\\s*:)",
+			"whileCaptures": {
+				"1": { "patterns": [{ "include": "#comment" }] }
+			},
+			"patterns": [
+				{ "include": "#disabled-also-section" },
+				{ "include": "#stdin-also-section" },
+				{ "include": "#stdin-content" }
+			]
+		},
+		"stdin-also-section": {
+			"name": "meta.also-section.stdin.many",
+			"begin": "^(Also)\\s*(:)",
+			"beginCaptures": {
+				"1": { "name": "storage.section.stdin.also.many" },
+				"2": { "name": "punctuation.definition.header.end.many" }
+			},
+			"while": "(^%.*$)|^(?: {4}|\\t|\\s*$)",
+			"whileCaptures": {
+				"1": { "patterns": [{ "include": "#comment" }] }
+			},
+			"patterns": [{ "include": "#stdin-content" }]
+		},
+		"stdin-content": {
+			"name": "string.unquoted.content.stdin.many",
+			"match": ".+"
+		},
+
 		"unknown-section-list": {
 			"name": "meta.section-list.code.unknown.many",
 			"begin": "^(?=\\S)([^:]*)(:)\\s*",
