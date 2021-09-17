@@ -70,16 +70,14 @@
 		},
 
 		"disabled-section-list": {
-			"name": "meta.section-list.disabled.many",
-			"begin": "^(!)[^:]*:.*$",
-			"while": "(^%.*$)|(^(?: {4}|\\t|\\s*$|Also\\s*:).*$)",
+			"name": "variable.todo.comment.block.disabled.list.many",
+			"begin": "^(!)[^:]*:",
+			"while": "(^%.*$)|^(?: {4}|\\t|\\s*$|(?:!\\s*)?Also\\s*:)",
 			"beginCaptures": {
-				"0": { "name": "comment.block.disabled.many" },
 				"1": { "name": "punctuation.definition.disabled.begin.many" }
 			},
 			"whileCaptures": {
-				"1": { "patterns": [{ "include": "#comment" }] },
-				"2": { "name": "comment.block.disabled.many" }
+				"1": { "patterns": [{ "include": "#comment" }] }
 			}
 		},
 
@@ -128,11 +126,15 @@
 				"1": { "patterns": [{ "include": "#language-list" }] },
 				"2": { "name": "punctuation.definition.header.end.many" }
 			},
-			"while": "^(?=(%.*$)| {4}|\\t|\\s*$|Also\\s*:)",
+			"while": "^(?=(%.*$)| {4}|\\t|\\s*$|(?:!\\s*)?Also\\s*:)",
 			"whileCaptures": {
 				"1": { "patterns": [{ "include": "#comment" }] }
 			},
-			"patterns": [{ "include": "#python-also-section" }, { "include": "source.python" }]
+			"patterns": [
+				{ "include": "#disabled-also-section" },
+				{ "include": "#python-also-section" },
+				{ "include": "source.python" }
+			]
 		},
 		"python-also-section": {
 			"name": "meta.also-section.code.python.many",
@@ -156,11 +158,11 @@
 				"2": { "name": "punctuation.definition.header.end.many" }
 			},
 			"comment": "Unlike other sections, I couldn't get whiles in lead code secs. to properly consume indents.",
-			"while": "^(?=(%.*$)| {4}|\\t|\\s*$|Also\\s*:)",
+			"while": "^(?=(%.*$)| {4}|\\t|\\s*$|(?:!\\s*)?Also\\s*:)",
 			"whileCaptures": {
 				"1": { "patterns": [{ "include": "#comment" }] }
 			},
-			"patterns": [{ "include": "#unknown-also-section" }]
+			"patterns": [{ "include": "#disabled-also-section" }, { "include": "#unknown-also-section" }]
 		},
 		"unknown-also-section": {
 			"name": "meta.also-section.code.unknown.many",
@@ -170,6 +172,18 @@
 				"2": { "name": "punctuation.definition.header.end.many" }
 			},
 			"while": "(^%.*$)|^(?: {4}|\\t|\\s*$)",
+			"whileCaptures": {
+				"1": { "patterns": [{ "include": "#comment" }] }
+			}
+		},
+
+		"disabled-also-section": {
+			"name": "comment.block.disabled.also.many",
+			"begin": "^(!)\\s*Also\\s*:",
+			"while": "(^%.*$)|^(?: {4}|\\t|\\s*$)",
+			"beginCaptures": {
+				"1": { "name": "punctuation.definition.disabled.begin.many" }
+			},
 			"whileCaptures": {
 				"1": { "patterns": [{ "include": "#comment" }] }
 			}

@@ -1,87 +1,34 @@
-	{
-		"show_time": true,
-		"show_output": false,
-		"show_argv": false,
-		"show_code": true,
-		"timeout": 120
-	}
-Argv: 5000000
+
+
+!Pydthon:
+	huh
+% goo
+Also:
+!Also: hello
+!Also: foo
+	a
+	b
+	c
+% comme
+	hmm
+Also:
+	ok
+Also:
+!Also:
 
 Python:
-	# Python program that lists primes by checking for factors up to square root
-	import sys
-	def isprime(n):
-		if n == 2:
-			return True
-		if n < 2 or n % 2 == 0:
-			return False
-		for i in range(3, int(n**0.5) + 1, 2):
-			if n % i == 0:
-				return False
-		return True
+	print(999)
+Also: '''
+Also: # -*- coding: utf-8 -*-
+	# -*- coding: utf-8 -*-
+!Also:
+Also: print(999)
+!Also:
+	print()
 
-	for n in range(int(sys.argv[1]) + 1):
-		if isprime(n):
-			print(n)
+	print(999)
 
-Also:
-	# Python program that lists primes using a sieve of Eratosthenes
-	import sys
+% comm
 
-	def sieve(limit):
-		primes = [False] * 2 + [True] * (limit - 1)
-		for step in range(2, int(limit**0.5) + 1):
-			if primes[step]:
-				for composite in range(step**2, limit + 1, step):
-					primes[composite] = False
-		return primes
-
-	for n, isprime in enumerate(sieve(int(sys.argv[1]))):
-		if isprime:
-			print(n)
-
-JavaScript:
-	// JavaScript program that lists primes by checking for factors up to square root
-	function isprime(n) {
-		if (n === 2) {
-			return true;
-		}
-		if (n < 2 || n % 2 === 0) {
-			return false;
-		}
-		for (let i = 3; i <= Math.floor(Math.sqrt(n)); i += 2) {
-			if (n % i === 0) {
-				return false;
-			}
-		}
-		return true;
-	}
-
-	for (let n = 0; n < parseInt(process.argv[2]); n++) {
-		if (isprime(n)) {
-			console.log(n);
-		}
-	}
-
-Also:
-	// JavaScript program that lists primes using a sieve of Eratosthenes
-	function sieve(limit) {
-		const primes = new Array(limit + 1).fill(true);
-		primes[0] = primes[1] = false;
-
-		for (let step = 2; step <= Math.floor(Math.sqrt(limit)); step++) {
-			if (primes[step]) {
-				for (let composite = step * step; composite <= limit; composite += step) {
-					primes[composite] = false;
-				}
-			}
-		}
-		return primes;
-	}
-
-	const primes = sieve(parseInt(process.argv[2]));
-	for (let n = 0; n < primes.length; n++) {
-		if (primes[n]) {
-			console.log(n);
-		}
-	}
+Also: print(999)
+Also: print(999)
