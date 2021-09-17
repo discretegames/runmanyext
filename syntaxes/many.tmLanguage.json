@@ -68,7 +68,7 @@
 		},
 
 		"disabled-section-list": {
-			"name": "variable.todo.comment.block.disabled.list.many",
+			"name": "comment.block.disabled.list.many",
 			"begin": "^(!)[^:]*:",
 			"while": "(^%.*$)|^(?: {4}|\\t|\\s*$|(?:!\\s*)?Also\\s*:)",
 			"beginCaptures": {
