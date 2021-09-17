@@ -155,6 +155,7 @@
 				"1": { "patterns": [{ "include": "#language-list" }] },
 				"2": { "name": "punctuation.definition.header.end.many" }
 			},
+			"comment": "Unlike other sections, I couldn't get whiles in lead code secs. to properly consume indents.",
 			"while": "^(?=(%.*$)| {4}|\\t|\\s*$|Also\\s*:)",
 			"whileCaptures": {
 				"1": { "patterns": [{ "include": "#comment" }] }
