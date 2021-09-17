@@ -83,40 +83,39 @@
 
 		"argv-section-list": {
 			"name": "meta.section-list.argv.many",
-			"begin": "^(Argv)\\s*(?:\\b(for)\\b([^:]*))?(:)\\s*(.*)$",
-			"while": "(^%.*$)|^(?: {4}|\\t|\\s*$|(Also)\\s*(:))(.*)$",
+			"begin": "^(Argv)\\s*(?:\\b(for)\\b([^:]*))?(:)\\s*",
 			"beginCaptures": {
 				"1": { "name": "storage.section.argv.many" },
 				"2": { "name": "storage.section.argv.for.many" },
 				"3": { "patterns": [{ "include": "#input-language-list" }] },
-				"4": { "name": "punctuation.definition.header.end.many" },
-				"5": { "name": "string.unquoted.content.argv.many" }
+				"4": { "name": "punctuation.definition.header.end.many" }
 			},
+			"while": "^(?=(%.*$)| {4}|\\t|\\s*$|(?:!\\s*)?Also\\s*:)",
 			"whileCaptures": {
-				"1": { "patterns": [{ "include": "#comment" }] },
-				"2": { "name": "storage.section.argv.also.many" },
-				"3": { "name": "punctuation.definition.header.end.many" },
-				"4": { "name": "string.unquoted.content.argv.many" }
-			}
+				"1": { "patterns": [{ "include": "#comment" }] }
+			},
+			"patterns": [
+				{ "include": "#disabled-also-section" },
+				{ "include": "#argv-also-section" },
+				{ "include": "#argv-content" }
+			]
 		},
-
-		"stdin-section-list": {
-			"name": "meta.section-list.stdin.many",
-			"begin": "^(Stdin)\\s*(?:\\b(for)\\b([^:]*))?(:)\\s*(.*)$",
-			"while": "(^%.*$)|^(?: {4}|\\t|\\s*$|(Also)\\s*(:))(.*)$",
+		"argv-also-section": {
+			"name": "meta.also-section.argv.many",
+			"begin": "^(Also)\\s*(:)",
 			"beginCaptures": {
-				"1": { "name": "storage.section.stdin.many" },
-				"2": { "name": "storage.section.stdin.for.many" },
-				"3": { "patterns": [{ "include": "#input-language-list" }] },
-				"4": { "name": "punctuation.definition.header.end.many" },
-				"5": { "name": "string.unquoted.content.stdin.many" }
+				"1": { "name": "storage.section.argv.also.many" },
+				"2": { "name": "punctuation.definition.header.end.many" }
 			},
+			"while": "(^%.*$)|^(?: {4}|\\t|\\s*$)",
 			"whileCaptures": {
-				"1": { "patterns": [{ "include": "#comment" }] },
-				"2": { "name": "storage.section.stdin.also.many" },
-				"3": { "name": "punctuation.definition.header.end.many" },
-				"4": { "name": "string.unquoted.content.stdin.many" }
-			}
+				"1": { "patterns": [{ "include": "#comment" }] }
+			},
+			"patterns": [{ "include": "#argv-content" }]
+		},
+		"argv-content": {
+			"name": "string.unquoted.content.argv.many",
+			"match": ".+"
 		},
 
 		"python-section-list": {
@@ -126,7 +125,8 @@
 				"1": { "patterns": [{ "include": "#language-list" }] },
 				"2": { "name": "punctuation.definition.header.end.many" }
 			},
-			"while": "^(?=(%.*$)| {4}|\\t|\\s*$|(?:!\\s*)?Also\\s*:)",
+			"TODOwhile": "^(?=(%.*$)| {4}|\\t|\\s*$|(?:!\\s*)?Also\\s*:)",
+			"while": "^(?=(%.*$)|(?:!\\s*)?Also\\s*:)| {4}|\\t|\\s*$",
 			"whileCaptures": {
 				"1": { "patterns": [{ "include": "#comment" }] }
 			},
@@ -157,7 +157,6 @@
 				"1": { "patterns": [{ "include": "#language-list" }] },
 				"2": { "name": "punctuation.definition.header.end.many" }
 			},
-			"comment": "Unlike other sections, I couldn't get whiles in lead code secs. to properly consume indents.",
 			"while": "^(?=(%.*$)| {4}|\\t|\\s*$|(?:!\\s*)?Also\\s*:)",
 			"whileCaptures": {
 				"1": { "patterns": [{ "include": "#comment" }] }

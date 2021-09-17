@@ -1,34 +1,12 @@
-
-
-!Pydthon:
-	huh
-% goo
-Also:
-!Also: hello
-!Also: foo
-	a
-	b
-	c
-% comme
+Argv for foo:	print(999)[
+	]
+	'''dd
 	hmm
+	'''
 Also:
-	ok
+	()
+!Also: print(9)
+    '''
 Also:
-!Also:
-
-Python:
-	print(999)
-Also: '''
-Also: # -*- coding: utf-8 -*-
-	# -*- coding: utf-8 -*-
-!Also:
-Also: print(999)
-!Also:
-	print()
-
-	print(999)
-
-% comm
-
-Also: print(999)
-Also: print(999)
+	'''
+Also:
