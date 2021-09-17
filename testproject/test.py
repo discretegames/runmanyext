@@ -2,6 +2,8 @@
 # This example is in Python but the same colors apply to any language.
 # Save as a Python (.py) file in VSCode with Dark+ (default dark) color theme to view properly.
 
+
+print()
 # #. Key: textMateRules scope
 # 1. comments: 'comment'
 # 2. strings: 'string'
@@ -68,6 +70,7 @@ super
 # 6. Functions (functions: 'entity.name.function') are light yellow/wheat - #DCDCAA
 
 
+print()
 
 id
 abs

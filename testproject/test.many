@@ -1,102 +1,87 @@
-    {}
-Argv for Python      ,, JavaScript:
-    fpp
-	{"show_code": true}
+	{
+		"show_time": true,
+		"show_output": false,
+		"show_argv": false,
+		"show_code": true,
+		"timeout": 120
+	}
+Argv: 5000000
 
-Argv	:
-:
+Python:
+	# Python program that lists primes by checking for factors up to square root
+	import sys
+	def isprime(n):
+		if n == 2:
+			return True
+		if n < 2 or n % 2 == 0:
+			return False
+		for i in range(3, int(n**0.5) + 1, 2):
+			if n % i == 0:
+				return False
+		return True
 
-% it works
-
-Exit.
-
-Argv for,,,,: uhh
-    ok
-    % comment
-% comment
-    foo
-	ok
-% comment
-    foo
-Also: ok
-	{"show_code": true}
-	right
-	% hmm
-% how
-	will alsos work
-Stdin:
-	ffjfkj
-
-% hmm
-Argv for ,:
-Argv for ,,,,,:
-Argv for SomeLang  :
-Argv for x,y,z:
-Argv for x , y , z  :
-Argv for 	for, x , y , z  :
-Argvfor:
-Argv for:
-Argv foo:
-Argv ::
-A rgv:
-Argv:
-Also:
-Also:
-	()
-    {"ok": 0}
-
-
-
-
-Exit.
-    {"ok": 0}
-% stuff
-Exit.
-%/
-
-
-Exit.
-/% block
-Exit.
-comment
-/% nestable
-yep
-Exit.
-%/
-Exit.
-nestable indeed
-%/
-Exit.
-	still argv content line
-
-
+	for n in range(int(sys.argv[1]) + 1):
+		if isprime(n):
+			print(n)
 
 Also:
-	hmm
+	# Python program that lists primes using a sieve of Eratosthenes
+	import sys
 
-huh
+	def sieve(limit):
+		primes = [False] * 2 + [True] * (limit - 1)
+		for step in range(2, int(limit**0.5) + 1):
+			if primes[step]:
+				for composite in range(step**2, limit + 1, step):
+					primes[composite] = False
+		return primes
 
-% inline comment
+	for n, isprime in enumerate(sieve(int(sys.argv[1]))):
+		if isprime:
+			print(n)
 
-stuff
+JavaScript:
+	// JavaScript program that lists primes by checking for factors up to square root
+	function isprime(n) {
+		if (n === 2) {
+			return true;
+		}
+		if (n < 2 || n % 2 === 0) {
+			return false;
+		}
+		for (let i = 3; i <= Math.floor(Math.sqrt(n)); i += 2) {
+			if (n % i === 0) {
+				return false;
+			}
+		}
+		return true;
+	}
 
-Exit.
+	for (let n = 0; n < parseInt(process.argv[2]); n++) {
+		if (isprime(n)) {
+			console.log(n);
+		}
+	}
 
-umm
+Also:
+	// JavaScript program that lists primes using a sieve of Eratosthenes
+	function sieve(limit) {
+		const primes = new Array(limit + 1).fill(true);
+		primes[0] = primes[1] = false;
 
-/% block
-Exit.
-comment
-/% nestable
-yep
-Exit.
-%/
-Exit.
-nestable indeed
-%/
+		for (let step = 2; step <= Math.floor(Math.sqrt(limit)); step++) {
+			if (primes[step]) {
+				for (let composite = step * step; composite <= limit; composite += step) {
+					primes[composite] = false;
+				}
+			}
+		}
+		return primes;
+	}
 
-% comment
-
-Exit.
-
-
+	const primes = sieve(parseInt(process.argv[2]));
+	for (let n = 0; n < primes.length; n++) {
+		if (primes[n]) {
+			console.log(n);
+		}
+	}
