@@ -1,21 +1,32 @@
-!Stdin for Python, Foo, Bar:
+	{"name": 8}
+
+Stdin for Python, Foo, Bar:
 	helo bob
+  
+  
+	fjj
 Also:
 	stuff
 Also:
 	woo
 
-% comment
 
+
+
+
+
+% comment
 
 !Python,Unknown, hmm:
 	print(9990)
+
 Also: fhfjhdk
+% comment
 	some code
 Also:
-% comment
 
-Python:
+
+Python, JavaScript:
 	def ffff(): return 8	print(8778)
 Also: 
 	'''
@@ -27,6 +38,17 @@ Also:
 	'''
 % comment
 Also: print(999)
+    Also:
+    Also:
+Also:
+
+Run, f:
+p: print(9)
+Also:
+
+also:
+
+Exit.
 % comment
 	]
 Also: print(6)
@@ -38,6 +60,8 @@ Also: print(6)
 Also: print(6)
 Also: print(6)
 Also: print(6)
+
+fjkjk
 
 Python: '''
 

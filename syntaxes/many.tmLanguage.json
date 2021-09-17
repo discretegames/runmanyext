@@ -11,7 +11,8 @@
 		{ "include": "#argv-section-list" },
 		{ "include": "#stdin-section-list" },
 		{ "include": "#python-section-list" },
-		{ "include": "#unknown-section-list" }
+		{ "include": "#unknown-section-list" },
+		{ "include": "#invalid-line" }
 	],
 	"repository": {
 		"exit": {
@@ -133,7 +134,7 @@
 			"name": "meta.also-section.code.python.many",
 			"begin": "^(Also)\\s*(:)",
 			"beginCaptures": {
-				"1": { "name": "keyword.language.also.code.many" },
+				"1": { "name": "keyword.control.also.code.many" },
 				"2": { "name": "punctuation.definition.header.end.many" }
 			},
 			"while": "(^%.*$)|^(?: {4}|\\t|\\s*$)",
@@ -145,7 +146,7 @@
 
 		"unknown-section-list": {
 			"name": "meta.section-list.code.unknown.many",
-			"begin": "([^:]*)(:)\\s*",
+			"begin": "^(?=\\S)([^:]*)(:)\\s*",
 			"beginCaptures": {
 				"1": { "patterns": [{ "include": "#language-list" }] },
 				"2": { "name": "punctuation.definition.header.end.many" }
@@ -160,13 +161,18 @@
 			"name": "meta.also-section.code.unknown.many",
 			"begin": "^(Also)\\s*(:)",
 			"beginCaptures": {
-				"1": { "name": "keyword.language.also.code.many" },
+				"1": { "name": "keyword.control.also.code.many" },
 				"2": { "name": "punctuation.definition.header.end.many" }
 			},
 			"while": "(^%.*$)|^(?: {4}|\\t|\\s*$)",
 			"whileCaptures": {
 				"1": { "patterns": [{ "include": "#comment" }] }
 			}
+		},
+
+		"invalid-line": {
+			"name": "invalid.illegal.line.many",
+			"match": "^.*$"
 		}
 	}
 }
