@@ -6,9 +6,10 @@
 	"patterns": [
 		{ "include": "#exit" },
 		{ "include": "#comment" },
+		{ "include": "#hardcoded-settings-json" },
 		{ "include": "#argv-section-list" },
 		{ "include": "#stdin-section-list" },
-		{ "include": "#hardcoded-settings-json" }
+		{ "include": "#python-section-list" }
 	],
 	"repository": {
 		"exit": {
@@ -25,6 +26,15 @@
 			"captures": {
 				"1": { "name": "punctuation.definition.comment.many" }
 			}
+		},
+		"hardcoded-settings-json": {
+			"name": "meta.embedded.block.json",
+			"begin": "^(?: {4}|\\t)\\s*(?=\\{)",
+			"while": "(^%.*$)|^(?: {4}|\\t|\\s*$)",
+			"whileCaptures": {
+				"1": { "patterns": [{ "include": "#comment" }] }
+			},
+			"patterns": [{ "include": "source.json" }]
 		},
 		"language-list": {
 			"name": "meta.language-list.many",
@@ -75,14 +85,34 @@
 				"4": { "name": "string.unquoted.content.stdin.many" }
 			}
 		},
-		"hardcoded-settings-json": {
-			"name": "meta.embedded.block.json",
-			"begin": "^(?: {4}|\\t)\\s*(?=\\{)",
+
+		"python-section-list": {
+			"name": "meta.section-list.code.many",
+			"begin": "(?i)^(?=Python\\s*[,:])([^:]*)(:)\\s*",
+			"beginCaptures": {
+				"1": { "patterns": [{ "include": "#language-list" }] },
+				"2": { "name": "punctuation.definition.header.end.many" }
+			},
+			"xwhile": "(?=^Also\\s*:)|(^%.*$)|^(?: {4}|\\t|\\s*$)",
+			"qwhile": "^(?=(^%.*$)| {4}|\\t|\\s*$|Also\\s*:)",
+			"while": "(?=^Also\\s*:.*$)|^\\t",
+			"whileCaptures": {
+				"1": { "patterns": [{ "include": "#comment" }] }
+			},
+			"patterns": [{ "include": "#python-also-section" }, { "include": "source.python" }]
+		},
+		"python-also-section": {
+			"name": "meta.also-section.code.many",
+			"begin": "^(Also)\\s*(:)",
+			"beginCaptures": {
+				"1": { "name": "keyword.control.also.code.many" },
+				"2": { "name": "punctuation.definition.header.end.many" }
+			},
 			"while": "(^%.*$)|^(?: {4}|\\t|\\s*$)",
 			"whileCaptures": {
 				"1": { "patterns": [{ "include": "#comment" }] }
 			},
-			"patterns": [{ "include": "source.json" }]
+			"patterns": [{ "include": "source.js" }]
 		}
 	}
 }
