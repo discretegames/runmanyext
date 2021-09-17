@@ -7,6 +7,7 @@
 		{ "include": "#exit" },
 		{ "include": "#comment" },
 		{ "include": "#argv-section-list" },
+		{ "include": "#stdin-section-list" },
 		{ "include": "#hardcoded-settings-json" }
 	],
 	"repository": {
@@ -54,6 +55,24 @@
 				"2": { "name": "keyword.control.also.many" },
 				"3": { "name": "punctuation.definition.header.end.many" },
 				"4": { "name": "string.unquoted.content.argv.many" }
+			}
+		},
+		"stdin-section-list": {
+			"name": "meta.section-list.stdin.many",
+			"begin": "^(Stdin)\\s*(?:\\b(for)\\b([^:]*))?(:)\\s*(.*)$",
+			"while": "(^%.*$)|^(?: {4}|\\t|\\s*$|(Also)\\s*(:))(.*)$",
+			"beginCaptures": {
+				"1": { "name": "keyword.control.stdin.many" },
+				"2": { "name": "keyword.control.for.many" },
+				"3": { "patterns": [{ "include": "#language-list" }] },
+				"4": { "name": "punctuation.definition.header.end.many" },
+				"5": { "name": "string.unquoted.content.stdin.many" }
+			},
+			"whileCaptures": {
+				"1": { "patterns": [{ "include": "#comment" }] },
+				"2": { "name": "keyword.control.also.many" },
+				"3": { "name": "punctuation.definition.header.end.many" },
+				"4": { "name": "string.unquoted.content.stdin.many" }
 			}
 		},
 		"hardcoded-settings-json": {
