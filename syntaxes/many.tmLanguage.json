@@ -103,10 +103,7 @@
 				"3": { "patterns": [{ "include": "#input-language-list" }] },
 				"4": { "name": "punctuation.definition.header.end.many" }
 			},
-			"xwhile": "^(?=(%.*$)|(?:!\\s*)?Also\\s*:)| {4}|\\t|\\s*$",
-
 			"while": "^(?=(%.*$)| {4}|\\t|\\s*$|(?:!\\s*)?Also\\s*:)",
-
 			"whileCaptures": {
 				"1": { "patterns": [{ "include": "#comment" }] }
 			},
@@ -141,7 +138,7 @@
 				"1": { "patterns": [{ "include": "#language-list" }] },
 				"2": { "name": "punctuation.definition.header.end.many" }
 			},
-			"xwhile": "^(?=(%.*$)|(?:!\\s*)?Also\\s*:)| {4}|\\t|\\s*$",
+			"comment": "Could never get indent-consuming in lead sections to properly work. For some related reason, multiline strings and such in lead code sections appear to capture Also headers until their delimiter.",
 			"while": "^(?=(%.*$)| {4}|\\t|\\s*$|(?:!\\s*)?Also\\s*:)",
 			"whileCaptures": {
 				"1": { "patterns": [{ "include": "#comment" }] }
@@ -168,7 +165,6 @@
 				"1": { "patterns": [{ "include": "#language-list" }] },
 				"2": { "name": "punctuation.definition.header.end.many" }
 			},
-			"xwhile": "^(?=(%.*$)|(?:!\\s*)?Also\\s*:)| {4}|\\t|\\s*$",
 			"while": "^(?=(%.*$)| {4}|\\t|\\s*$|(?:!\\s*)?Also\\s*:)",
 			"whileCaptures": {
 				"1": { "patterns": [{ "include": "#comment" }] }

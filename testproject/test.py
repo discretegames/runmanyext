@@ -2,8 +2,6 @@
 # This example is in Python but the same colors apply to any language.
 # Save as a Python (.py) file in VSCode with Dark+ (default dark) color theme to view properly.
 
-    from __future__ import annotations
-
 # #. Key: textMateRules scope
 # 1. comments: 'comment'
 # 2. strings: 'string'
