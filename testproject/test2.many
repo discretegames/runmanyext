@@ -1,13 +1,10 @@
 Python: print('Hello, World!')
-Python 2: print('Hello, World!')
-Python 2:
 
 JavaScript: console.log("Hello, World!")
 
 TypeScript: console.log("Hello, World!")
 
-Java:
-	public class HelloWorld {
+Java: public class HelloWorld {
 		public static void main(String[] args) {
 			System.out.println("Hello, World!");
 		}
@@ -31,24 +28,29 @@ Go:
 		fmt.Println("Hello, World!")
 	}
 
+
 C:
 	#include <stdio.h>
-
 	int main() {
-	printf("Hello, World!\n");
-	return 0;
+		printf("Hello, World!\n");
+		return 0;
 	}
 
-C++:
-	#include <iostream>
+% why is above red, or below white >:(
 
+C: #include <stdio.h>
+	
+% why is below blue and white
+C++: #include <iostream>
+
+C++: 
+	#include <iostream>
 	int main() {
 		std::cout << "Hello, World!\n";
 		return 0;
 	}
 
-C#:
-	namespace Hello {
+C#:	namespace Hello {
 		class HelloWorld {         
 			static void Main(string[] args)
 			{

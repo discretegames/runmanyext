@@ -211,3 +211,7 @@ C:
 	}
 
 bottom 3 lines go red - it's like source.c doesn't want to consume them
+
+TODO
+- clean up this notes file
+- add even more languages (Clojure, swift, ruby, from https://github.com/microsoft/vscode/blob/main/extensions/markdown-basics/syntaxes/markdown.tmLanguage.json, from CodeRunner)
