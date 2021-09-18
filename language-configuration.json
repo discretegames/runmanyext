@@ -1,7 +1,7 @@
 {
 	"comments": {
 		// symbol used for single line comment. Remove this entry if your language does not support line comments
-		"lineComment": "%",
+		"lineComment": "%" // Limited because Ctrl+/ doesn't always add the % to the very front of the line.
 	},
 	// symbols used as brackets
 	"brackets": [

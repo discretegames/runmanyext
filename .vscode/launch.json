@@ -9,6 +9,7 @@
 			"name": "Extension",
 			"type": "extensionHost",
 			"request": "launch",
+			"preLaunchTask": "makesyntax",
 			"args": [
 				"--extensionDevelopmentPath=${workspaceFolder}"
 			]

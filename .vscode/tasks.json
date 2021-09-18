@@ -1,0 +1,14 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"label": "makesyntax",
+			"command": "python syntax_maker/syntax_maker.py",
+			"type": "shell",
+			"presentation": {
+				"reveal": "silent",
+				"clear": true
+			}
+		}
+	]
+}

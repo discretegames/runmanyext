@@ -1,0 +1,32 @@
+{
+	"<SOURCE>-section-list": {
+		"name": "meta.section-list.code.<SOURCE>.many",
+		"begin": "(?i)^(?=<NAME>\\s*[,:])([^:]*)(:)\\s*",
+		"beginCaptures": {
+			"1": { "patterns": [{ "include": "#language-list" }] },
+			"2": { "name": "punctuation.definition.header.end.many" }
+		},
+		"while": "^(?=(%.*$)| {4}|\\t|\\s*$|(?:!\\s*)?Also\\s*:)",
+		"whileCaptures": {
+			"1": { "patterns": [{ "include": "#comment" }] }
+		},
+		"patterns": [
+			{ "include": "#disabled-also-section" },
+			{ "include": "#<SOURCE>-also-section" },
+			{ "include": "source.<SOURCE>" }
+		]
+	},
+	"<SOURCE>-also-section": {
+		"name": "meta.also-section.code.<SOURCE>.many",
+		"begin": "^(Also)\\s*(:)",
+		"beginCaptures": {
+			"1": { "name": "keyword.control.code.<SOURCE>.also.many" },
+			"2": { "name": "punctuation.definition.header.end.many" }
+		},
+		"while": "(^%.*$)|^(?: {4}|\\t|\\s*$)",
+		"whileCaptures": {
+			"1": { "patterns": [{ "include": "#comment" }] }
+		},
+		"patterns": [{ "include": "source.<SOURCE>" }]
+	}
+}
