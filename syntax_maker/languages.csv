@@ -1,6 +1,13 @@
-<NAME>   , <SOURCE>
-Python   , python
-Python 2 , python
-C        , c
-C\\+\\+  , cpp
-C#       , cs
+<NAME>     , <ID>    , <SOURCE>
+Python     , python  , python
+Python 2   , python2 , python
+C          , c       , c
+C\\+\\+    , cpp     , cpp
+C#         , csharp  , cs
+Go         , go      , go
+Rust       , rust    , rust
+Java       , java    , java
+JavaScript , js      , js
+TypeScript , ts      , ts
+Kotlin     , kotlin  , kotlin
+Haskell    , haskell , haskell

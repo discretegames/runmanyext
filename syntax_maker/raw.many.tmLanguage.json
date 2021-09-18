@@ -10,7 +10,6 @@
 		{ "include": "#disabled-section-list" },
 		{ "include": "#argv-section-list" },
 		{ "include": "#stdin-section-list" },
-		"<INSERT>",
 		{ "include": "#unknown-section-list" },
 		{ "include": "#invalid-line" }
 	],

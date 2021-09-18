@@ -1,6 +1,6 @@
 {
-	"<SOURCE>-section-list": {
-		"name": "meta.section-list.code.<SOURCE>.many",
+	"<ID>-section-list": {
+		"name": "meta.section-list.code.<ID>.many",
 		"begin": "(?i)^(?=<NAME>\\s*[,:])([^:]*)(:)\\s*",
 		"beginCaptures": {
 			"1": { "patterns": [{ "include": "#language-list" }] },
@@ -12,15 +12,15 @@
 		},
 		"patterns": [
 			{ "include": "#disabled-also-section" },
-			{ "include": "#<SOURCE>-also-section" },
+			{ "include": "#<ID>-also-section" },
 			{ "include": "source.<SOURCE>" }
 		]
 	},
-	"<SOURCE>-also-section": {
-		"name": "meta.also-section.code.<SOURCE>.many",
+	"<ID>-also-section": {
+		"name": "meta.also-section.code.<ID>.many",
 		"begin": "^(Also)\\s*(:)",
 		"beginCaptures": {
-			"1": { "name": "keyword.control.code.<SOURCE>.also.many" },
+			"1": { "name": "keyword.control.code.<ID>.also.many" },
 			"2": { "name": "punctuation.definition.header.end.many" }
 		},
 		"while": "(^%.*$)|^(?: {4}|\\t|\\s*$)",

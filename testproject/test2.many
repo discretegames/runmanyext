@@ -1,163 +1,58 @@
-	{"name": 8}
+Python: print('Hello, World!')
+Python 2: print('Hello, World!')
+Python 2:
 
-Stdin for Python, Foo, Bar:
-	helo bob
-  
-  
-	fjj
-Also:
-	stuff
-Also:
-	woo
+JavaScript: console.log("Hello, World!")
 
-Stdin:
-Also:
+TypeScript: console.log("Hello, World!")
 
-Argv for Python, JS, TS, CSS:
-Stdin for Pythonic:
-	print(999)
-Also:
-Also:
+Java:
+	public class HelloWorld {
+		public static void main(String[] args) {
+			System.out.println("Hello, World!");
+		}
+	}
 
+Kotlin:
+	fun main() {
+		println("Hello, World!")
+	}
 
+Rust:
+	fn main() {
+		println!("Hello, World!");
+	}
 
-Python:
-	print(99)
+Go:
+	package main
+	import "fmt"
 
-Also:
+	func main() {
+		fmt.Println("Hello, World!")
+	}
 
+C:
+	#include <stdio.h>
 
-a,,,,,b,,,,b,,,:
+	int main() {
+	printf("Hello, World!\n");
+	return 0;
+	}
 
-% comment
+C++:
+	#include <iostream>
 
-!Python,Unknown, hmm:
-	print(9990)
+	int main() {
+		std::cout << "Hello, World!\n";
+		return 0;
+	}
 
-Also: fhfjhdk
-% comment
-	some code
-Also:
-
-
-Python, JavaScript:
-	def ffff(): return 8	print(8778)
-Also: 
-	'''
-	Also: print(8)
-	'''
-Also:
-	[
-	print(7)
-	'''
-% comment
-Also: print(999)
-    Also:
-    Also:
-Also:
-
-Run, f:
-p: print(9)
-Also:
-
-also:
-
-Exit.
-% comment
-	]
-Also: print(6)
-	'''
-	'''
-Also: print(6)
-Also: print(6)
-Also: print(6)
-Also: print(6)
-Also: print(6)
-Also: print(6)
-
-fjkjk
-
-Python: '''
-
-
-
-Exit.
-% umm    
-	stuff
-% umm
-	pk
-	FOO
-	[
-	]
-Also: fhjkfj
-	goo
-Also:
-	stuff
-Argv for: thingy
-% hmm
-	
-
-
-% foo
-% comment
-	true}fdfd
-b
-6
-Argv for FOOp, p: uhhok
-%  
-% hello
-    ok
-	% kinda works
-Also: goo
-	f, g:
-
-Argv for d,d,d,d,d,d,,,,,:
-Argv for:
-Argv for Python:
-Argv:
-
-
-hello
-hi
-
-Stdin for xxx,   yy, z:
-
-Python, JS:
-
-Stdin for Python:
-	10
-% fjkl
-	go
-Also : 100
-Also : 1000
-
-Python, JavaScript: import sys
-	print(9)
-	Exit.
-	print(9)
-% comment # huh
-	print(9)"""
-Also: import math
-	"""
-	print(800)
-% comment
- 
-Exit.
-	print(0)
-Also: print(0)
-Also: print(0)
-Also: print(88) 
-	print(0)
-Also: print(0)
-Also: print(0)
-Also: print(0)
-Also: print(0)
-Also: print(0)
-Also: print(0)
-Also: print(0)
-Also: print(0)
-Also: print(0)
-Also: print(0)
-Also: print(0)
-
-Python: print(0.5)
+C#:
+	namespace Hello {
+		class HelloWorld {         
+			static void Main(string[] args)
+			{
+				System.Console.WriteLine("Hello, World!");
+			}
+		}
+	}

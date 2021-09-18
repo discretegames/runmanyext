@@ -197,3 +197,17 @@ use word boundaries more \b
 Maybe I should do semantic highlighting for just comments -- yeah, block comments even?
 Maybe not block comments since then while will still have issues, but at least inline comments in json
 or other languages could be highlighted semantically - yeah! should work
+
+spacetab should really count as an indent, maybe capture them specially
+
+having problems with C and nothing else now
+
+C:
+	#include <stdio.h>
+
+	int main(int argc, char *argv[]) {
+		printf("%s\n", argv[1]);
+		return 0;
+	}
+
+bottom 3 lines go red - it's like source.c doesn't want to consume them
