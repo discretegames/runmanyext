@@ -32,7 +32,7 @@
 			{
 				"language": "many",
 				"scopeName": "source.many",
-				"path": "./syntaxes/many.tmLanguage.json",
+				"path": "./syntaxes/dev.many.tmLanguage.json",
 				"embeddedLanguages": {
 					"meta.embedded.block.c": "c"
 				}
