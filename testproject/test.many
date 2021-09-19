@@ -1,17 +1,9 @@
-% ok
-
-	{"foo":
-% hmm
-	3874, "hello": 
-	{}
-% hmm
-	
-	}
-    ok
-% hmmfd
-	}
-
-    ddj
+% 
+Python:
+Also:
+Also:
+Also:
+Also:
 !Argv for:foo
 	woo
 Also:
@@ -23,9 +15,20 @@ Also:
 Also:
 
 
+Python:
+	print(900)
+% stuff
 
-Python:	print(999)
+Foo, far, Python: some stu
+	floo
+    dld
+Also:
+	hmm
+
+
+!Also:
 	'''
+
 
 % hmm
 	'''
@@ -45,7 +48,8 @@ Also: print(9)
 Also: print(9)
 Also: print(9)
 Also: print(9)
-Also: print(9)
+Also:
+	print(9)
 
 % foo
 
