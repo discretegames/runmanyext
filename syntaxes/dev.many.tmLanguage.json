@@ -1,0 +1,215 @@
+{
+	"$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+	"scopeName": "source.many",
+	"name": "RunMany",
+	"fileTypes": [".many"],
+	"patterns": [
+		{ "include": "#exit" },
+		{ "include": "#comment" },
+		{ "include": "#settings-json" },
+		{ "include": "#disabled-section-list" },
+		{ "include": "#argv-section-list" },
+		{ "include": "#stdin-section-list" },
+		{ "include": "#python-section-list" },
+		{ "include": "#unknown-section-list" },
+		{ "include": "#invalid-section-header" },
+		{ "include": "#invalid-section-content" }
+	],
+	"repository": {
+		"exit": {
+			"name": "comment.block.exit.many",
+			"begin": "^(Exit\\.)\\s*$",
+			"beginCaptures": { "1": { "name": "comment.block.exit.definition.many" } },
+			"while": ""
+		},
+		"comment": {
+			"name": "comment.line.percentage.many",
+			"match": "^(%).*$",
+			"captures": { "1": { "name": "punctuation.definition.comment.many" } }
+		},
+
+		"settings-json": {
+			"name": "meta.embedded.block.json",
+			"begin": "(?=^(?: {4}|\\t)\\s*\\{)",
+			"while": "(^%.*$)|^(?= {4}|\\t|\\s*$)",
+			"whileCaptures": { "1": { "patterns": [{ "include": "#comment" }] } },
+			"patterns": [{ "include": "source.json" }, { "include": "#after-settings-json" }]
+		},
+		"after-settings-json": {
+			"name": "invalid.illegal.expected-end-of-json.many",
+			"begin": "(?<=\\})",
+			"while": ""
+		},
+
+		"language-list": {
+			"name": "meta.language-list.many",
+			"patterns": [
+				{ "name": "keyword.control.language-name.many", "match": "[^,:]+" },
+				{ "name": "punctuation.separator.language-list.many", "match": "," }
+			]
+		},
+		"input-language-list": {
+			"name": "meta.input-language-list.many",
+			"patterns": [
+				{ "name": "entity.name.type.input-language-name.many", "match": "[^,:]+" },
+				{ "name": "punctuation.separator.input-language-list.many", "match": "," }
+			]
+		},
+
+		"also-header": {
+			"name": "meta.also-header.many",
+			"match": "^(Also)\\s*(:)",
+			"captures": {
+				"1": { "name": "keyword.control.also.many" },
+				"2": { "name": "punctuation.definition.header.end.many" }
+			}
+		},
+		"input-also-header": {
+			"name": "meta.input-also-header.many",
+			"match": "^(Also)\\s*(:)",
+			"captures": {
+				"1": { "name": "storage.section.input-also.many" },
+				"2": { "name": "punctuation.definition.header.end.many" }
+			}
+		},
+
+		"disabled-section-list": {
+			"name": "comment.block.section-list.disabled.many",
+			"begin": "^(!)[^:]*:",
+			"beginCaptures": { "1": { "name": "punctuation.definition.disabled.begin.many" } },
+			"while": "(^%.*$)|^(?= {4}|\\t|\\s*$|(?:!\\s*)?Also\\s*:)",
+			"whileCaptures": { "1": { "patterns": [{ "include": "#comment" }] } }
+		},
+		"disabled-also-section": {
+			"name": "comment.block.also-section.disabled.many",
+			"begin": "^(!)\\s*Also\\s*:",
+			"beginCaptures": { "1": { "name": "punctuation.definition.disabled.begin.many" } },
+			"while": "(^%.*$)|^(?= {4}|\\t|\\s*$)",
+			"whileCaptures": { "1": { "patterns": [{ "include": "#comment" }] } }
+		},
+
+		"invalid-section-header": {
+			"name": "invalid.illegal.unrecognized-section-header.many",
+			"match": "^\\S.*$"
+		},
+		"invalid-section-content": {
+			"name": "invalid.illegal.badly-indented-section-content.many",
+			"match": "^ {1,3}\\t?\\S.*$"
+		},
+
+		"argv-section-list": {
+			"name": "meta.section-list.input.argv.many",
+			"begin": "^(Argv)\\s*(?:\\b(for)\\b([^:]*))?(:)",
+			"beginCaptures": {
+				"1": { "name": "storage.section.argv.many" },
+				"2": { "name": "storage.section.argv-for.many" },
+				"3": { "patterns": [{ "include": "#input-language-list" }] },
+				"4": { "name": "punctuation.definition.header.end.many" }
+			},
+			"while": "^(?=%| {4}|\\t|\\s*$|(?:!\\s*)?Also\\s*:)",
+			"patterns": [
+				{ "include": "#disabled-also-section" },
+				{ "include": "#input-also-header" },
+				{ "include": "#argv-block" }
+			]
+		},
+		"argv-block": {
+			"name": "string.unquoted.block.argv.many",
+			"begin": "",
+			"while": "(^%.*$)|^(?= {4}|\\t|\\s*$)",
+			"whileCaptures": { "1": { "patterns": [{ "include": "#comment" }] } }
+		},
+
+		"stdin-section-list": {
+			"name": "meta.section-list.input.stdin.many",
+			"begin": "^(Stdin)\\s*(?:\\b(for)\\b([^:]*))?(:)",
+			"beginCaptures": {
+				"1": { "name": "storage.section.stdin.many" },
+				"2": { "name": "storage.section.stdin-for.many" },
+				"3": { "patterns": [{ "include": "#input-language-list" }] },
+				"4": { "name": "punctuation.definition.header.end.many" }
+			},
+			"while": "^(?=%| {4}|\\t|\\s*$|(?:!\\s*)?Also\\s*:)",
+			"patterns": [
+				{ "include": "#disabled-also-section" },
+				{ "include": "#input-also-header" },
+				{ "include": "#stdin-block" }
+			]
+		},
+		"stdin-block": {
+			"name": "string.unquoted.block.stdin.many",
+			"begin": "",
+			"while": "(^%.*$)|^(?= {4}|\\t|\\s*$)",
+			"whileCaptures": { "1": { "patterns": [{ "include": "#comment" }] } }
+		},
+
+		"unknown-section-list": {
+			"name": "meta.section-list.code.unknown.many",
+			"begin": "^(?=\\S)(?!Also)([^:]*)(:)",
+			"beginCaptures": {
+				"1": { "patterns": [{ "include": "#language-list" }] },
+				"2": { "name": "punctuation.definition.header.end.many" }
+			},
+			"while": "^(?=%| {4}|\\t|\\s*$|(?:!\\s*)?Also\\s*:)",
+			"patterns": [
+				{ "include": "#disabled-also-section" },
+				{ "include": "#also-header" },
+				{ "include": "#unknown-block" }
+			]
+		},
+		"unknown-block": {
+			"name": "meta.embedded.block.unknown",
+			"begin": "",
+			"while": "(^%.*$)|^(?= {4}|\\t|\\s*$)",
+			"whileCaptures": { "1": { "patterns": [{ "include": "#comment" }] } }
+		},
+
+		"python-section-list": {
+			"name": "meta.section-list.code.python.many",
+			"begin": "(?i)^(?=Python\\s*[,:])([^:]*)(:)",
+			"beginCaptures": {
+				"1": {
+					"patterns": [
+						{
+							"include": "#language-list"
+						}
+					]
+				},
+				"2": {
+					"name": "punctuation.definition.header.end.many"
+				}
+			},
+			"while": "^(?=%| {4}|\\t|\\s*$|(?:!\\s*)?Also\\s*:)",
+			"patterns": [
+				{
+					"include": "#disabled-also-section"
+				},
+				{
+					"include": "#also-header"
+				},
+				{
+					"include": "#python-block"
+				}
+			]
+		},
+		"python-block": {
+			"name": "meta.embedded.block.python",
+			"begin": "",
+			"while": "(^%.*$)|^(?= {4}|\\t|\\s*$)",
+			"whileCaptures": {
+				"1": {
+					"patterns": [
+						{
+							"include": "#comment"
+						}
+					]
+				}
+			},
+			"patterns": [
+				{
+					"include": "source.python"
+				}
+			]
+		}
+	}
+}
