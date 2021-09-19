@@ -12,7 +12,8 @@
 		{ "include": "stdin-section-list" },
 		{ "include": "#python-section-list" },
 		{ "include": "unknown-section-list" },
-		{ "include": "#invalid-line" }
+		{ "include": "#invalid-section-header" },
+		{ "include": "#invalid-section-content" }
 	],
 	"repository": {
 		"exit": {
@@ -107,9 +108,14 @@
 				"1": { "patterns": [{ "include": "#comment" }] }
 			}
 		},
-		"invalid-line": {
-			"name": "invalid.illegal.line.many",
-			"match": "^.*$TODO"
+
+		"invalid-section-header": {
+			"name": "invalid.illegal.unrecognized-section-header.many",
+			"match": "^\\S.*$"
+		},
+		"invalid-section-content": {
+			"name": "invalid.illegal.badly-indented-section-content.many",
+			"match": "^ {1,3}\\t?\\S.*$"
 		},
 
 		"argv-section-list": {

@@ -10,11 +10,16 @@
     ok
 % hmmfd
 	}
-!Argv for:
 
+    ddj
+!Argv for:foo
+	woo
+Python:
+	   
 
 Python:	print(999)
 	'''
+Exit.
 Also: print(999)
 Also:
 	print("hi")
@@ -23,7 +28,6 @@ Also:
 
 	'''
 	'''
-Exit. d
 Exit.
 Also: print(999)
 Also: print(999)
