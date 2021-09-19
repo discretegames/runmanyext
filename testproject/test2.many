@@ -36,9 +36,9 @@ C:
 		return 0;
 	}
 
-% why is above red, or below white >:(
 
-C: #include <stdio.h>
+C:
+	#include <stdio.h>
 	
 % why is below blue and white
 C++: #include <iostream>
