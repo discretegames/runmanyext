@@ -7,20 +7,20 @@
 		{ "include": "#exit" },
 		{ "include": "#comment" },
 		{ "include": "#settings-json" },
-		{ "include": "disabled-section-list" },
+		{ "include": "#disabled-section-list" },
 		{ "include": "argv-section-list" },
 		{ "include": "stdin-section-list" },
 		{ "include": "#python-section-list" },
 		{ "include": "unknown-section-list" },
-		{ "include": "invalid-line" }
+		{ "include": "#invalid-line" }
 	],
 	"repository": {
 		"exit": {
 			"name": "comment.block.exit.many",
-			"begin": "^(Exit\\.)\\s*$",
+			"begin": "^Exit\\.\\s*$",
 			"while": "",
 			"captures": {
-				"1": { "name": "comment.block.exit.definition.many" }
+				"0": { "name": "comment.block.exit.definition.many" }
 			}
 		},
 		"comment": {
@@ -31,14 +31,16 @@
 			}
 		},
 		"settings-json": {
-			"comment": "This and other embeds can't be meta.embedded.block.* w/o confusing comment keybind behavior.",
-			"name": "meta.settings.json.many",
-			"begin": "^(?: {4}|\\t)\\s*(?=\\{)",
-			"while": "(^%.*$)|^(?: {4}|\\t|\\s*$)",
-			"whileCaptures": {
-				"1": { "patterns": [{ "include": "#comment" }] }
-			},
-			"patterns": [{ "include": "source.json" }]
+			"name": "meta.embedded.block.json",
+			"begin": "(?=^(?: {4}|\\t)\\s*\\{)",
+			"while": "(^%.*$)|^(?= {4}|\\t|\\s*$)",
+			"whileCaptures": { "1": { "patterns": [{ "include": "#comment" }] } },
+			"patterns": [{ "include": "source.json" }, { "include": "#after-settings-json" }]
+		},
+		"after-settings-json": {
+			"name": "invalid.illegal.expected-end-of-json.many",
+			"begin": "(?<=\\})",
+			"while": ""
 		},
 
 		"input-language-list": {
@@ -78,17 +80,17 @@
 			"while": "^(?=\\t|\\s*$|(?:!\\s*)?Also\\s*:)",
 			"patterns": [{ "include": "#also-dis" }, { "include": "#also-sep" }, { "include": "#embedded-python" }]
 		},
-		"also-sep": {
+		"python-also-also-sep": {
 			"name": "variable.also-sep",
 			"match": "^Also\\s*:"
 		},
-		"embedded-python": {
+		"python-code": {
 			"name": "meta.embedded.block.python",
 			"begin": "(?<=:)|(?=^\t|\\s*$)",
 			"while": "^(?=\t|\\s*$)",
 			"patterns": [{ "include": "source.c" }]
 		},
-		"also-dis": {
+		"disabled-also-section": {
 			"name": "comment.block.disabled.alsodis",
 			"begin": "^!Also\\s*:",
 			"while": "^(?=\\t|\\s*$)"
@@ -105,20 +107,9 @@
 				"1": { "patterns": [{ "include": "#comment" }] }
 			}
 		},
-		"disabled-also-section": {
-			"name": "comment.block.disabled.also.many",
-			"begin": "^(!)\\s*Also\\s*:",
-			"while": "(^%.*$)|^(?: {4}|\\t|\\s*$)",
-			"beginCaptures": {
-				"1": { "name": "punctuation.definition.disabled.begin.many" }
-			},
-			"whileCaptures": {
-				"1": { "patterns": [{ "include": "#comment" }] }
-			}
-		},
 		"invalid-line": {
 			"name": "invalid.illegal.line.many",
-			"match": "^.*$"
+			"match": "^.*$TODO"
 		},
 
 		"argv-section-list": {

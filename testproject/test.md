@@ -8,7 +8,6 @@ int main() {
 }
 ```
 
-
 ```cpp
 using namespace std;
 #include <iostream>
