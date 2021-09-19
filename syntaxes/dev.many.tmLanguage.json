@@ -20,16 +20,12 @@
 			"name": "comment.block.exit.many",
 			"begin": "^(Exit\\.)\\s*$",
 			"while": "",
-			"beginCaptures": {
-				"1": { "name": "comment.block.exit.definition.many" }
-			}
+			"beginCaptures": { "1": { "name": "comment.block.exit.definition.many" } }
 		},
 		"comment": {
 			"name": "comment.line.percentage.many",
 			"match": "^(%).*$",
-			"captures": {
-				"1": { "name": "punctuation.definition.comment.many" }
-			}
+			"captures": { "1": { "name": "punctuation.definition.comment.many" } }
 		},
 
 		"settings-json": {
@@ -45,50 +41,41 @@
 			"while": ""
 		},
 
-		"input-language-list": {
-			"name": "meta.input-language-list.many",
-			"patterns": [
-				{
-					"name": "entity.name.type.language-name.many",
-					"match": "[^,:]+"
-				},
-				{
-					"name": "punctuation.separator.input-language-list.many",
-					"match": ","
-				}
-			]
-		},
 		"language-list": {
 			"name": "meta.language-list.many",
 			"patterns": [
-				{
-					"name": "keyword.control.language-name.many",
-					"match": "[^,:]+"
-				},
-				{
-					"name": "punctuation.separator.language-list.many",
-					"match": ","
-				}
+				{ "name": "keyword.control.language-name.many", "match": "[^,:]+" },
+				{ "name": "punctuation.separator.language-list.many", "match": "," }
+			]
+		},
+		"input-language-list": {
+			"name": "meta.input-language-list.many",
+			"patterns": [
+				{ "name": "entity.name.type.input-language-name.many", "match": "[^,:]+" },
+				{ "name": "punctuation.separator.input-language-list.many", "match": "," }
 			]
 		},
 
 		"disabled-section-list": {
-			"name": "comment.block.disabled.section-list.many",
+			"name": "comment.block.section-list.disabled.many",
 			"begin": "^(!)[^:]*:",
 			"while": "(^%.*$)|^(?= {4}|\\t|\\s*$|(?:!\\s*)?Also\\s*:)",
-			"beginCaptures": {
-				"1": { "name": "punctuation.definition.disabled.begin.many" }
-			},
-			"whileCaptures": {
-				"1": { "patterns": [{ "include": "#comment" }] }
-			}
+			"beginCaptures": { "1": { "name": "punctuation.definition.disabled.begin.many" } },
+			"whileCaptures": { "1": { "patterns": [{ "include": "#comment" }] } }
 		},
 		"disabled-also-section": {
-			"name": "comment.block.disabled.also-section.many",
-			"begin": "^!Also\\s*:",
+			"name": "comment.block.also-section.disabled.many",
+			"begin": "^(!)\\s*Also\\s*:",
 			"while": "(^%.*$)|^(?= {4}|\\t|\\s*$)",
-			"whileCaptures": {
-				"1": { "patterns": [{ "include": "#comment" }] }
+			"beginCaptures": { "1": { "name": "punctuation.definition.disabled.begin.many" } },
+			"whileCaptures": { "1": { "patterns": [{ "include": "#comment" }] } }
+		},
+		"also-header": {
+			"name": "meta.also-header.many",
+			"match": "^(Also)\\s*(:)",
+			"captures": {
+				"1": { "name": "keyword.control.also.many" },
+				"2": { "name": "punctuation.definition.header.end.many" }
 			}
 		},
 
@@ -102,24 +89,25 @@
 		},
 
 		"python-section-list": {
-			"name": "meta.section-list.code.python.many",
+			"name": "meta.section-list.python.many",
 			"begin": "(?i)^(?=Python\\s*[,:])([^:]*)(:)",
 			"beginCaptures": {
 				"1": { "patterns": [{ "include": "#language-list" }] },
 				"2": { "name": "punctuation.definition.header.end.many" }
 			},
-			"while": "^(?=\\t|\\s*$|(?:!\\s*)?Also\\s*:)",
-			"patterns": [{ "include": "#also-dis" }, { "include": "#also-sep" }, { "include": "#embedded-python" }]
-		},
-		"python-also-also-sep": {
-			"name": "variable.also-sep",
-			"match": "^Also\\s*:"
+			"while": "^(?=%| {4}|\\t|\\s*$|(?:!\\s*)?Also\\s*:)",
+			"patterns": [
+				{ "include": "#disabled-also-section" },
+				{ "include": "#also-header" },
+				{ "include": "#python-code" }
+			]
 		},
 		"python-code": {
 			"name": "meta.embedded.block.python",
-			"begin": "(?<=:)|(?=^\t|\\s*$)",
-			"while": "^(?=\t|\\s*$)",
-			"patterns": [{ "include": "source.c" }]
+			"begin": "(?<=:)|^(?= {4}|\\t|\\s*$)",
+			"while": "(^%.*$)|^(?= {4}|\\t|\\s*$)",
+			"whileCaptures": { "1": { "patterns": [{ "include": "#comment" }] } },
+			"patterns": [{ "include": "source.python" }]
 		},
 
 		"argv-section-list": {

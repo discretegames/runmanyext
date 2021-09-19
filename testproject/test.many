@@ -27,6 +27,30 @@ Also:
 Python:	print(999)
 	'''
 
+% hmm
+	'''
+Also: ""
+	return 99898
+
+% comment
+
+	print('''100''')
+	[]
+
+!Also:
+	print(898)
+% foo
+Also: print(9)
+Also: print(9)
+Also: print(9)
+Also: print(9)
+Also: print(9)
+Also: print(9)
+
+% foo
+
+!Python:
+
 
 Exit.
 % floof
