@@ -8,7 +8,7 @@
 		{ "include": "#comment" },
 		{ "include": "#settings-json" },
 		{ "include": "#disabled-section-list" },
-		{ "include": "argv-section-list" },
+		{ "include": "#argv-section-list" },
 		{ "include": "stdin-section-list" },
 		{ "include": "#python-section-list" },
 		{ "include": "#unknown-section-list" },
@@ -19,8 +19,8 @@
 		"exit": {
 			"name": "comment.block.exit.many",
 			"begin": "^(Exit\\.)\\s*$",
-			"while": "",
-			"beginCaptures": { "1": { "name": "comment.block.exit.definition.many" } }
+			"beginCaptures": { "1": { "name": "comment.block.exit.definition.many" } },
+			"while": ""
 		},
 		"comment": {
 			"name": "comment.line.percentage.many",
@@ -56,20 +56,6 @@
 			]
 		},
 
-		"disabled-section-list": {
-			"name": "comment.block.section-list.disabled.many",
-			"begin": "^(!)[^:]*:",
-			"while": "(^%.*$)|^(?= {4}|\\t|\\s*$|(?:!\\s*)?Also\\s*:)",
-			"beginCaptures": { "1": { "name": "punctuation.definition.disabled.begin.many" } },
-			"whileCaptures": { "1": { "patterns": [{ "include": "#comment" }] } }
-		},
-		"disabled-also-section": {
-			"name": "comment.block.also-section.disabled.many",
-			"begin": "^(!)\\s*Also\\s*:",
-			"while": "(^%.*$)|^(?= {4}|\\t|\\s*$)",
-			"beginCaptures": { "1": { "name": "punctuation.definition.disabled.begin.many" } },
-			"whileCaptures": { "1": { "patterns": [{ "include": "#comment" }] } }
-		},
 		"also-header": {
 			"name": "meta.also-header.many",
 			"match": "^(Also)\\s*(:)",
@@ -77,6 +63,29 @@
 				"1": { "name": "keyword.control.also.many" },
 				"2": { "name": "punctuation.definition.header.end.many" }
 			}
+		},
+		"input-also-header": {
+			"name": "meta.input-also-header.many",
+			"match": "^(Also)\\s*(:)",
+			"captures": {
+				"1": { "name": "storage.section.input-also.many" },
+				"2": { "name": "punctuation.definition.header.end.many" }
+			}
+		},
+
+		"disabled-section-list": {
+			"name": "comment.block.section-list.disabled.many",
+			"begin": "^(!)[^:]*:",
+			"beginCaptures": { "1": { "name": "punctuation.definition.disabled.begin.many" } },
+			"while": "(^%.*$)|^(?= {4}|\\t|\\s*$|(?:!\\s*)?Also\\s*:)",
+			"whileCaptures": { "1": { "patterns": [{ "include": "#comment" }] } }
+		},
+		"disabled-also-section": {
+			"name": "comment.block.also-section.disabled.many",
+			"begin": "^(!)\\s*Also\\s*:",
+			"beginCaptures": { "1": { "name": "punctuation.definition.disabled.begin.many" } },
+			"while": "(^%.*$)|^(?= {4}|\\t|\\s*$)",
+			"whileCaptures": { "1": { "patterns": [{ "include": "#comment" }] } }
 		},
 
 		"invalid-section-header": {
@@ -99,10 +108,10 @@
 			"patterns": [
 				{ "include": "#disabled-also-section" },
 				{ "include": "#also-header" },
-				{ "include": "#python-code" }
+				{ "include": "#python-block" }
 			]
 		},
-		"python-code": {
+		"python-block": {
 			"name": "meta.embedded.block.python",
 			"begin": "",
 			"while": "(^%.*$)|^(?= {4}|\\t|\\s*$)",
@@ -112,7 +121,7 @@
 
 		"unknown-section-list": {
 			"name": "meta.section-list.unknown.many",
-			"begin": "^(?=\\S)([^:]*)(:)",
+			"begin": "^(?=\\S)(?!Also)([^:]*)(:)",
 			"beginCaptures": {
 				"1": { "patterns": [{ "include": "#language-list" }] },
 				"2": { "name": "punctuation.definition.header.end.many" }
@@ -121,78 +130,38 @@
 			"patterns": [
 				{ "include": "#disabled-also-section" },
 				{ "include": "#also-header" },
-				{ "include": "#unknown-code" }
+				{ "include": "#unknown-block" }
 			]
 		},
-		"unknown-code": {
+		"unknown-block": {
 			"name": "meta.embedded.block.unknown",
 			"begin": "",
 			"while": "(^%.*$)|^(?= {4}|\\t|\\s*$)",
 			"whileCaptures": { "1": { "patterns": [{ "include": "#comment" }] } }
 		},
 
-		"oldunknown-section-list": {
-			"name": "meta.section-list.code.unknown.many",
-			"begin": "^(?=\\S)([^:]*)(:)\\s*",
-			"beginCaptures": {
-				"1": { "patterns": [{ "include": "#language-list" }] },
-				"2": { "name": "punctuation.definition.header.end.many" }
-			},
-			"comment": "Could never get indent-consuming in lead sections to properly work. For some related reason, multiline strings and such in lead code sections appear to capture Also headers until their delimiter.",
-			"while": "^(?=(%.*$)| {4}|\\t|\\s*$|(?:!\\s*)?Also\\s*:)",
-			"whileCaptures": {
-				"1": { "patterns": [{ "include": "#comment" }] }
-			},
-			"patterns": [{ "include": "#disabled-also-section" }, { "include": "#unknown-also-section" }]
-		},
-		"unknown-also-section": {
-			"name": "meta.also-section.code.unknown.many",
-			"begin": "^(Also)\\s*(:)",
-			"beginCaptures": {
-				"1": { "name": "keyword.control.code.unknown.also.many" },
-				"2": { "name": "punctuation.definition.header.end.many" }
-			},
-			"while": "(^%.*$)|^(?: {4}|\\t|\\s*$)",
-			"whileCaptures": {
-				"1": { "patterns": [{ "include": "#comment" }] }
-			}
-		},
-
-		"oldargv-section-list": {
+		"argv-section-list": {
 			"name": "meta.section-list.argv.many",
-			"begin": "^(Argv)\\s*(?:\\b(for)\\b([^:]*))?(:)\\s*",
+			"begin": "^(Argv)\\s*(?:\\b(for)\\b([^:]*))?(:)",
 			"beginCaptures": {
 				"1": { "name": "storage.section.argv.many" },
-				"2": { "name": "storage.section.argv.for.many" },
+				"2": { "name": "storage.section.argv-for.many" },
 				"3": { "patterns": [{ "include": "#input-language-list" }] },
 				"4": { "name": "punctuation.definition.header.end.many" }
 			},
-			"while": "^(?=(%.*$)| {4}|\\t|\\s*$|(?:!\\s*)?Also\\s*:)",
-			"whileCaptures": {
-				"1": { "patterns": [{ "include": "#comment" }] }
-			},
+			"while": "^(?=%| {4}|\\t|\\s*$|(?:!\\s*)?Also\\s*:)",
 			"patterns": [
 				{ "include": "#disabled-also-section" },
-				{ "include": "#argv-also-section" },
-				{ "include": "#argv-content" }
+				{ "include": "#input-also-header" },
+				{ "include": "#argv-block" }
 			]
 		},
-		"argv-also-section": {
-			"name": "meta.also-section.argv.many",
-			"begin": "^(Also)\\s*(:)",
-			"beginCaptures": {
-				"1": { "name": "storage.section.argv.also.many" },
-				"2": { "name": "punctuation.definition.header.end.many" }
-			},
-			"while": "(^%.*$)|^(?: {4}|\\t|\\s*$)",
-			"whileCaptures": {
-				"1": { "patterns": [{ "include": "#comment" }] }
-			},
-			"patterns": [{ "include": "#argv-content" }]
-		},
-		"argv-content": {
-			"name": "string.unquoted.content.argv.many",
-			"match": ".+"
+		"argv-block": {
+			"name": "string.unquoted.block.argv.many",
+			"begin": "",
+			"while": "(^%.*$)|^(?= {4}|\\t|\\s*$)",
+			"whileCaptures": { "1": { "patterns": [{ "include": "#comment" }] } },
+			"patterns": [{ "include": "source.python" }]
 		}
 	}
 }
