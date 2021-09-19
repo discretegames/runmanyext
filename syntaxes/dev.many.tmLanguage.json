@@ -18,10 +18,10 @@
 	"repository": {
 		"exit": {
 			"name": "comment.block.exit.many",
-			"begin": "^Exit\\.\\s*$",
+			"begin": "^(Exit\\.)\\s*$",
 			"while": "",
-			"captures": {
-				"0": { "name": "comment.block.exit.definition.many" }
+			"beginCaptures": {
+				"1": { "name": "comment.block.exit.definition.many" }
 			}
 		},
 		"comment": {
@@ -31,6 +31,7 @@
 				"1": { "name": "punctuation.definition.comment.many" }
 			}
 		},
+
 		"settings-json": {
 			"name": "meta.embedded.block.json",
 			"begin": "(?=^(?: {4}|\\t)\\s*\\{)",
@@ -71,6 +72,35 @@
 			]
 		},
 
+		"disabled-section-list": {
+			"name": "comment.block.disabled.section-list.many",
+			"begin": "^(!)[^:]*:",
+			"while": "(^%.*$)|^(?= {4}|\\t|\\s*$|(?:!\\s*)?Also\\s*:)",
+			"beginCaptures": {
+				"1": { "name": "punctuation.definition.disabled.begin.many" }
+			},
+			"whileCaptures": {
+				"1": { "patterns": [{ "include": "#comment" }] }
+			}
+		},
+		"disabled-also-section": {
+			"name": "comment.block.disabled.also-section.many",
+			"begin": "^!Also\\s*:",
+			"while": "(^%.*$)|^(?= {4}|\\t|\\s*$)",
+			"whileCaptures": {
+				"1": { "patterns": [{ "include": "#comment" }] }
+			}
+		},
+
+		"invalid-section-header": {
+			"name": "invalid.illegal.unrecognized-section-header.many",
+			"match": "^\\S.*$"
+		},
+		"invalid-section-content": {
+			"name": "invalid.illegal.badly-indented-section-content.many",
+			"match": "^ {1,3}\\t?\\S.*$"
+		},
+
 		"python-section-list": {
 			"name": "meta.section-list.code.python.many",
 			"begin": "(?i)^(?=Python\\s*[,:])([^:]*)(:)",
@@ -90,32 +120,6 @@
 			"begin": "(?<=:)|(?=^\t|\\s*$)",
 			"while": "^(?=\t|\\s*$)",
 			"patterns": [{ "include": "source.c" }]
-		},
-		"disabled-also-section": {
-			"name": "comment.block.disabled.alsodis",
-			"begin": "^!Also\\s*:",
-			"while": "^(?=\\t|\\s*$)"
-		},
-
-		"disabled-section-list": {
-			"name": "comment.block.disabled.list.many",
-			"begin": "^(!)[^:]*:",
-			"while": "(^%.*$)|^(?: {4}|\\t|\\s*$|(?:!\\s*)?Also\\s*:)",
-			"beginCaptures": {
-				"1": { "name": "punctuation.definition.disabled.begin.many" }
-			},
-			"whileCaptures": {
-				"1": { "patterns": [{ "include": "#comment" }] }
-			}
-		},
-
-		"invalid-section-header": {
-			"name": "invalid.illegal.unrecognized-section-header.many",
-			"match": "^\\S.*$"
-		},
-		"invalid-section-content": {
-			"name": "invalid.illegal.badly-indented-section-content.many",
-			"match": "^ {1,3}\\t?\\S.*$"
 		},
 
 		"argv-section-list": {

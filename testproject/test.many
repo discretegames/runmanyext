@@ -14,12 +14,22 @@
     ddj
 !Argv for:foo
 	woo
-Python:
-	   
+Also:
+    dj
+	ddfhjf
+Also:
+    !    			Also   :
+% hmm
+Also:
+
+
 
 Python:	print(999)
 	'''
+
+
 Exit.
+% floof
 Also: print(999)
 Also:
 	print("hi")
@@ -33,7 +43,7 @@ Also: print(999)
 Also: print(999)
 Also: print(999)
 Also: print(999)
-
+% hmm
 
 Python:	print(999)
 	'''
