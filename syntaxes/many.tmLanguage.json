@@ -58,22 +58,40 @@
                     "include": "#stdin-section-list"
                 },
                 {
-                    "include": "#python-section-list"
-                },
-                {
-                    "include": "#python2-section-list"
+                    "include": "#ada-section-list"
                 },
                 {
                     "include": "#c-section-list"
                 },
                 {
-                    "include": "#cpp-section-list"
-                },
-                {
                     "include": "#csharp-section-list"
                 },
                 {
+                    "include": "#clojure-section-list"
+                },
+                {
+                    "include": "#?-section-list"
+                },
+                {
+                    "include": "#cpp-section-list"
+                },
+                {
+                    "include": "#?-section-list"
+                },
+                {
+                    "include": "#?-section-list"
+                },
+                {
                     "include": "#go-section-list"
+                },
+                {
+                    "include": "#haskell-section-list"
+                },
+                {
+                    "include": "#python-section-list"
+                },
+                {
+                    "include": "#python2-section-list"
                 },
                 {
                     "include": "#rust-section-list"
@@ -89,9 +107,6 @@
                 },
                 {
                     "include": "#kotlin-section-list"
-                },
-                {
-                    "include": "#haskell-section-list"
                 },
                 {
                     "include": "#unknown-section-list"
@@ -253,9 +268,6 @@
             "name": "meta.section-list.input.stdin.many",
             "begin": "^(Stdin)\\s*(?:\\b(for)\\b([^:]*))?(:)",
             "beginCaptures": {
-                "0": {
-                    "name": "meta.section-header.many"
-                },
                 "1": {
                     "name": "storage.section.stdin.many"
                 },
@@ -323,6 +335,382 @@
             "name": "meta.embedded.block.unknown",
             "begin": "",
             "while": "^(?=%| {4}|\\t|\\s*$)"
+        },
+        "ada-section-list": {
+            "name": "meta.section-list.code.ada.many",
+            "begin": "(?i)^(?=Ada\\s*[,:])([^:]*)(:)",
+            "beginCaptures": {
+                "1": {
+                    "patterns": [
+                        {
+                            "include": "#language-list"
+                        }
+                    ]
+                },
+                "2": {
+                    "name": "punctuation.definition.header.end.many"
+                }
+            },
+            "while": "^(?=%| {4}|\\t|\\s*$|(?:!\\s*)?Also\\s*:)",
+            "patterns": [
+                {
+                    "include": "#disabled-also-section"
+                },
+                {
+                    "include": "#also-header"
+                },
+                {
+                    "include": "#ada-block"
+                }
+            ]
+        },
+        "ada-block": {
+            "name": "meta.embedded.block.ada",
+            "begin": "",
+            "while": "^(?=%| {4}|\\t|\\s*$)",
+            "whileCaptures": {
+                "1": {
+                    "patterns": [
+                        {
+                            "include": "#comment"
+                        }
+                    ]
+                }
+            },
+            "patterns": [
+                {
+                    "include": "source.ada"
+                }
+            ]
+        },
+        "c-section-list": {
+            "name": "meta.section-list.code.c.many",
+            "begin": "(?i)^(?=C\\s*[,:])([^:]*)(:)",
+            "beginCaptures": {
+                "1": {
+                    "patterns": [
+                        {
+                            "include": "#language-list"
+                        }
+                    ]
+                },
+                "2": {
+                    "name": "punctuation.definition.header.end.many"
+                }
+            },
+            "while": "^(?=%| {4}|\\t|\\s*$|(?:!\\s*)?Also\\s*:)",
+            "patterns": [
+                {
+                    "include": "#disabled-also-section"
+                },
+                {
+                    "include": "#also-header"
+                },
+                {
+                    "include": "#c-block"
+                }
+            ]
+        },
+        "c-block": {
+            "name": "meta.embedded.block.c",
+            "begin": "",
+            "while": "^(?=%| {4}|\\t|\\s*$)",
+            "whileCaptures": {
+                "1": {
+                    "patterns": [
+                        {
+                            "include": "#comment"
+                        }
+                    ]
+                }
+            },
+            "patterns": [
+                {
+                    "include": "source.c"
+                }
+            ]
+        },
+        "csharp-section-list": {
+            "name": "meta.section-list.code.csharp.many",
+            "begin": "(?i)^(?=C#\\s*[,:])([^:]*)(:)",
+            "beginCaptures": {
+                "1": {
+                    "patterns": [
+                        {
+                            "include": "#language-list"
+                        }
+                    ]
+                },
+                "2": {
+                    "name": "punctuation.definition.header.end.many"
+                }
+            },
+            "while": "^(?=%| {4}|\\t|\\s*$|(?:!\\s*)?Also\\s*:)",
+            "patterns": [
+                {
+                    "include": "#disabled-also-section"
+                },
+                {
+                    "include": "#also-header"
+                },
+                {
+                    "include": "#csharp-block"
+                }
+            ]
+        },
+        "csharp-block": {
+            "name": "meta.embedded.block.csharp",
+            "begin": "",
+            "while": "^(?=%| {4}|\\t|\\s*$)",
+            "whileCaptures": {
+                "1": {
+                    "patterns": [
+                        {
+                            "include": "#comment"
+                        }
+                    ]
+                }
+            },
+            "patterns": [
+                {
+                    "include": "source.cs"
+                }
+            ]
+        },
+        "clojure-section-list": {
+            "name": "meta.section-list.code.clojure.many",
+            "begin": "(?i)^(?=Clojure\\s*[,:])([^:]*)(:)",
+            "beginCaptures": {
+                "1": {
+                    "patterns": [
+                        {
+                            "include": "#language-list"
+                        }
+                    ]
+                },
+                "2": {
+                    "name": "punctuation.definition.header.end.many"
+                }
+            },
+            "while": "^(?=%| {4}|\\t|\\s*$|(?:!\\s*)?Also\\s*:)",
+            "patterns": [
+                {
+                    "include": "#disabled-also-section"
+                },
+                {
+                    "include": "#also-header"
+                },
+                {
+                    "include": "#clojure-block"
+                }
+            ]
+        },
+        "clojure-block": {
+            "name": "meta.embedded.block.clojure",
+            "begin": "",
+            "while": "^(?=%| {4}|\\t|\\s*$)",
+            "whileCaptures": {
+                "1": {
+                    "patterns": [
+                        {
+                            "include": "#comment"
+                        }
+                    ]
+                }
+            },
+            "patterns": [
+                {
+                    "include": "source.clojure"
+                }
+            ]
+        },
+        "?-section-list": {
+            "name": "meta.section-list.code.?.many",
+            "begin": "(?i)^(?=Fortran\\s*[,:])([^:]*)(:)",
+            "beginCaptures": {
+                "1": {
+                    "patterns": [
+                        {
+                            "include": "#language-list"
+                        }
+                    ]
+                },
+                "2": {
+                    "name": "punctuation.definition.header.end.many"
+                }
+            },
+            "while": "^(?=%| {4}|\\t|\\s*$|(?:!\\s*)?Also\\s*:)",
+            "patterns": [
+                {
+                    "include": "#disabled-also-section"
+                },
+                {
+                    "include": "#also-header"
+                },
+                {
+                    "include": "#?-block"
+                }
+            ]
+        },
+        "?-block": {
+            "name": "meta.embedded.block.?",
+            "begin": "",
+            "while": "^(?=%| {4}|\\t|\\s*$)",
+            "whileCaptures": {
+                "1": {
+                    "patterns": [
+                        {
+                            "include": "#comment"
+                        }
+                    ]
+                }
+            },
+            "patterns": [
+                {
+                    "include": "source.?"
+                }
+            ]
+        },
+        "cpp-section-list": {
+            "name": "meta.section-list.code.cpp.many",
+            "begin": "(?i)^(?=C\\+\\+\\s*[,:])([^:]*)(:)",
+            "beginCaptures": {
+                "1": {
+                    "patterns": [
+                        {
+                            "include": "#language-list"
+                        }
+                    ]
+                },
+                "2": {
+                    "name": "punctuation.definition.header.end.many"
+                }
+            },
+            "while": "^(?=%| {4}|\\t|\\s*$|(?:!\\s*)?Also\\s*:)",
+            "patterns": [
+                {
+                    "include": "#disabled-also-section"
+                },
+                {
+                    "include": "#also-header"
+                },
+                {
+                    "include": "#cpp-block"
+                }
+            ]
+        },
+        "cpp-block": {
+            "name": "meta.embedded.block.cpp",
+            "begin": "",
+            "while": "^(?=%| {4}|\\t|\\s*$)",
+            "whileCaptures": {
+                "1": {
+                    "patterns": [
+                        {
+                            "include": "#comment"
+                        }
+                    ]
+                }
+            },
+            "patterns": [
+                {
+                    "include": "source.cpp"
+                }
+            ]
+        },
+        "go-section-list": {
+            "name": "meta.section-list.code.go.many",
+            "begin": "(?i)^(?=Go\\s*[,:])([^:]*)(:)",
+            "beginCaptures": {
+                "1": {
+                    "patterns": [
+                        {
+                            "include": "#language-list"
+                        }
+                    ]
+                },
+                "2": {
+                    "name": "punctuation.definition.header.end.many"
+                }
+            },
+            "while": "^(?=%| {4}|\\t|\\s*$|(?:!\\s*)?Also\\s*:)",
+            "patterns": [
+                {
+                    "include": "#disabled-also-section"
+                },
+                {
+                    "include": "#also-header"
+                },
+                {
+                    "include": "#go-block"
+                }
+            ]
+        },
+        "go-block": {
+            "name": "meta.embedded.block.go",
+            "begin": "",
+            "while": "^(?=%| {4}|\\t|\\s*$)",
+            "whileCaptures": {
+                "1": {
+                    "patterns": [
+                        {
+                            "include": "#comment"
+                        }
+                    ]
+                }
+            },
+            "patterns": [
+                {
+                    "include": "source.go"
+                }
+            ]
+        },
+        "haskell-section-list": {
+            "name": "meta.section-list.code.haskell.many",
+            "begin": "(?i)^(?=Haskell\\s*[,:])([^:]*)(:)",
+            "beginCaptures": {
+                "1": {
+                    "patterns": [
+                        {
+                            "include": "#language-list"
+                        }
+                    ]
+                },
+                "2": {
+                    "name": "punctuation.definition.header.end.many"
+                }
+            },
+            "while": "^(?=%| {4}|\\t|\\s*$|(?:!\\s*)?Also\\s*:)",
+            "patterns": [
+                {
+                    "include": "#disabled-also-section"
+                },
+                {
+                    "include": "#also-header"
+                },
+                {
+                    "include": "#haskell-block"
+                }
+            ]
+        },
+        "haskell-block": {
+            "name": "meta.embedded.block.haskell",
+            "begin": "",
+            "while": "^(?=%| {4}|\\t|\\s*$)",
+            "whileCaptures": {
+                "1": {
+                    "patterns": [
+                        {
+                            "include": "#comment"
+                        }
+                    ]
+                }
+            },
+            "patterns": [
+                {
+                    "include": "source.haskell"
+                }
+            ]
         },
         "python-section-list": {
             "name": "meta.section-list.code.python.many",
@@ -415,194 +803,6 @@
             "patterns": [
                 {
                     "include": "source.python"
-                }
-            ]
-        },
-        "c-section-list": {
-            "name": "meta.section-list.code.c.many",
-            "begin": "(?i)^(?=C\\s*[,:])([^:]*)(:)",
-            "beginCaptures": {
-                "1": {
-                    "patterns": [
-                        {
-                            "include": "#language-list"
-                        }
-                    ]
-                },
-                "2": {
-                    "name": "punctuation.definition.header.end.many"
-                }
-            },
-            "while": "^(?=%| {4}|\\t|\\s*$|(?:!\\s*)?Also\\s*:)",
-            "patterns": [
-                {
-                    "include": "#disabled-also-section"
-                },
-                {
-                    "include": "#also-header"
-                },
-                {
-                    "include": "#c-block"
-                }
-            ]
-        },
-        "c-block": {
-            "name": "meta.embedded.block.c",
-            "begin": "",
-            "while": "^(?=%| {4}|\\t|\\s*$)",
-            "whileCaptures": {
-                "1": {
-                    "patterns": [
-                        {
-                            "include": "#comment"
-                        }
-                    ]
-                }
-            },
-            "patterns": [
-                {
-                    "include": "source.c"
-                }
-            ]
-        },
-        "cpp-section-list": {
-            "name": "meta.section-list.code.cpp.many",
-            "begin": "(?i)^(?=C\\+\\+\\s*[,:])([^:]*)(:)",
-            "beginCaptures": {
-                "1": {
-                    "patterns": [
-                        {
-                            "include": "#language-list"
-                        }
-                    ]
-                },
-                "2": {
-                    "name": "punctuation.definition.header.end.many"
-                }
-            },
-            "while": "^(?=%| {4}|\\t|\\s*$|(?:!\\s*)?Also\\s*:)",
-            "patterns": [
-                {
-                    "include": "#disabled-also-section"
-                },
-                {
-                    "include": "#also-header"
-                },
-                {
-                    "include": "#cpp-block"
-                }
-            ]
-        },
-        "cpp-block": {
-            "name": "meta.embedded.block.cpp",
-            "begin": "",
-            "while": "^(?=%| {4}|\\t|\\s*$)",
-            "whileCaptures": {
-                "1": {
-                    "patterns": [
-                        {
-                            "include": "#comment"
-                        }
-                    ]
-                }
-            },
-            "patterns": [
-                {
-                    "include": "source.cpp"
-                }
-            ]
-        },
-        "csharp-section-list": {
-            "name": "meta.section-list.code.csharp.many",
-            "begin": "(?i)^(?=C#\\s*[,:])([^:]*)(:)",
-            "beginCaptures": {
-                "1": {
-                    "patterns": [
-                        {
-                            "include": "#language-list"
-                        }
-                    ]
-                },
-                "2": {
-                    "name": "punctuation.definition.header.end.many"
-                }
-            },
-            "while": "^(?=%| {4}|\\t|\\s*$|(?:!\\s*)?Also\\s*:)",
-            "patterns": [
-                {
-                    "include": "#disabled-also-section"
-                },
-                {
-                    "include": "#also-header"
-                },
-                {
-                    "include": "#csharp-block"
-                }
-            ]
-        },
-        "csharp-block": {
-            "name": "meta.embedded.block.csharp",
-            "begin": "",
-            "while": "^(?=%| {4}|\\t|\\s*$)",
-            "whileCaptures": {
-                "1": {
-                    "patterns": [
-                        {
-                            "include": "#comment"
-                        }
-                    ]
-                }
-            },
-            "patterns": [
-                {
-                    "include": "source.cs"
-                }
-            ]
-        },
-        "go-section-list": {
-            "name": "meta.section-list.code.go.many",
-            "begin": "(?i)^(?=Go\\s*[,:])([^:]*)(:)",
-            "beginCaptures": {
-                "1": {
-                    "patterns": [
-                        {
-                            "include": "#language-list"
-                        }
-                    ]
-                },
-                "2": {
-                    "name": "punctuation.definition.header.end.many"
-                }
-            },
-            "while": "^(?=%| {4}|\\t|\\s*$|(?:!\\s*)?Also\\s*:)",
-            "patterns": [
-                {
-                    "include": "#disabled-also-section"
-                },
-                {
-                    "include": "#also-header"
-                },
-                {
-                    "include": "#go-block"
-                }
-            ]
-        },
-        "go-block": {
-            "name": "meta.embedded.block.go",
-            "begin": "",
-            "while": "^(?=%| {4}|\\t|\\s*$)",
-            "whileCaptures": {
-                "1": {
-                    "patterns": [
-                        {
-                            "include": "#comment"
-                        }
-                    ]
-                }
-            },
-            "patterns": [
-                {
-                    "include": "source.go"
                 }
             ]
         },
@@ -838,53 +1038,6 @@
             "patterns": [
                 {
                     "include": "source.kotlin"
-                }
-            ]
-        },
-        "haskell-section-list": {
-            "name": "meta.section-list.code.haskell.many",
-            "begin": "(?i)^(?=Haskell\\s*[,:])([^:]*)(:)",
-            "beginCaptures": {
-                "1": {
-                    "patterns": [
-                        {
-                            "include": "#language-list"
-                        }
-                    ]
-                },
-                "2": {
-                    "name": "punctuation.definition.header.end.many"
-                }
-            },
-            "while": "^(?=%| {4}|\\t|\\s*$|(?:!\\s*)?Also\\s*:)",
-            "patterns": [
-                {
-                    "include": "#disabled-also-section"
-                },
-                {
-                    "include": "#also-header"
-                },
-                {
-                    "include": "#haskell-block"
-                }
-            ]
-        },
-        "haskell-block": {
-            "name": "meta.embedded.block.haskell",
-            "begin": "",
-            "while": "^(?=%| {4}|\\t|\\s*$)",
-            "whileCaptures": {
-                "1": {
-                    "patterns": [
-                        {
-                            "include": "#comment"
-                        }
-                    ]
-                }
-            },
-            "patterns": [
-                {
-                    "include": "source.haskell"
                 }
             ]
         }

@@ -11,111 +11,46 @@ Goals:
 - Commands list akin to code-runner.executorMap that gets put in global settings.json (Though how does this combine with provided json?)
 - Thin debugger wrapper extension so when VSC user presses F5 in .many file it prompts a debug config that just runs it. No actual debugging.
 - In reality, package all the above extensions into one big VSC extension so the user only installs extension and pip installs runmany and they are ready to go.
+- marketplace has extensions that can help with .many file thing
 
-- Scala
-- PHP?
-- Swift?
-- Perl?
+remove ext from folder
 
-"code-runner.executorMap": {
-	"javascript": "node",
-	"java": "cd $dir && javac $fileName && java $fileNameWithoutExt",
-	"c": "cd $dir && gcc $fileName -o $fileNameWithoutExt && $dir$fileNameWithoutExt",
-	"cpp": "cd $dir && g++ $fileName -o $fileNameWithoutExt && $dir$fileNameWithoutExt",
-	"objective-c": "cd $dir && gcc -framework Cocoa $fileName -o $fileNameWithoutExt && $dir$fileNameWithoutExt",
-	"php": "php",
-	"python": "python -u",
-	"perl": "perl",
-	"perl6": "perl6",
-	"ruby": "ruby",
-	"go": "go run",
-	"lua": "lua",
-	"groovy": "groovy",
-	"powershell": "powershell -ExecutionPolicy ByPass -File",
-	"bat": "cmd /c",
-	"shellscript": "bash",
-	"fsharp": "fsi",
-	"csharp": "scriptcs",
-	"vbscript": "cscript //Nologo",
-	"typescript": "ts-node",
-	"coffeescript": "coffee",
-	"scala": "scala",
-	"swift": "swift",
-	"julia": "julia",
-	"crystal": "crystal",
-	"ocaml": "ocaml",
-	"r": "Rscript",
-	"applescript": "osascript",
-	"clojure": "lein exec",
-	"haxe": "haxe --cwd $dirWithoutTrailingSlash --run $fileNameWithoutExt",
-	"rust": "cd $dir && rustc $fileName && $dir$fileNameWithoutExt",
-	"racket": "racket",
-	"scheme": "csi -script",
-	"ahk": "autohotkey",
-	"autoit": "autoit3",
-	"dart": "dart",
-	"pascal": "cd $dir && fpc $fileName && $dir$fileNameWithoutExt",
-	"d": "cd $dir && dmd $fileName && $dir$fileNameWithoutExt",
-	"haskell": "runhaskell",
-	"nim": "nim compile --verbosity:0 --hints:off --run",
-	"lisp": "sbcl --script",
-	"kit": "kitc --run",
-	"v": "v run",
-	"sass": "sass --style expanded",
-	"scss": "scss --style expanded",
-	"less": "cd $dir && lessc $fileName $fileNameWithoutExt.css",
-	"FortranFreeForm": "cd $dir && gfortran $fileName -o $fileNameWithoutExt && $dir$fileNameWithoutExt",
-	"fortran-modern": "cd $dir && gfortran $fileName -o $fileNameWithoutExt && $dir$fileNameWithoutExt",
-	"fortran_fixed-form": "cd $dir && gfortran $fileName -o $fileNameWithoutExt && $dir$fileNameWithoutExt",
-	"fortran": "cd $dir && gfortran $fileName -o $fileNameWithoutExt && $dir$fileNameWithoutExt"
-}
+Argv and Hello and commands and languages csv
 
 
-TODO
-- clean up this notes file
-- add even more languages (Clojure, swift, ruby, from https://github.com/microsoft/vscode/blob/main/extensions/markdown-basics/syntaxes/markdown.tmLanguage.json, from CodeRunner)
-
-
-         "meta.embedded.block.html": "html",
-          "source.js": "javascript",
-          "source.css": "css",
-          "meta.embedded.block.frontmatter": "yaml",
-          "meta.embedded.block.css": "css",
-          "meta.embedded.block.ini": "ini",
-          "meta.embedded.block.java": "java",
-          "meta.embedded.block.lua": "lua",
-          "meta.embedded.block.makefile": "makefile",
-          "meta.embedded.block.perl": "perl",
-          "meta.embedded.block.r": "r",
-          "meta.embedded.block.ruby": "ruby",
-          "meta.embedded.block.php": "php",
-          "meta.embedded.block.sql": "sql",
-          "meta.embedded.block.vs_net": "vs_net",
-          "meta.embedded.block.xml": "xml",
-          "meta.embedded.block.xsl": "xsl",
-          "meta.embedded.block.yaml": "yaml",
-          "meta.embedded.block.dosbatch": "dosbatch",
-          "meta.embedded.block.clojure": "clojure",
-          "meta.embedded.block.coffee": "coffee",
-          "meta.embedded.block.c": "c",
-          "meta.embedded.block.cpp": "cpp",
-          "meta.embedded.block.diff": "diff",
-          "meta.embedded.block.dockerfile": "dockerfile",
-          "meta.embedded.block.go": "go",
-          "meta.embedded.block.groovy": "groovy",
-          "meta.embedded.block.pug": "jade",
-          "meta.embedded.block.javascript": "javascript",
-          "meta.embedded.block.json": "json",
-          "meta.embedded.block.less": "less",
-          "meta.embedded.block.objc": "objc",
-          "meta.embedded.block.scss": "scss",
-          "meta.embedded.block.perl6": "perl6",
-          "meta.embedded.block.powershell": "powershell",
-          "meta.embedded.block.python": "python",
-          "meta.embedded.block.rust": "rust",
-          "meta.embedded.block.scala": "scala",
-          "meta.embedded.block.shellscript": "shellscript",
-          "meta.embedded.block.typescript": "typescript",
-          "meta.embedded.block.typescriptreact": "typescriptreact",
-          "meta.embedded.block.csharp": "csharp",
-          "meta.embedded.block.fsharp": "fsharp"
+ada?
+C
+C#
+clojure
+cobol?
+C++
+dart
+fortran? - freeform
+fsharp
+Go
+groovy
+Haskell
+Java
+JavaScript
+julia
+Kotlin
+lisp
+lua
+objectivec
+pascal
+perl
+perl6
+php
+prolog
+Python
+Python 2
+r
+racket - remove if no highlighter
+ruby
+Rust
+scala
+scheme?
+swift?
+TypeScript
+VBScript - not sure of source
+visual basic - not really sure of how to run
