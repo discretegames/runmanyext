@@ -1,4 +1,32 @@
-Python: print('Hello, World!')
+	{
+		"foo": 89,
+% nope
+		"wait": 90
+	}
+
+
+% ok
+
+Python: 
+	f = int(9)
+	float
+	
+% [
+	print(999)]
+% hi
+	print(999)
+	''''
+Argv for P: stuff
+	foo
+% ok
+Stdin for All:
+	bar
+%
+
+	foobar
+
+Python, Python 2: pass
+	print("some code")
 
 JavaScript: console.log("Hello, World!")
 
@@ -19,6 +47,7 @@ Rust:
 	fn main() {
 		println!("Hello, World!");
 	}
+% nope
 
 Go:
 	package main
