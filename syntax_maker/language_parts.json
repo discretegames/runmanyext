@@ -16,7 +16,7 @@
 	"<ID>-block": {
 		"name": "meta.embedded.block.<ID>",
 		"begin": "",
-		"while": "(^%.*$)|^(?= {4}|\\t|\\s*$)",
+		"while": "^(?=%| {4}|\\t|\\s*$)",
 		"whileCaptures": { "1": { "patterns": [{ "include": "#comment" }] } },
 		"patterns": [{ "include": "source.<SOURCE>" }]
 	}

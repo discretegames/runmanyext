@@ -3,7 +3,7 @@ import json
 from pathlib import Path
 from itertools import islice
 
-PATTERNS_INSERT_INDEX = 6
+PATTERNS_INSERT_INDEX = 5
 NAME_PLACEHOLDER = '<NAME>'
 ID_PLACEHOLDER = '<ID>'
 SOURCE_PLACEHOLDER = '<SOURCE>'
@@ -36,7 +36,7 @@ def make_language_parts(parts_json, name, id, source):
 
 
 def insert_language_parts(syntax, include, parts, index):
-    syntax['patterns'].insert(index, include)
+    syntax['repository']['runmany-code']['patterns'].insert(index, include)
     for key, value in parts.items():
         syntax['repository'][key] = value
 

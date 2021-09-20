@@ -3,23 +3,14 @@
 	"scopeName": "source.many",
 	"name": "RunMany",
 	"fileTypes": [".many"],
-	"patterns": [
-		{ "include": "#exit" },
-		{ "include": "#comment" },
-		{ "include": "#settings-json" },
-		{ "include": "#disabled-section-list" },
-		{ "include": "#argv-section-list" },
-		{ "include": "#stdin-section-list" },
-		{ "include": "#unknown-section-list" },
-		{ "include": "#invalid-section-header" },
-		{ "include": "#invalid-section-content" }
-	],
+	"patterns": [{ "include": "#comment-filter" }],
 	"repository": {
-		"exit": {
-			"name": "comment.block.exit.many",
-			"begin": "^(Exit\\.)\\s*$",
-			"beginCaptures": { "1": { "name": "comment.block.exit.definition.many" } },
-			"while": ""
+		"comment-filter": {
+			"name": "meta.comment-filter.many",
+			"begin": "^(?=(%.*)|)",
+			"while": "^(?=(%.*)|)",
+			"captures": { "1": { "patterns": [{ "include": "#comment" }] } },
+			"patterns": [{ "include": "#runmany-code" }]
 		},
 		"comment": {
 			"name": "comment.line.percentage.many",
@@ -27,11 +18,31 @@
 			"captures": { "1": { "name": "punctuation.definition.comment.many" } }
 		},
 
+		"runmany-code": {
+			"name": "meta.runmany-code.many",
+			"patterns": [
+				{ "include": "#exit" },
+				{ "include": "#settings-json" },
+				{ "include": "#disabled-section-list" },
+				{ "include": "#argv-section-list" },
+				{ "include": "#stdin-section-list" },
+				{ "include": "#unknown-section-list" },
+				{ "include": "#invalid-section-header" },
+				{ "include": "#invalid-section-content" }
+			]
+		},
+
+		"exit": {
+			"name": "comment.block.exit.many",
+			"begin": "^(Exit\\.)\\s*$",
+			"beginCaptures": { "1": { "name": "comment.block.exit.definition.many" } },
+			"while": ""
+		},
+
 		"settings-json": {
 			"name": "meta.embedded.block.json",
 			"begin": "(?=^(?: {4}|\\t)\\s*\\{)",
-			"while": "(^%.*$)|^(?= {4}|\\t|\\s*$)",
-			"whileCaptures": { "1": { "patterns": [{ "include": "#comment" }] } },
+			"while": "^(?=%| {4}|\\t|\\s*$)",
 			"patterns": [{ "include": "source.json" }, { "include": "#after-settings-json" }]
 		},
 		"after-settings-json": {
@@ -76,15 +87,13 @@
 			"name": "comment.block.section-list.disabled.many",
 			"begin": "^(!)[^:]*:",
 			"beginCaptures": { "1": { "name": "punctuation.definition.disabled.begin.many" } },
-			"while": "(^%.*$)|^(?= {4}|\\t|\\s*$|(?:!\\s*)?Also\\s*:)",
-			"whileCaptures": { "1": { "patterns": [{ "include": "#comment" }] } }
+			"while": "^(?=%| {4}|\\t|\\s*$|(?:!\\s*)?Also\\s*:)"
 		},
 		"disabled-also-section": {
 			"name": "comment.block.also-section.disabled.many",
 			"begin": "^(!)\\s*Also\\s*:",
 			"beginCaptures": { "1": { "name": "punctuation.definition.disabled.begin.many" } },
-			"while": "(^%.*$)|^(?= {4}|\\t|\\s*$)",
-			"whileCaptures": { "1": { "patterns": [{ "include": "#comment" }] } }
+			"while": "^(?=%| {4}|\\t|\\s*$)"
 		},
 
 		"invalid-section-header": {
@@ -115,8 +124,7 @@
 		"argv-block": {
 			"name": "string.unquoted.block.argv.many",
 			"begin": "",
-			"while": "(^%.*$)|^(?= {4}|\\t|\\s*$)",
-			"whileCaptures": { "1": { "patterns": [{ "include": "#comment" }] } }
+			"while": "^(?=%| {4}|\\t|\\s*$)"
 		},
 
 		"stdin-section-list": {
@@ -138,8 +146,7 @@
 		"stdin-block": {
 			"name": "string.unquoted.block.stdin.many",
 			"begin": "",
-			"while": "(^%.*$)|^(?= {4}|\\t|\\s*$)",
-			"whileCaptures": { "1": { "patterns": [{ "include": "#comment" }] } }
+			"while": "^(?=%| {4}|\\t|\\s*$)"
 		},
 
 		"unknown-section-list": {
@@ -159,8 +166,7 @@
 		"unknown-block": {
 			"name": "meta.embedded.block.unknown",
 			"begin": "",
-			"while": "(^%.*$)|^(?= {4}|\\t|\\s*$)",
-			"whileCaptures": { "1": { "patterns": [{ "include": "#comment" }] } }
+			"while": "^(?=%| {4}|\\t|\\s*$)"
 		}
 	}
 }

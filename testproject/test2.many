@@ -1,7 +1,10 @@
+% comment
 	{
 		"foo": 89,
+
 % nope
 		"wait": 90
+% nope
 	}
 
 
@@ -9,16 +12,30 @@
 
 Python: 
 	f = int(9)
-	float
-	
-% [
+	float(pass)	
+	'''d
+%
+	ff'''
+
 	print(999)]
 % hi
 	print(999)
-	''''
+	'''
+Also: print(999)
+
+% comment
+
+
+    print(999)
+% comment
+	pass
+
 Argv for P: stuff
 	foo
+!Also:
 % ok
+	blue
+
 Stdin for All:
 	bar
 %

@@ -7,9 +7,9 @@
 	"repository": {
 		"comment-filter": {
 			"name": "meta.comment-filter.many",
-			"begin": "",
+			"begin": "^(?=(%.*)|)",
 			"while": "^(?=(%.*)|)",
-			"whileCaptures": { "1": { "patterns": [{ "include": "#comment" }] } },
+			"captures": { "1": { "patterns": [{ "include": "#comment" }] } },
 			"patterns": [{ "include": "#runmany-code" }]
 		},
 		"comment": {
@@ -22,7 +22,6 @@
 			"name": "meta.runmany-code.many",
 			"patterns": [
 				{ "include": "#exit" },
-				{ "include": "#comment" },
 				{ "include": "#settings-json" },
 				{ "include": "#disabled-section-list" },
 				{ "include": "#argv-section-list" },
@@ -44,8 +43,7 @@
 		"settings-json": {
 			"name": "meta.embedded.block.json",
 			"begin": "(?=^(?: {4}|\\t)\\s*\\{)",
-			"while": "(^%.*$)|^(?= {4}|\\t|\\s*$)",
-			"whileCaptures": { "1": { "patterns": [{ "include": "#comment" }] } },
+			"while": "^(?=%| {4}|\\t|\\s*$)",
 			"patterns": [{ "include": "source.json" }, { "include": "#after-settings-json" }]
 		},
 		"after-settings-json": {
@@ -90,15 +88,13 @@
 			"name": "comment.block.section-list.disabled.many",
 			"begin": "^(!)[^:]*:",
 			"beginCaptures": { "1": { "name": "punctuation.definition.disabled.begin.many" } },
-			"while": "(^%.*$)|^(?= {4}|\\t|\\s*$|(?:!\\s*)?Also\\s*:)",
-			"whileCaptures": { "1": { "patterns": [{ "include": "#comment" }] } }
+			"while": "^(?=%| {4}|\\t|\\s*$|(?:!\\s*)?Also\\s*:)"
 		},
 		"disabled-also-section": {
 			"name": "comment.block.also-section.disabled.many",
 			"begin": "^(!)\\s*Also\\s*:",
 			"beginCaptures": { "1": { "name": "punctuation.definition.disabled.begin.many" } },
-			"while": "(^%.*$)|^(?= {4}|\\t|\\s*$)",
-			"whileCaptures": { "1": { "patterns": [{ "include": "#comment" }] } }
+			"while": "^(?=%| {4}|\\t|\\s*$)"
 		},
 
 		"invalid-section-header": {
@@ -129,8 +125,7 @@
 		"argv-block": {
 			"name": "string.unquoted.block.argv.many",
 			"begin": "",
-			"while": "(^%.*$)|^(?= {4}|\\t|\\s*$)",
-			"whileCaptures": { "1": { "patterns": [{ "include": "#comment" }] } }
+			"while": "^(?=%| {4}|\\t|\\s*$)"
 		},
 
 		"stdin-section-list": {
@@ -152,8 +147,7 @@
 		"stdin-block": {
 			"name": "string.unquoted.block.stdin.many",
 			"begin": "",
-			"while": "(^%.*$)|^(?= {4}|\\t|\\s*$)",
-			"whileCaptures": { "1": { "patterns": [{ "include": "#comment" }] } }
+			"while": "^(?=%| {4}|\\t|\\s*$)"
 		},
 
 		"unknown-section-list": {
@@ -173,56 +167,28 @@
 		"unknown-block": {
 			"name": "meta.embedded.block.unknown",
 			"begin": "",
-			"while": "(^%.*$)|^(?= {4}|\\t|\\s*$)",
-			"whileCaptures": { "1": { "patterns": [{ "include": "#comment" }] } }
+			"while": "^(?=%| {4}|\\t|\\s*$)"
 		},
 
 		"python-section-list": {
 			"name": "meta.section-list.code.python.many",
 			"begin": "(?i)^(?=Python\\s*[,:])([^:]*)(:)",
 			"beginCaptures": {
-				"1": {
-					"patterns": [
-						{
-							"include": "#language-list"
-						}
-					]
-				},
-				"2": {
-					"name": "punctuation.definition.header.end.many"
-				}
+				"1": { "patterns": [{ "include": "#language-list" }] },
+				"2": { "name": "punctuation.definition.header.end.many" }
 			},
 			"while": "^(?=%| {4}|\\t|\\s*$|(?:!\\s*)?Also\\s*:)",
 			"patterns": [
-				{
-					"include": "#disabled-also-section"
-				},
-				{
-					"include": "#also-header"
-				},
-				{
-					"include": "#python-block"
-				}
+				{ "include": "#disabled-also-section" },
+				{ "include": "#also-header" },
+				{ "include": "#python-block" }
 			]
 		},
 		"python-block": {
 			"name": "meta.embedded.block.python",
 			"begin": "",
-			"while": "(^%.*$)|^(?= {4}|\\t|\\s*$)",
-			"whileCaptures": {
-				"1": {
-					"patterns": [
-						{
-							"include": "#comment"
-						}
-					]
-				}
-			},
-			"patterns": [
-				{
-					"include": "source.python"
-				}
-			]
+			"while": "^(?=%| {4}|\\t|\\s*$)",
+			"patterns": [{ "include": "source.python" }]
 		}
 	}
 }
