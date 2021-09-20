@@ -253,6 +253,9 @@
             "name": "meta.section-list.input.stdin.many",
             "begin": "^(Stdin)\\s*(?:\\b(for)\\b([^:]*))?(:)",
             "beginCaptures": {
+                "0": {
+                    "name": "meta.section-header.many"
+                },
                 "1": {
                     "name": "storage.section.stdin.many"
                 },
