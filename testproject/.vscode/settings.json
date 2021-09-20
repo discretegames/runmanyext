@@ -1,7 +1,7 @@
 {
 	"editor.bracketPairColorization.enabled": true,
 	"editor.renderWhitespace": "selection",
-	"editor.semanticHighlighting.enabled": true,
+	"editor.semanticHighlighting.enabled": false,
 	"editor.tokenColorCustomizations": {
 		"[Default Dark+]": {
 			"textMateRules": [

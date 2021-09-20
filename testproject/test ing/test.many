@@ -1,3 +1,5 @@
+Python: print(999)
+
 Ada:
 	with Text_IO; use Text_IO;
 	procedure hello is
@@ -5,7 +7,7 @@ Ada:
 		Put_Line("Hello, World!");
 	end hello;
 
-Clojure:
+!Clojure:
 	(ns clojure.examples.hello
 		(:gen-class))
 	(defn hello-world []
