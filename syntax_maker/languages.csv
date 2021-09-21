@@ -6,7 +6,7 @@ Clojure      , clojure     , clojure
 COBOL        , cobol       , cobol
 C\\+\\+      , cpp         , cpp
 Dart         , dart        , dart
-Fortran      , fortran     , fortran.free
+Fortran      , fortran     , fortran.modern
 F#           , fsharp      , fsharp
 Go           , go          , go
 Groovy       , groovy      , groovy
@@ -20,18 +20,16 @@ Lua          , lua         , lua
 Objective-C  , objectivec  , objc
 Pascal       , pascal      , pascal
 Perl         , perl        , perl
-Perl 6       , perl6       , perl.6
 PHP          , php         , php
-Prolog       , prolog      , prolog
 Python       , python      , python
 Python 2     , python2     , python
 R            , r           , r
-Racket       , racket      , racket
+Racket       , racket      , scheme
 Ruby         , ruby        , ruby
 Rust         , rust        , rust
 Scala        , scala       , scala
 Scheme       , scheme      , scheme
 Swift        , swift       , swift
 TypeScript   , typescript  , ts
-VBScript     , vbs         , vbs
+VBScript     , vbscript    , vbs
 Visual Basic , visualbasic , asp.vb.net

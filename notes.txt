@@ -12,45 +12,17 @@ Goals:
 - Thin debugger wrapper extension so when VSC user presses F5 in .many file it prompts a debug config that just runs it. No actual debugging.
 - In reality, package all the above extensions into one big VSC extension so the user only installs extension and pip installs runmany and they are ready to go.
 - marketplace has extensions that can help with .many file thing
+- little icon for .many files
 
-remove ext from folder
+These have highlighting but they wouldn't run easily on windows:
+Clojure
+COBOL
+F#
+ObjectiveC
+Scheme
+Swift
 
-Argv and Hello and commands and languages csv
 
-
-ada?
-C
-C#
-clojure
-cobol?
-C++
-dart
-fortran? - freeform
-fsharp
-Go
-groovy
-Haskell
-Java
-JavaScript
-julia
-Kotlin
-lisp
-lua
-objectivec
-pascal
-perl
-perl6
-php
-prolog
-Python
-Python 2
-r
-racket - remove if no highlighter
-ruby
-Rust
-scala
-scheme?
-swift?
-TypeScript
-VBScript - not sure of source
-visual basic - not really sure of how to run
+These have command issues:
+Ada - ideally wouldn't use cd since that changes the cwd
+Scala - ideally wouldn't use cd since that changes the cwd - issue with running full file path

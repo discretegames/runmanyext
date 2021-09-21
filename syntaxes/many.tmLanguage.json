@@ -121,13 +121,7 @@
                     "include": "#perl-section-list"
                 },
                 {
-                    "include": "#perl6-section-list"
-                },
-                {
                     "include": "#php-section-list"
-                },
-                {
-                    "include": "#prolog-section-list"
                 },
                 {
                     "include": "#python-section-list"
@@ -160,7 +154,7 @@
                     "include": "#typescript-section-list"
                 },
                 {
-                    "include": "#vbs-section-list"
+                    "include": "#vbscript-section-list"
                 },
                 {
                     "include": "#visualbasic-section-list"
@@ -765,7 +759,7 @@
             },
             "patterns": [
                 {
-                    "include": "source.fortran.free"
+                    "include": "source.fortran.modern"
                 }
             ]
         },
@@ -1380,53 +1374,6 @@
                 }
             ]
         },
-        "perl6-section-list": {
-            "name": "meta.section-list.code.perl6.many",
-            "begin": "(?i)^(?=Perl 6\\s*[,:])([^:]*)(:)",
-            "beginCaptures": {
-                "1": {
-                    "patterns": [
-                        {
-                            "include": "#language-list"
-                        }
-                    ]
-                },
-                "2": {
-                    "name": "punctuation.definition.header.end.many"
-                }
-            },
-            "while": "^(?=%| {4}|\\t|\\s*$|(?:!\\s*)?Also\\s*:)",
-            "patterns": [
-                {
-                    "include": "#disabled-also-section"
-                },
-                {
-                    "include": "#also-header"
-                },
-                {
-                    "include": "#perl6-block"
-                }
-            ]
-        },
-        "perl6-block": {
-            "name": "meta.embedded.block.perl6",
-            "begin": "",
-            "while": "^(?=%| {4}|\\t|\\s*$)",
-            "whileCaptures": {
-                "1": {
-                    "patterns": [
-                        {
-                            "include": "#comment"
-                        }
-                    ]
-                }
-            },
-            "patterns": [
-                {
-                    "include": "source.perl.6"
-                }
-            ]
-        },
         "php-section-list": {
             "name": "meta.section-list.code.php.many",
             "begin": "(?i)^(?=PHP\\s*[,:])([^:]*)(:)",
@@ -1471,53 +1418,6 @@
             "patterns": [
                 {
                     "include": "source.php"
-                }
-            ]
-        },
-        "prolog-section-list": {
-            "name": "meta.section-list.code.prolog.many",
-            "begin": "(?i)^(?=Prolog\\s*[,:])([^:]*)(:)",
-            "beginCaptures": {
-                "1": {
-                    "patterns": [
-                        {
-                            "include": "#language-list"
-                        }
-                    ]
-                },
-                "2": {
-                    "name": "punctuation.definition.header.end.many"
-                }
-            },
-            "while": "^(?=%| {4}|\\t|\\s*$|(?:!\\s*)?Also\\s*:)",
-            "patterns": [
-                {
-                    "include": "#disabled-also-section"
-                },
-                {
-                    "include": "#also-header"
-                },
-                {
-                    "include": "#prolog-block"
-                }
-            ]
-        },
-        "prolog-block": {
-            "name": "meta.embedded.block.prolog",
-            "begin": "",
-            "while": "^(?=%| {4}|\\t|\\s*$)",
-            "whileCaptures": {
-                "1": {
-                    "patterns": [
-                        {
-                            "include": "#comment"
-                        }
-                    ]
-                }
-            },
-            "patterns": [
-                {
-                    "include": "source.prolog"
                 }
             ]
         },
@@ -1705,7 +1605,7 @@
             },
             "patterns": [
                 {
-                    "include": "source.racket"
+                    "include": "source.scheme"
                 }
             ]
         },
@@ -1991,8 +1891,8 @@
                 }
             ]
         },
-        "vbs-section-list": {
-            "name": "meta.section-list.code.vbs.many",
+        "vbscript-section-list": {
+            "name": "meta.section-list.code.vbscript.many",
             "begin": "(?i)^(?=VBScript\\s*[,:])([^:]*)(:)",
             "beginCaptures": {
                 "1": {
@@ -2015,12 +1915,12 @@
                     "include": "#also-header"
                 },
                 {
-                    "include": "#vbs-block"
+                    "include": "#vbscript-block"
                 }
             ]
         },
-        "vbs-block": {
-            "name": "meta.embedded.block.vbs",
+        "vbscript-block": {
+            "name": "meta.embedded.block.vbscript",
             "begin": "",
             "while": "^(?=%| {4}|\\t|\\s*$)",
             "whileCaptures": {
