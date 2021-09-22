@@ -3,80 +3,78 @@
 	"editor.renderWhitespace": "selection",
 	"editor.semanticHighlighting.enabled": false,
 	"editor.tokenColorCustomizations": {
-		"[Default Dark+]": {
-			"textMateRules": [
-				{
-					"name": "RunMany Comments",
-					"scope": "comment.line.percentage.many",
-					"settings": {
-						"foreground": "#00AA60",
-					}
-				},
-				{
-					"name": "RunMany Language Name",
-					"scope": [
-						"keyword.control.language-name.many",
-						"keyword.control.also.many"
-					],
-					"settings": {
-						"foreground": "#63dd5e",
-						"fontStyle": "italic bold"
-					}
-				},
-				{
-					"name": "RunMany Input Language Name",
-					"scope": "entity.name.type.input-language-name.many",
-					"settings": {
-						"foreground": "#79d8db",
-						"fontStyle": "italic bold"
-					}
-				},
-				{
-					"name": "RunMany Keywords",
-					"scope": [
-						"storage.section.argv.many",
-						"storage.section.argv-for.many",
-						"storage.section.stdin.many",
-						"storage.section.stdin-for.many",
-						"storage.section.input-also.many",
-					],
-					"settings": {
-						"foreground": "#78b0de",
-						"fontStyle": "italic bold"
-					}
-				},
-				{
-					"name": "RunMany Argv Content",
-					"scope": "string.unquoted.block.argv.many",
-					"settings": {
-						"foreground": "#eb8985",
-					}
-				},
-				{
-					"name": "RunMany Stdin Content",
-					"scope": "string.unquoted.block.stdin.many",
-					"settings": {
-						"foreground": "#dacc7e",
-					}
-				},
-				{
-					"name": "RunMany Disabled Section",
-					"scope": [
-						"comment.block.section-list.disabled.many",
-						"comment.block.also-section.disabled.many"
-					],
-					"settings": {
-						"foreground": "#858585",
-					}
-				},
-				{
-					"name": "RunMany Exit",
-					"scope": "comment.block.exit",
-					"settings": {
-						"foreground": "#656565"
-					}
+		"textMateRules": [
+			{
+				"name": "RunMany Comments",
+				"scope": "comment.line.percentage.many",
+				"settings": {
+					"foreground": "#00AA60",
 				}
-			]
-		}
+			},
+			{
+				"name": "RunMany Language Name",
+				"scope": [
+					"keyword.control.language-name.many",
+					"keyword.control.also.many"
+				],
+				"settings": {
+					"foreground": "#63dd5e",
+					"fontStyle": "italic bold"
+				}
+			},
+			{
+				"name": "RunMany Input Language Name",
+				"scope": "entity.name.type.input-language-name.many",
+				"settings": {
+					"foreground": "#79d8db",
+					"fontStyle": "italic bold"
+				}
+			},
+			{
+				"name": "RunMany Keywords",
+				"scope": [
+					"storage.section.argv.many",
+					"storage.section.argv-for.many",
+					"storage.section.stdin.many",
+					"storage.section.stdin-for.many",
+					"storage.section.input-also.many",
+				],
+				"settings": {
+					"foreground": "#78b0de",
+					"fontStyle": "italic bold"
+				}
+			},
+			{
+				"name": "RunMany Argv Content",
+				"scope": "string.unquoted.block.argv.many",
+				"settings": {
+					"foreground": "#eb8985",
+				}
+			},
+			{
+				"name": "RunMany Stdin Content",
+				"scope": "string.unquoted.block.stdin.many",
+				"settings": {
+					"foreground": "#dacc7e",
+				}
+			},
+			{
+				"name": "RunMany Disabled Section",
+				"scope": [
+					"comment.block.section-list.disabled.many",
+					"comment.block.also-section.disabled.many"
+				],
+				"settings": {
+					"foreground": "#858585",
+				}
+			},
+			{
+				"name": "RunMany Exit",
+				"scope": "comment.block.exit",
+				"settings": {
+					"foreground": "#656565"
+				}
+			}
+		]
 	}
 }

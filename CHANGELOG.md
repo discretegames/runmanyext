@@ -9,6 +9,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - No unreleased changes at this time.
 
+## [0.0.3] - 2021-09-22
+
+- Improved readme.
+- Added `sample.many` sample file with images.
+- Improved icon.
+
 ## [0.0.2] - 2021-09-21
 
 - Removed undesired icon theme prompt.

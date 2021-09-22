@@ -1,66 +1,86 @@
 
-# RunMany Support for Visual Studio Code
+# [RunMany Support for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=discretegames.runmany)
 
-[RunMany](https://pypi.org/project/runmany/) is a Python package that lets you write and run programs in
-multiple languages from one file, primarily for educational purposes when learning new programming languages.
+[RunMany](https://pypi.org/project/runmany/) is a tool that lets you write and run programs in multiple languages
+from one file. This VSCode extension provides syntax highlighting for RunMany files (file extension `.many`)
+and 34 embeddable languages:
 
-This VSCode extension provides syntax highlighting for RunMany files (file extension `.many`),
-plus syntax highlighting for 34 other languages when embedded in a RunMany file:
+> Ada,
+> C,
+> C#,
+> Clojure,
+> COBOL,
+> C++,
+> Dart,
+> Fortran,
+> F#,
+> Go,
+> Groovy,
+> Haskell,
+> Java,
+> JavaScript,
+> Julia,
+> Kotlin,
+> Lisp,
+> Lua,
+> Objective-C,
+> Pascal,
+> Perl,
+> PHP,
+> Python,
+> Python 2,
+> R,
+> Racket,
+> Ruby,
+> Rust,
+> Scala,
+> Scheme,
+> Swift,
+> TypeScript,
+> VBScript,
+> and Visual Basic
 
-1. Ada
-2. C
-3. C#
-4. Clojure
-5. COBOL
-6. C++
-7. Dart
-8. Fortran
-9. F#
-10. Go
-11. Groovy
-12. Haskell
-13. Java
-14. JavaScript
-15. Julia
-16. Kotlin
-17. Lisp
-18. Lua
-19. Objective-C
-20. Pascal
-21. Perl
-22. PHP
-23. Python
-24. Python 2
-25. R
-26. Racket
-27. Ruby
-28. Rust
-29. Scala
-30. Scheme
-31. Swift
-32. TypeScript
-33. VBScript
-34. Visual Basic
+Languages not [built into VSCode](https://github.com/microsoft/vscode/tree/main/extensions) such as Ada and Pascal
+require their own respective VSCode extensions to be installed for their syntax highlighting to work in RunMany files.
 
-Some of these languages may need their own respective VSCode extensions installed for their syntax highlighting to work
-properly. This is because support for uncommon languages is not built into the
-[extensions VSCode comes with](https://github.com/microsoft/vscode/tree/main/extensions).
+RunMany syntax highlighting in action:
 
-The [RunMany Python package](https://pypi.org/project/runmany/) can in fact support any language you set up commands
-for, but only those listed above can be syntax highlighted in a RunMany file with this VSCode extension.
+[![syntax highlighting sample](https://raw.githubusercontent.com/discretegames/runmanyext/main/images/sample.png)](
+https://github.com/discretegames/runmanyext/blob/main/sample.many)
+
+(For the exact same RunMany syntax colors as the image, copy the `"editor.tokenColorCustomizations"` setting in this
+[settings.json](https://github.com/discretegames/runmanyext/blob/main/.vscode/settings.json)
+into your own settings.json.)
 
 ## Requirements
 
 This extension only really makes sense if you are using it with the
 [RunMany Python package](https://pypi.org/project/runmany/), which is the tool that actually runs `.many` files.
 
-Run
+Install it on Python 3.6 and above with:
 
 ```text
 pip install runmany
 ```
 
-to install it. Python versions 3.6 and beyond are supported.
+Then run a file with:
 
-See the RunMany [Python Package Index page](https://pypi.org/project/runmany/)
-or [GitHub repo](https://github.com/discretegames/runmany) for more info on how to write and run `.many` files..
+```text
+runmany myfile.many
+```
+
+See more about how to use the RunMany Python package on [PyPI](https://pypi.org/project/runmany/)
+or [GitHub](https://github.com/discretegames/runmany) or try some
+[example files](https://github.com/discretegames/runmany/tree/main/examples).
+
+## Resources
+
+- [Change Log](https://marketplace.visualstudio.com/items/discretegames.runmany/changelog)
+
+- [GitHub Repo](https://github.com/discretegames/runmanyext)
+
+- [Marketplace Page](https://marketplace.visualstudio.com/items?itemName=discretegames.runmany)
+
+- [RunMany Python Package on PyPI](https://pypi.org/project/runmany/)
+
+- [RunMany Python Package on GitHub](https://github.com/discretegames/runmany)

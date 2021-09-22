@@ -1,11 +1,12 @@
 .gitignore
 .prettierignore
-notes.txt
+todo.txt
 supported-languages.csv
 
-src/**
-testproject/**
-assets/**
-.vscode/**
-.vscode-test/**
-.idea/**
+src/
+testproject/
+assets/
+node_modules/
+.vscode/
+.vscode-test/
+.idea/

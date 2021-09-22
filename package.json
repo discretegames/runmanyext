@@ -2,7 +2,7 @@
 	"name": "runmany",
 	"displayName": "RunMany",
 	"description": "Syntax highlighting for the RunMany Python package that can run multiple programming languages from one file.",
-	"version": "0.0.2",
+	"version": "0.0.3",
 	"author": {
 		"name": "discretegames",
 		"url": "https://github.com/discretegames",
@@ -14,9 +14,9 @@
 		"type": "git",
 		"url": "https://github.com/discretegames/runmanyext"
 	},
-	"icon": "icon.png",
+	"icon": "images/icon.png",
 	"galleryBanner": {
-		"color": "#75B1FF"
+		"color": "#def2d4"
 	},
 	"engines": {
 		"vscode": "^1.45.1"
@@ -26,10 +26,10 @@
 		"Education"
 	],
 	"keywords": [
-		"runmany",
-		"many",
-		"languages",
-		"crestomathy",
+		"many languages",
+		"one file",
+		"translation",
+		"chrestomathy",
 		"polyglot"
 	],
 	"contributes": {
@@ -41,7 +41,8 @@
 					"many"
 				],
 				"extensions": [
-					".many"
+					".many",
+					".runmany"
 				],
 				"configuration": "./language-configuration.json"
 			}
@@ -53,8 +54,7 @@
 				"path": "./syntaxes/many.tmLanguage.json",
 				"embeddedLanguages": {}
 			}
-		],
-		"iconThemes": []
+		]
 	},
 	"devDependencies": {},
 	"dependencies": {}
