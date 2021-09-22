@@ -1,0 +1,13 @@
+{
+	"iconDefinitions": {
+		"_many_file": {
+			"iconPath": "./icon.png"
+		}
+	},
+	"fileExtensions": {
+		"many": "_many_file"
+	},
+	"languageIds": {
+		"many": "_many_file"
+	}
+}

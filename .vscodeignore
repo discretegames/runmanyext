@@ -1,8 +1,10 @@
 .vscode/**
 .vscode-test/**
 .gitignore
+.prettierignore
 .idea/
 notes.txt
 syntax_maker/
 testproject/
+assets/
 dev.many.tmLanguage.json

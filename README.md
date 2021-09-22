@@ -1,65 +1,66 @@
-# runmany README
 
-This is the README for your extension "runmany". After writing up a brief description, we recommend including the following sections.
+# RunMany Support for Visual Studio Code
 
-## Features
+[RunMany](https://pypi.org/project/runmany/) is a Python package that lets you write and run programs in
+multiple languages from one file, primarily for educational purposes when learning new programming languages.
 
-Describe specific features of your extension including screenshots of your extension in action. Image paths are relative to this README file.
+This VSCode extension provides syntax highlighting for RunMany files (file extension `.many`),
+plus syntax highlighting for 34 other languages when embedded in a RunMany file:
 
-For example if there is an image subfolder under your extension project workspace:
+1. Ada
+2. C
+3. C#
+4. Clojure
+5. COBOL
+6. C++
+7. Dart
+8. Fortran
+9. F#
+10. Go
+11. Groovy
+12. Haskell
+13. Java
+14. JavaScript
+15. Julia
+16. Kotlin
+17. Lisp
+18. Lua
+19. Objective-C
+20. Pascal
+21. Perl
+22. PHP
+23. Python
+24. Python 2
+25. R
+26. Racket
+27. Ruby
+28. Rust
+29. Scala
+30. Scheme
+31. Swift
+32. TypeScript
+33. VBScript
+34. Visual Basic
 
-\!\[feature X\]\(images/feature-x.png\)
+Some of these languages may need their own respective VSCode extensions installed for their syntax highlighting to work
+properly. This is because support for uncommon languages is not built into the
+[extensions VSCode comes with](https://github.com/microsoft/vscode/tree/main/extensions).
 
-> Tip: Many popular extensions utilize animations. This is an excellent way to show off your extension! We recommend short, focused animations that are easy to follow.
+The [RunMany Python package](https://pypi.org/project/runmany/) can in fact support any language you set up commands
+for, but only those listed above can be syntax highlighted in a RunMany file with this VSCode extension.
 
 ## Requirements
 
-If you have any requirements or dependencies, add a section describing those and how to install and configure them.
+This extension only really makes sense if you are using it with the
+[RunMany Python package](https://pypi.org/project/runmany/), which is the tool that actually runs `.many` files.
 
-## Extension Settings
+Run
 
-Include if your extension adds any VS Code settings through the `contributes.configuration` extension point.
+```text
+pip install runmany
+```
 
-For example:
+to install it. Python versions 3.6 and beyond are supported.
 
-This extension contributes the following settings:
-
-* `myExtension.enable`: enable/disable this extension
-* `myExtension.thing`: set to `blah` to do something
-
-## Known Issues
-
-Calling out known issues can help limit users opening duplicate issues against your extension.
-
-## Release Notes
-
-Users appreciate release notes as you update your extension.
-
-### 1.0.0
-
-Initial release of ...
-
-### 1.0.1
-
-Fixed issue #.
-
-### 1.1.0
-
-Added features X, Y, and Z.
-
------------------------------------------------------------------------------------------------------------
-
-## Working with Markdown
-
-**Note:** You can author your README using Visual Studio Code.  Here are some useful editor keyboard shortcuts:
-
-* Split the editor (`Cmd+\` on macOS or `Ctrl+\` on Windows and Linux)
-* Toggle preview (`Shift+CMD+V` on macOS or `Shift+Ctrl+V` on Windows and Linux)
-* Press `Ctrl+Space` (Windows, Linux) or `Cmd+Space` (macOS) to see a list of Markdown snippets
-
-### For more information
-
-* [Visual Studio Code's Markdown Support](http://code.visualstudio.com/docs/languages/markdown)
-* [Markdown Syntax Reference](https://help.github.com/articles/markdown-basics/)
-
-**Enjoy!**
+See the RunMany [Python Package Index page](https://pypi.org/project/runmany/)
+or [GitHub repo](https://github.com/discretegames/runmany) for more info on how to write and run `.many` files..

@@ -58,7 +58,7 @@ def make_syntax(languages_csv, raw_json, parts_json, final_json):
 
 if __name__ == '__main__':
     path = Path(__file__)
-    languages_csv = path.with_name('languages.csv')
+    languages_csv = path.parent.with_name('supported-languages.csv')
     raw_json = path.with_name('raw.many.tmLanguage.json')
     parts_json = path.with_name('language_parts.json')
     final_json = path.parent.parent / 'syntaxes' / 'many.tmLanguage.json'

@@ -3,15 +3,12 @@ RunMany is a pet project about making it easy to practice multiple programming l
 Right now the python package is built but there is no IDE support, namely no VSC syntax highlighting.
 
 Goals:
-- .many file icon in vsc
-- VSCode extension for syntax highlighting .many files and most potential contents: https://code.visualstudio.com/api/language-extensions/syntax-highlight-guide
-	- This may require semantic highlighting for code lists, but hopefully not: https://code.visualstudio.com/api/language-extensions/semantic-highlight-guide
 - LSP client extension and server to do request forwarding to other language services: https://code.visualstudio.com/api/language-extensions/embedded-languages
 	- Though the request forwarding passthrough is pretty limited - no diagnostics, no autocomplete even from my tests. Built-in languages services is not really an option though.
 - Commands list akin to code-runner.executorMap that gets put in global settings.json (Though how does this combine with provided json?)
 - Thin debugger wrapper extension so when VSC user presses F5 in .many file it prompts a debug config that just runs it. No actual debugging.
 - In reality, package all the above extensions into one big VSC extension so the user only installs extension and pip installs runmany and they are ready to go.
-- marketplace has extensions that can help with .many file thing
+- "marketplace has extensions that can help with .many file" popup thing
 - little icon for .many files
 
 These have highlighting but they wouldn't run easily on windows:
