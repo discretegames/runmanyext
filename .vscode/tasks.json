@@ -3,7 +3,7 @@
 	"tasks": [
 		{
 			"label": "makesyntax",
-			"command": "python syntax_maker/syntax_maker.py",
+			"command": "python src/syntax_maker.py",
 			"type": "shell",
 			"presentation": {
 				"reveal": "silent",

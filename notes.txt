@@ -9,10 +9,11 @@ Goals:
 - Thin debugger wrapper extension so when VSC user presses F5 in .many file it prompts a debug config that just runs it. No actual debugging.
 - In reality, package all the above extensions into one big VSC extension so the user only installs extension and pip installs runmany and they are ready to go.
 - "marketplace has extensions that can help with .many file" popup thing
-- fix green bleed on extension icon
 - little separate icon for .many files
 - think about removing quote or paren completion in language-configuration.json
 - add sample images to readme
+- fix icon theme prompting - need to figure out how to do my own single file icon
+- continuous integration https://code.visualstudio.com/api/working-with-extensions/continuous-integration that builds syntax too
 
 These have highlighting but they wouldn't run easily on windows:
 Clojure
