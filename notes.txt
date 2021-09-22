@@ -9,7 +9,10 @@ Goals:
 - Thin debugger wrapper extension so when VSC user presses F5 in .many file it prompts a debug config that just runs it. No actual debugging.
 - In reality, package all the above extensions into one big VSC extension so the user only installs extension and pip installs runmany and they are ready to go.
 - "marketplace has extensions that can help with .many file" popup thing
-- little icon for .many files
+- fix green bleed on extension icon
+- little separate icon for .many files
+- think about removing quote or paren completion in language-configuration.json
+- add sample images to readme
 
 These have highlighting but they wouldn't run easily on windows:
 Clojure
@@ -18,7 +21,6 @@ F#
 ObjectiveC
 Scheme
 Swift
-
 
 These have command issues:
 Ada - ideally wouldn't use cd since that changes the cwd

@@ -8,6 +8,7 @@
 		"url": "https://github.com/discretegames",
 		"email": "discretizedgames@gmail.com"
 	},
+	"publisher": "discretegames",
 	"license": "MIT",
 	"repository": {
 		"type": "git",

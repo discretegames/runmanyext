@@ -16,6 +16,7 @@ Python, Python 2:
 	print("hello")
 	print(input())
 	# python comment
+
 Also:
 	import sys
 	print(syt.argv[1])
