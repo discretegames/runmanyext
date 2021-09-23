@@ -3,173 +3,141 @@
     "scopeName": "source.many",
     "name": "RunMany",
     "fileTypes": [
-        ".many"
+        ".many",
+        ".runmany"
     ],
     "patterns": [
         {
-            "include": "#comment-filter"
+            "include": "#exit"
+        },
+        {
+            "include": "#comment"
+        },
+        {
+            "include": "#settings-json"
+        },
+        {
+            "include": "#disabled-section-list"
+        },
+        {
+            "include": "#argv-section-list"
+        },
+        {
+            "include": "#ada-section-list"
+        },
+        {
+            "include": "#c-section-list"
+        },
+        {
+            "include": "#csharp-section-list"
+        },
+        {
+            "include": "#clojure-section-list"
+        },
+        {
+            "include": "#cobol-section-list"
+        },
+        {
+            "include": "#cpp-section-list"
+        },
+        {
+            "include": "#dart-section-list"
+        },
+        {
+            "include": "#fortran-section-list"
+        },
+        {
+            "include": "#fsharp-section-list"
+        },
+        {
+            "include": "#go-section-list"
+        },
+        {
+            "include": "#groovy-section-list"
+        },
+        {
+            "include": "#haskell-section-list"
+        },
+        {
+            "include": "#java-section-list"
+        },
+        {
+            "include": "#javascript-section-list"
+        },
+        {
+            "include": "#julia-section-list"
+        },
+        {
+            "include": "#kotlin-section-list"
+        },
+        {
+            "include": "#lisp-section-list"
+        },
+        {
+            "include": "#lua-section-list"
+        },
+        {
+            "include": "#objectivec-section-list"
+        },
+        {
+            "include": "#pascal-section-list"
+        },
+        {
+            "include": "#perl-section-list"
+        },
+        {
+            "include": "#php-section-list"
+        },
+        {
+            "include": "#python-section-list"
+        },
+        {
+            "include": "#python2-section-list"
+        },
+        {
+            "include": "#r-section-list"
+        },
+        {
+            "include": "#racket-section-list"
+        },
+        {
+            "include": "#ruby-section-list"
+        },
+        {
+            "include": "#rust-section-list"
+        },
+        {
+            "include": "#scala-section-list"
+        },
+        {
+            "include": "#scheme-section-list"
+        },
+        {
+            "include": "#swift-section-list"
+        },
+        {
+            "include": "#typescript-section-list"
+        },
+        {
+            "include": "#vbscript-section-list"
+        },
+        {
+            "include": "#visualbasic-section-list"
+        },
+        {
+            "include": "#stdin-section-list"
+        },
+        {
+            "include": "#unknown-section-list"
+        },
+        {
+            "include": "#invalid-section-header"
+        },
+        {
+            "include": "#invalid-section-content"
         }
     ],
     "repository": {
-        "comment-filter": {
-            "name": "meta.comment-filter.many",
-            "begin": "^(?=(%.*)|)",
-            "while": "^(?=(%.*)|)",
-            "captures": {
-                "1": {
-                    "patterns": [
-                        {
-                            "include": "#comment"
-                        }
-                    ]
-                }
-            },
-            "patterns": [
-                {
-                    "include": "#runmany-code"
-                }
-            ]
-        },
-        "comment": {
-            "name": "comment.line.percentage.many",
-            "match": "^(%).*$",
-            "captures": {
-                "1": {
-                    "name": "punctuation.definition.comment.many"
-                }
-            }
-        },
-        "runmany-code": {
-            "name": "meta.runmany-code.many",
-            "patterns": [
-                {
-                    "include": "#exit"
-                },
-                {
-                    "include": "#settings-json"
-                },
-                {
-                    "include": "#disabled-section-list"
-                },
-                {
-                    "include": "#argv-section-list"
-                },
-                {
-                    "include": "#stdin-section-list"
-                },
-                {
-                    "include": "#ada-section-list"
-                },
-                {
-                    "include": "#c-section-list"
-                },
-                {
-                    "include": "#csharp-section-list"
-                },
-                {
-                    "include": "#clojure-section-list"
-                },
-                {
-                    "include": "#cobol-section-list"
-                },
-                {
-                    "include": "#cpp-section-list"
-                },
-                {
-                    "include": "#dart-section-list"
-                },
-                {
-                    "include": "#fortran-section-list"
-                },
-                {
-                    "include": "#fsharp-section-list"
-                },
-                {
-                    "include": "#go-section-list"
-                },
-                {
-                    "include": "#groovy-section-list"
-                },
-                {
-                    "include": "#haskell-section-list"
-                },
-                {
-                    "include": "#java-section-list"
-                },
-                {
-                    "include": "#javascript-section-list"
-                },
-                {
-                    "include": "#julia-section-list"
-                },
-                {
-                    "include": "#kotlin-section-list"
-                },
-                {
-                    "include": "#lisp-section-list"
-                },
-                {
-                    "include": "#lua-section-list"
-                },
-                {
-                    "include": "#objectivec-section-list"
-                },
-                {
-                    "include": "#pascal-section-list"
-                },
-                {
-                    "include": "#perl-section-list"
-                },
-                {
-                    "include": "#php-section-list"
-                },
-                {
-                    "include": "#python-section-list"
-                },
-                {
-                    "include": "#python2-section-list"
-                },
-                {
-                    "include": "#r-section-list"
-                },
-                {
-                    "include": "#racket-section-list"
-                },
-                {
-                    "include": "#ruby-section-list"
-                },
-                {
-                    "include": "#rust-section-list"
-                },
-                {
-                    "include": "#scala-section-list"
-                },
-                {
-                    "include": "#scheme-section-list"
-                },
-                {
-                    "include": "#swift-section-list"
-                },
-                {
-                    "include": "#typescript-section-list"
-                },
-                {
-                    "include": "#vbscript-section-list"
-                },
-                {
-                    "include": "#visualbasic-section-list"
-                },
-                {
-                    "include": "#unknown-section-list"
-                },
-                {
-                    "include": "#invalid-section-header"
-                },
-                {
-                    "include": "#invalid-section-content"
-                }
-            ]
-        },
         "exit": {
             "name": "comment.block.exit.many",
             "begin": "^(Exit\\.)\\s*$",
@@ -180,10 +148,28 @@
             },
             "while": ""
         },
+        "comment": {
+            "name": "comment.line.percentage.many",
+            "match": "^(%).*$",
+            "captures": {
+                "1": {
+                    "name": "punctuation.definition.comment.many"
+                }
+            }
+        },
         "settings-json": {
             "name": "meta.embedded.block.json",
             "begin": "(?=^(?: {4}|\\t)\\s*\\{)",
-            "while": "^(?=%| {4}|\\t|\\s*$)",
+            "while": "(^%.*$)|^(?= {4}|\\t|\\s*$)",
+            "whileCaptures": {
+                "1": {
+                    "patterns": [
+                        {
+                            "include": "#comment"
+                        }
+                    ]
+                }
+            },
             "patterns": [
                 {
                     "include": "source.json"
@@ -256,7 +242,16 @@
                     "name": "punctuation.definition.disabled.begin.many"
                 }
             },
-            "while": "^(?=%| {4}|\\t|\\s*$|(?:!\\s*)?Also\\s*:)"
+            "while": "(^%.*$)|^(?= {4}|\\t|\\s*$|(?:!\\s*)?Also\\s*:)",
+            "whileCaptures": {
+                "1": {
+                    "patterns": [
+                        {
+                            "include": "#comment"
+                        }
+                    ]
+                }
+            }
         },
         "disabled-also-section": {
             "name": "comment.block.also-section.disabled.many",
@@ -266,7 +261,16 @@
                     "name": "punctuation.definition.disabled.begin.many"
                 }
             },
-            "while": "^(?=%| {4}|\\t|\\s*$)"
+            "while": "(^%.*$)|^(?= {4}|\\t|\\s*$)",
+            "whileCaptures": {
+                "1": {
+                    "patterns": [
+                        {
+                            "include": "#comment"
+                        }
+                    ]
+                }
+            }
         },
         "invalid-section-header": {
             "name": "invalid.illegal.unrecognized-section-header.many",
@@ -313,7 +317,16 @@
         "argv-block": {
             "name": "string.unquoted.block.argv.many",
             "begin": "",
-            "while": "^(?=%| {4}|\\t|\\s*$)"
+            "while": "(^%.*$)|^(?= {4}|\\t|\\s*$)",
+            "whileCaptures": {
+                "1": {
+                    "patterns": [
+                        {
+                            "include": "#comment"
+                        }
+                    ]
+                }
+            }
         },
         "stdin-section-list": {
             "name": "meta.section-list.input.stdin.many",
@@ -352,7 +365,16 @@
         "stdin-block": {
             "name": "string.unquoted.block.stdin.many",
             "begin": "",
-            "while": "^(?=%| {4}|\\t|\\s*$)"
+            "while": "(^%.*$)|^(?= {4}|\\t|\\s*$)",
+            "whileCaptures": {
+                "1": {
+                    "patterns": [
+                        {
+                            "include": "#comment"
+                        }
+                    ]
+                }
+            }
         },
         "unknown-section-list": {
             "name": "meta.section-list.code.unknown.many",
@@ -385,7 +407,16 @@
         "unknown-block": {
             "name": "meta.embedded.block.unknown",
             "begin": "",
-            "while": "^(?=%| {4}|\\t|\\s*$)"
+            "while": "(^%.*$)|^(?= {4}|\\t|\\s*$)",
+            "whileCaptures": {
+                "1": {
+                    "patterns": [
+                        {
+                            "include": "#comment"
+                        }
+                    ]
+                }
+            }
         },
         "ada-section-list": {
             "name": "meta.section-list.code.ada.many",
@@ -418,7 +449,7 @@
         "ada-block": {
             "name": "meta.embedded.block.ada",
             "begin": "",
-            "while": "^(?=%| {4}|\\t|\\s*$)",
+            "while": "(^%.*$)|^(?= {4}|\\t|\\s*$)",
             "whileCaptures": {
                 "1": {
                     "patterns": [
@@ -465,7 +496,7 @@
         "c-block": {
             "name": "meta.embedded.block.c",
             "begin": "",
-            "while": "^(?=%| {4}|\\t|\\s*$)",
+            "while": "(^%.*$)|^(?= {4}|\\t|\\s*$)",
             "whileCaptures": {
                 "1": {
                     "patterns": [
@@ -512,7 +543,7 @@
         "csharp-block": {
             "name": "meta.embedded.block.csharp",
             "begin": "",
-            "while": "^(?=%| {4}|\\t|\\s*$)",
+            "while": "(^%.*$)|^(?= {4}|\\t|\\s*$)",
             "whileCaptures": {
                 "1": {
                     "patterns": [
@@ -559,7 +590,7 @@
         "clojure-block": {
             "name": "meta.embedded.block.clojure",
             "begin": "",
-            "while": "^(?=%| {4}|\\t|\\s*$)",
+            "while": "(^%.*$)|^(?= {4}|\\t|\\s*$)",
             "whileCaptures": {
                 "1": {
                     "patterns": [
@@ -606,7 +637,7 @@
         "cobol-block": {
             "name": "meta.embedded.block.cobol",
             "begin": "",
-            "while": "^(?=%| {4}|\\t|\\s*$)",
+            "while": "(^%.*$)|^(?= {4}|\\t|\\s*$)",
             "whileCaptures": {
                 "1": {
                     "patterns": [
@@ -653,7 +684,7 @@
         "cpp-block": {
             "name": "meta.embedded.block.cpp",
             "begin": "",
-            "while": "^(?=%| {4}|\\t|\\s*$)",
+            "while": "(^%.*$)|^(?= {4}|\\t|\\s*$)",
             "whileCaptures": {
                 "1": {
                     "patterns": [
@@ -700,7 +731,7 @@
         "dart-block": {
             "name": "meta.embedded.block.dart",
             "begin": "",
-            "while": "^(?=%| {4}|\\t|\\s*$)",
+            "while": "(^%.*$)|^(?= {4}|\\t|\\s*$)",
             "whileCaptures": {
                 "1": {
                     "patterns": [
@@ -747,7 +778,7 @@
         "fortran-block": {
             "name": "meta.embedded.block.fortran",
             "begin": "",
-            "while": "^(?=%| {4}|\\t|\\s*$)",
+            "while": "(^%.*$)|^(?= {4}|\\t|\\s*$)",
             "whileCaptures": {
                 "1": {
                     "patterns": [
@@ -794,7 +825,7 @@
         "fsharp-block": {
             "name": "meta.embedded.block.fsharp",
             "begin": "",
-            "while": "^(?=%| {4}|\\t|\\s*$)",
+            "while": "(^%.*$)|^(?= {4}|\\t|\\s*$)",
             "whileCaptures": {
                 "1": {
                     "patterns": [
@@ -841,7 +872,7 @@
         "go-block": {
             "name": "meta.embedded.block.go",
             "begin": "",
-            "while": "^(?=%| {4}|\\t|\\s*$)",
+            "while": "(^%.*$)|^(?= {4}|\\t|\\s*$)",
             "whileCaptures": {
                 "1": {
                     "patterns": [
@@ -888,7 +919,7 @@
         "groovy-block": {
             "name": "meta.embedded.block.groovy",
             "begin": "",
-            "while": "^(?=%| {4}|\\t|\\s*$)",
+            "while": "(^%.*$)|^(?= {4}|\\t|\\s*$)",
             "whileCaptures": {
                 "1": {
                     "patterns": [
@@ -935,7 +966,7 @@
         "haskell-block": {
             "name": "meta.embedded.block.haskell",
             "begin": "",
-            "while": "^(?=%| {4}|\\t|\\s*$)",
+            "while": "(^%.*$)|^(?= {4}|\\t|\\s*$)",
             "whileCaptures": {
                 "1": {
                     "patterns": [
@@ -982,7 +1013,7 @@
         "java-block": {
             "name": "meta.embedded.block.java",
             "begin": "",
-            "while": "^(?=%| {4}|\\t|\\s*$)",
+            "while": "(^%.*$)|^(?= {4}|\\t|\\s*$)",
             "whileCaptures": {
                 "1": {
                     "patterns": [
@@ -1029,7 +1060,7 @@
         "javascript-block": {
             "name": "meta.embedded.block.javascript",
             "begin": "",
-            "while": "^(?=%| {4}|\\t|\\s*$)",
+            "while": "(^%.*$)|^(?= {4}|\\t|\\s*$)",
             "whileCaptures": {
                 "1": {
                     "patterns": [
@@ -1076,7 +1107,7 @@
         "julia-block": {
             "name": "meta.embedded.block.julia",
             "begin": "",
-            "while": "^(?=%| {4}|\\t|\\s*$)",
+            "while": "(^%.*$)|^(?= {4}|\\t|\\s*$)",
             "whileCaptures": {
                 "1": {
                     "patterns": [
@@ -1123,7 +1154,7 @@
         "kotlin-block": {
             "name": "meta.embedded.block.kotlin",
             "begin": "",
-            "while": "^(?=%| {4}|\\t|\\s*$)",
+            "while": "(^%.*$)|^(?= {4}|\\t|\\s*$)",
             "whileCaptures": {
                 "1": {
                     "patterns": [
@@ -1170,7 +1201,7 @@
         "lisp-block": {
             "name": "meta.embedded.block.lisp",
             "begin": "",
-            "while": "^(?=%| {4}|\\t|\\s*$)",
+            "while": "(^%.*$)|^(?= {4}|\\t|\\s*$)",
             "whileCaptures": {
                 "1": {
                     "patterns": [
@@ -1217,7 +1248,7 @@
         "lua-block": {
             "name": "meta.embedded.block.lua",
             "begin": "",
-            "while": "^(?=%| {4}|\\t|\\s*$)",
+            "while": "(^%.*$)|^(?= {4}|\\t|\\s*$)",
             "whileCaptures": {
                 "1": {
                     "patterns": [
@@ -1264,7 +1295,7 @@
         "objectivec-block": {
             "name": "meta.embedded.block.objectivec",
             "begin": "",
-            "while": "^(?=%| {4}|\\t|\\s*$)",
+            "while": "(^%.*$)|^(?= {4}|\\t|\\s*$)",
             "whileCaptures": {
                 "1": {
                     "patterns": [
@@ -1311,7 +1342,7 @@
         "pascal-block": {
             "name": "meta.embedded.block.pascal",
             "begin": "",
-            "while": "^(?=%| {4}|\\t|\\s*$)",
+            "while": "(^%.*$)|^(?= {4}|\\t|\\s*$)",
             "whileCaptures": {
                 "1": {
                     "patterns": [
@@ -1358,7 +1389,7 @@
         "perl-block": {
             "name": "meta.embedded.block.perl",
             "begin": "",
-            "while": "^(?=%| {4}|\\t|\\s*$)",
+            "while": "(^%.*$)|^(?= {4}|\\t|\\s*$)",
             "whileCaptures": {
                 "1": {
                     "patterns": [
@@ -1405,7 +1436,7 @@
         "php-block": {
             "name": "meta.embedded.block.php",
             "begin": "",
-            "while": "^(?=%| {4}|\\t|\\s*$)",
+            "while": "(^%.*$)|^(?= {4}|\\t|\\s*$)",
             "whileCaptures": {
                 "1": {
                     "patterns": [
@@ -1452,7 +1483,7 @@
         "python-block": {
             "name": "meta.embedded.block.python",
             "begin": "",
-            "while": "^(?=%| {4}|\\t|\\s*$)",
+            "while": "(^%.*$)|^(?= {4}|\\t|\\s*$)",
             "whileCaptures": {
                 "1": {
                     "patterns": [
@@ -1499,7 +1530,7 @@
         "python2-block": {
             "name": "meta.embedded.block.python2",
             "begin": "",
-            "while": "^(?=%| {4}|\\t|\\s*$)",
+            "while": "(^%.*$)|^(?= {4}|\\t|\\s*$)",
             "whileCaptures": {
                 "1": {
                     "patterns": [
@@ -1546,7 +1577,7 @@
         "r-block": {
             "name": "meta.embedded.block.r",
             "begin": "",
-            "while": "^(?=%| {4}|\\t|\\s*$)",
+            "while": "(^%.*$)|^(?= {4}|\\t|\\s*$)",
             "whileCaptures": {
                 "1": {
                     "patterns": [
@@ -1593,7 +1624,7 @@
         "racket-block": {
             "name": "meta.embedded.block.racket",
             "begin": "",
-            "while": "^(?=%| {4}|\\t|\\s*$)",
+            "while": "(^%.*$)|^(?= {4}|\\t|\\s*$)",
             "whileCaptures": {
                 "1": {
                     "patterns": [
@@ -1640,7 +1671,7 @@
         "ruby-block": {
             "name": "meta.embedded.block.ruby",
             "begin": "",
-            "while": "^(?=%| {4}|\\t|\\s*$)",
+            "while": "(^%.*$)|^(?= {4}|\\t|\\s*$)",
             "whileCaptures": {
                 "1": {
                     "patterns": [
@@ -1687,7 +1718,7 @@
         "rust-block": {
             "name": "meta.embedded.block.rust",
             "begin": "",
-            "while": "^(?=%| {4}|\\t|\\s*$)",
+            "while": "(^%.*$)|^(?= {4}|\\t|\\s*$)",
             "whileCaptures": {
                 "1": {
                     "patterns": [
@@ -1734,7 +1765,7 @@
         "scala-block": {
             "name": "meta.embedded.block.scala",
             "begin": "",
-            "while": "^(?=%| {4}|\\t|\\s*$)",
+            "while": "(^%.*$)|^(?= {4}|\\t|\\s*$)",
             "whileCaptures": {
                 "1": {
                     "patterns": [
@@ -1781,7 +1812,7 @@
         "scheme-block": {
             "name": "meta.embedded.block.scheme",
             "begin": "",
-            "while": "^(?=%| {4}|\\t|\\s*$)",
+            "while": "(^%.*$)|^(?= {4}|\\t|\\s*$)",
             "whileCaptures": {
                 "1": {
                     "patterns": [
@@ -1828,7 +1859,7 @@
         "swift-block": {
             "name": "meta.embedded.block.swift",
             "begin": "",
-            "while": "^(?=%| {4}|\\t|\\s*$)",
+            "while": "(^%.*$)|^(?= {4}|\\t|\\s*$)",
             "whileCaptures": {
                 "1": {
                     "patterns": [
@@ -1875,7 +1906,7 @@
         "typescript-block": {
             "name": "meta.embedded.block.typescript",
             "begin": "",
-            "while": "^(?=%| {4}|\\t|\\s*$)",
+            "while": "(^%.*$)|^(?= {4}|\\t|\\s*$)",
             "whileCaptures": {
                 "1": {
                     "patterns": [
@@ -1922,7 +1953,7 @@
         "vbscript-block": {
             "name": "meta.embedded.block.vbscript",
             "begin": "",
-            "while": "^(?=%| {4}|\\t|\\s*$)",
+            "while": "(^%.*$)|^(?= {4}|\\t|\\s*$)",
             "whileCaptures": {
                 "1": {
                     "patterns": [
@@ -1969,7 +2000,7 @@
         "visualbasic-block": {
             "name": "meta.embedded.block.visualbasic",
             "begin": "",
-            "while": "^(?=%| {4}|\\t|\\s*$)",
+            "while": "(^%.*$)|^(?= {4}|\\t|\\s*$)",
             "whileCaptures": {
                 "1": {
                     "patterns": [

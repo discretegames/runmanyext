@@ -1,31 +1,150 @@
-    {
-		"foo": 9,
-% foo:
-		"abc": [0, 1, 2]
+% :
+	{
+		"show_commands": true
 	}
-	
 
-Python, Python 2:
-	'''hmm
-% foo'''
-	print("Python code")
-% Comment.
-Also:
-	# more Python code
-% Comment.
+% Commands for the disabled languages are not built into RunMany but do have syntax highlighting support in the RunMany VSCode extension.
 
-!Disabled:
-	Disabled content.
-% Comment.
-Also:
-	Also disabled.
-% Comment.
+Ada:
+    with Text_IO; use Text_IO;
+    procedure HelloWorld is
+    begin
+        Put_Line("Hello, World!");
+    end HelloWorld;
 
-Exit.
+C:
+    #include <stdio.h>
 
+    int main() {
+        printf("Hello, World!\n");
+        return 0;
+    }
 
-umm
-Comment.
-Stdin:
-	Not used.
-z
+C#:
+    namespace Hello {
+        class HelloWorld {
+            static void Main(string[] args)
+            {
+                System.Console.WriteLine("Hello, World!");
+            }
+        }
+    }
+
+!Clojure: (println "Hello, World!")
+
+!COBOL:
+    program-id. helloworld.
+    procedure division.
+        display "Hello, World!".
+        stop run.
+
+C++:
+    #include <iostream>
+
+    int main() {
+        std::cout << "Hello, World!\n";
+        return 0;
+    }
+
+Dart:
+    void main() {
+        print('Hello, World!');
+    }
+
+Fortran:
+    program helloworld
+        write(*, "(a)") "Hello, World!"
+    end program
+
+!F#: printfn "Hello, World!"
+
+Go:
+    package main
+    import "fmt"
+
+    func main() {
+        fmt.Println("Hello, World!")
+    }
+
+Groovy: print "Hello, World!\n"
+
+Haskell: main = putStrLn "Hello, World!"
+
+Java:
+    public class HelloWorld {
+        public static void main(String[] args) {
+            System.out.println("Hello, World!");
+        }
+    }
+
+JavaScript: console.log("Hello, World!")
+
+Julia: println("Hello, World!")
+
+Kotlin:
+    fun main() {
+        println("Hello, World!")
+    }
+
+Lisp: (format t "Hello, World!~%")
+
+Lua: print "Hello, World!"
+
+!Objective-C:
+    #import <Foundation/Foundation.h>
+
+    int main(int argc, char * argv[]) {
+        NSLog(@"Hello, World!");
+        return 0;
+    }
+
+Pascal:
+    program helloworld;
+    begin
+        writeln('Hello, World!');
+    end.
+
+Perl: print "Hello, World!\n";
+
+PHP:
+    <?php
+    echo "Hello, World!";
+    ?>
+
+Python:
+% ''''
+	print('Hello, World!')
+
+Python 2: print 'Hello, World!'
+
+R: writeLines("Hello, World!")
+
+Racket:
+    #lang racket
+    (printf "Hello, World!\n")
+
+Ruby: puts "Hello, World!"
+
+Rust:
+    fn main() {
+        println!("Hello, World!");
+    }
+
+Scala: println("Hello, World!")
+
+!Scheme:
+    (display "Hello, World!")
+    (newline)
+
+!Swift: print("Hello, World!")
+
+TypeScript: console.log("Hello, World!")
+
+VBScript: WScript.Echo "Hello, World!"
+
+Visual Basic:
+    Module HelloWorld
+        Sub Main()
+            Console.WriteLine("Hello, World!")
+        End Sub 
+    End Module

@@ -36,7 +36,7 @@ def make_language_parts(parts_json, name, id, source):
 
 
 def insert_language_parts(syntax, include, parts, index):
-    syntax['repository']['runmany-code']['patterns'].insert(index, include)
+    syntax['patterns'].insert(index, include)
     for key, value in parts.items():
         syntax['repository'][key] = value
 

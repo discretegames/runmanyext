@@ -2,6 +2,7 @@
 	"editor.bracketPairColorization.enabled": true,
 	"editor.renderWhitespace": "selection",
 	"editor.semanticHighlighting.enabled": false,
+	"editor.foldingStrategy": "auto",
 	"editor.tokenColorCustomizations": {
 		"textMateRules": [
 			{

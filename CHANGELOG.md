@@ -7,7 +7,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
-- No unreleased changes at this time.
+- Fixed issue where comments with characters like quotes or colon would appear to be part of code.
 
 ## [0.0.4] - 2021-09-22
 
@@ -27,8 +27,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [0.0.1] - 2021-09-21
 
 Initial release.
-
-### Added
 
 - Readme.
 - RunMany syntax highlighting grammar.

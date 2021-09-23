@@ -12,7 +12,7 @@
 		"package-lock.json": true,
 		"node_modules/": true
 	},
-	"editor.bracketPairColorization.enabled": false,
+	"editor.bracketPairColorization.enabled": true,
 	"editor.renderWhitespace": "selection",
 	"editor.semanticHighlighting.enabled": false,
 	"editor.tokenColorCustomizations": {
