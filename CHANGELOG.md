@@ -8,6 +8,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 
 - Fixed issue where comments with characters like quotes or colon would appear to be part of code.
+- Tweaked sample file and image.
 
 ## [0.0.4] - 2021-09-22
 

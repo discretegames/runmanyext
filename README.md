@@ -42,7 +42,7 @@ and 34 embeddable languages:
 Languages not [built into VSCode](https://github.com/microsoft/vscode/tree/main/extensions) such as Ada and Pascal
 require their own respective VSCode extensions to be installed for their syntax highlighting to work in RunMany files.
 
-RunMany syntax highlighting in action for [sample file](https://github.com/discretegames/runmanyext/blob/main/sample.many):
+RunMany syntax highlighting in action for a [sample file](https://github.com/discretegames/runmanyext/blob/main/sample.many):
 
 ![syntax highlighting sample](https://raw.githubusercontent.com/discretegames/runmanyext/main/images/sample.png)
 
