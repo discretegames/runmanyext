@@ -1,0 +1,31 @@
+    {
+		"foo": 9,
+% foo:
+		"abc": [0, 1, 2]
+	}
+	
+
+Python, Python 2:
+	'''hmm
+% foo'''
+	print("Python code")
+% Comment.
+Also:
+	# more Python code
+% Comment.
+
+!Disabled:
+	Disabled content.
+% Comment.
+Also:
+	Also disabled.
+% Comment.
+
+Exit.
+
+
+umm
+Comment.
+Stdin:
+	Not used.
+z

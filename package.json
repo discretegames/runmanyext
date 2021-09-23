@@ -51,7 +51,7 @@
 			{
 				"language": "many",
 				"scopeName": "source.many",
-				"path": "./syntaxes/many.tmLanguage.json",
+				"path": "./src/com.many.tmLanguage.json",
 				"embeddedLanguages": {}
 			}
 		]

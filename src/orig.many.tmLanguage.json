@@ -2,15 +2,25 @@
 	"$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
 	"scopeName": "source.many",
 	"name": "RunMany",
-	"fileTypes": [".many", ".runmany"],
-	"patterns": [{ "include": "#comment-filter" }],
+	"fileTypes": [".many"],
+	"patterns": [
+		{ "include": "#exit" },
+		{ "include": "#comment" },
+		{ "include": "#settings-json" },
+		{ "include": "#disabled-section-list" },
+		{ "include": "#argv-section-list" },
+		{ "include": "#stdin-section-list" },
+		{ "include": "#python-section-list" },
+		{ "include": "#unknown-section-list" },
+		{ "include": "#invalid-section-header" },
+		{ "include": "#invalid-section-content" }
+	],
 	"repository": {
-		"comment-filter": {
-			"name": "meta.comment-filter.many",
-			"begin": "^(?=(%.*)|)",
-			"while": "^(?=(%.*)|)",
-			"captures": { "1": { "patterns": [{ "include": "#comment" }] } },
-			"patterns": [{ "include": "#runmany-code" }]
+		"exit": {
+			"name": "comment.block.exit.many",
+			"begin": "^(Exit\\.)\\s*$",
+			"beginCaptures": { "1": { "name": "comment.block.exit.definition.many" } },
+			"while": ""
 		},
 		"comment": {
 			"name": "comment.line.percentage.many",
@@ -18,32 +28,11 @@
 			"captures": { "1": { "name": "punctuation.definition.comment.many" } }
 		},
 
-		"runmany-code": {
-			"name": "meta.runmany-code.many",
-			"patterns": [
-				{ "include": "#exit" },
-				{ "include": "#settings-json" },
-				{ "include": "#disabled-section-list" },
-				{ "include": "#argv-section-list" },
-				{ "include": "#stdin-section-list" },
-				{ "include": "#python-section-list" },
-				{ "include": "#unknown-section-list" },
-				{ "include": "#invalid-section-header" },
-				{ "include": "#invalid-section-content" }
-			]
-		},
-
-		"exit": {
-			"name": "comment.block.exit.many",
-			"begin": "^(Exit\\.)\\s*$",
-			"beginCaptures": { "1": { "name": "comment.block.exit.definition.many" } },
-			"while": ""
-		},
-
 		"settings-json": {
 			"name": "meta.embedded.block.json",
 			"begin": "(?=^(?: {4}|\\t)\\s*\\{)",
-			"while": "^(?=%| {4}|\\t|\\s*$)",
+			"while": "(^%.*$)|^(?= {4}|\\t|\\s*$)",
+			"whileCaptures": { "1": { "patterns": [{ "include": "#comment" }] } },
 			"patterns": [{ "include": "source.json" }, { "include": "#after-settings-json" }]
 		},
 		"after-settings-json": {
@@ -88,13 +77,15 @@
 			"name": "comment.block.section-list.disabled.many",
 			"begin": "^(!)[^:]*:",
 			"beginCaptures": { "1": { "name": "punctuation.definition.disabled.begin.many" } },
-			"while": "^(?=%| {4}|\\t|\\s*$|(?:!\\s*)?Also\\s*:)"
+			"while": "(^%.*$)|^(?= {4}|\\t|\\s*$|(?:!\\s*)?Also\\s*:)",
+			"whileCaptures": { "1": { "patterns": [{ "include": "#comment" }] } }
 		},
 		"disabled-also-section": {
 			"name": "comment.block.also-section.disabled.many",
 			"begin": "^(!)\\s*Also\\s*:",
 			"beginCaptures": { "1": { "name": "punctuation.definition.disabled.begin.many" } },
-			"while": "^(?=%| {4}|\\t|\\s*$)"
+			"while": "(^%.*$)|^(?= {4}|\\t|\\s*$)",
+			"whileCaptures": { "1": { "patterns": [{ "include": "#comment" }] } }
 		},
 
 		"invalid-section-header": {
@@ -125,7 +116,8 @@
 		"argv-block": {
 			"name": "string.unquoted.block.argv.many",
 			"begin": "",
-			"while": "^(?=%| {4}|\\t|\\s*$)"
+			"while": "(^%.*$)|^(?= {4}|\\t|\\s*$)",
+			"whileCaptures": { "1": { "patterns": [{ "include": "#comment" }] } }
 		},
 
 		"stdin-section-list": {
@@ -147,7 +139,8 @@
 		"stdin-block": {
 			"name": "string.unquoted.block.stdin.many",
 			"begin": "",
-			"while": "^(?=%| {4}|\\t|\\s*$)"
+			"while": "(^%.*$)|^(?= {4}|\\t|\\s*$)",
+			"whileCaptures": { "1": { "patterns": [{ "include": "#comment" }] } }
 		},
 
 		"unknown-section-list": {
@@ -167,28 +160,56 @@
 		"unknown-block": {
 			"name": "meta.embedded.block.unknown",
 			"begin": "",
-			"while": "^(?=%| {4}|\\t|\\s*$)"
+			"while": "(^%.*$)|^(?= {4}|\\t|\\s*$)",
+			"whileCaptures": { "1": { "patterns": [{ "include": "#comment" }] } }
 		},
 
 		"python-section-list": {
 			"name": "meta.section-list.code.python.many",
 			"begin": "(?i)^(?=Python\\s*[,:])([^:]*)(:)",
 			"beginCaptures": {
-				"1": { "patterns": [{ "include": "#language-list" }] },
-				"2": { "name": "punctuation.definition.header.end.many" }
+				"1": {
+					"patterns": [
+						{
+							"include": "#language-list"
+						}
+					]
+				},
+				"2": {
+					"name": "punctuation.definition.header.end.many"
+				}
 			},
 			"while": "^(?=%| {4}|\\t|\\s*$|(?:!\\s*)?Also\\s*:)",
 			"patterns": [
-				{ "include": "#disabled-also-section" },
-				{ "include": "#also-header" },
-				{ "include": "#python-block" }
+				{
+					"include": "#disabled-also-section"
+				},
+				{
+					"include": "#also-header"
+				},
+				{
+					"include": "#python-block"
+				}
 			]
 		},
 		"python-block": {
 			"name": "meta.embedded.block.python",
 			"begin": "",
-			"while": "^(?=%| {4}|\\t|\\s*$)",
-			"patterns": [{ "include": "source.python" }]
+			"while": "(^%.*$)|^(?= {4}|\\t|\\s*$)",
+			"whileCaptures": {
+				"1": {
+					"patterns": [
+						{
+							"include": "#comment"
+						}
+					]
+				}
+			},
+			"patterns": [
+				{
+					"include": "source.python"
+				}
+			]
 		}
 	}
 }
