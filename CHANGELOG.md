@@ -9,6 +9,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - No unreleased changes at this time.
 
+## [0.0.4] - 2021-09-22
+
+- Fixed readme image link issue that only showed up on marketplace and not github.
+
 ## [0.0.3] - 2021-09-22
 
 - Improved readme.
