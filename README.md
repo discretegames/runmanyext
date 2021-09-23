@@ -55,7 +55,7 @@ into your own settings.json.
 This extension only really makes sense if you are using it with the
 [RunMany Python package](https://pypi.org/project/runmany/), which is the tool that actually runs `.many` files.
 
-Install it on Python 3.6 and above with:
+Install it on [Python 3.6 and above](https://www.python.org/downloads/) with:
 
 ```text
 pip install runmany

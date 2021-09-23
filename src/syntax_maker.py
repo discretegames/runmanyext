@@ -42,6 +42,7 @@ def insert_language_parts(syntax, include, parts, index):
 
 
 def save_final_json(final_json, syntax):
+    final_json.parent.mkdir(parents=True, exist_ok=True)
     with open(final_json, 'w') as file:
         json.dump(syntax, file, indent=4)
 
