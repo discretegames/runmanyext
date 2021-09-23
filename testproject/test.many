@@ -6,3 +6,4 @@ Rust:
     fn main() {
         println!("Hi");
     }
+
