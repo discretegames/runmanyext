@@ -1,6 +1,9 @@
 {
 	"cSpell.words": [
-		"runmany"
+		"objc",
+		"runmany",
+		"vbscript",
+		"visualbasic"
 	],
 	"files.exclude": {
 		"desktop.ini": true,

@@ -107,9 +107,6 @@
 			"include": "#scala-section-list"
 		},
 		{
-			"include": "#scheme-section-list"
-		},
-		{
 			"include": "#swift-section-list"
 		},
 		{
