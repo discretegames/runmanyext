@@ -2,7 +2,7 @@
 	"name": "runmany",
 	"displayName": "RunMany",
 	"description": "Syntax highlighting for the RunMany Python package that can run multiple programming languages from one file.",
-	"version": "0.0.3",
+	"version": "0.0.4",
 	"author": {
 		"name": "discretegames",
 		"url": "https://github.com/discretegames",
