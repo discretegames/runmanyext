@@ -1,35 +1,12 @@
-% Various "Hello, World! Programs:
-C:
-    #include <stdio.h>
-    int main() {
-        printf("Hello, World!\n");
-        return 0;
-    }
-C++:
-    #include <iostream>
-    int main() {
-        std::cout << "Hello, World!\n";
-        return 0;
-    }
-Go:
-    package main
-    import "fmt"
-    func main() {
-        fmt.Println("Hello, World!")
-    }
+% Various "Hello, World!" Programs:
 
-Haskell: main = putStrLn "Hello, World!"
-
-Java:
-    public class HelloWorld {
-        public static void main(String[] args) {
-            System.out.println("Hello, World!");
-        }
-    }
+Python:	print('Hello, World!')
 
 JavaScript: console.log("Hello, World!")
 
-Python: print('Hello, World!')
+Julia: println("Hello, World!")
+
+R: writeLines("Hello, World!")
 
 Ruby: puts "Hello, World!"
 
@@ -38,10 +15,46 @@ Rust:
         println!("Hello, World!");
     }
 
-Scheme:
-    (display "Hello, World!")
-    (newline)
+Dart:
+    void main() {
+        print('Hello, World!');
+    }
 
-TypeScript: console.log("Hello, World!")
+Kotlin:
+    fun main() {
+        println("Hello, World!")
+    }
+
+Go:
+    package main
+    import "fmt"
+    func main() {
+        fmt.Println("Hello, World!")
+	}
+
+C++:
+    #include <iostream>
+    int main() {
+        std::cout << "Hello, World!\n";
+        return 0;
+    }
+
+Java:
+    public class HelloWorld {
+        public static void main(String[] args) {
+            System.out.println("Hello, World!");
+        }
+    }
+
+C#:
+    namespace Hello {
+        class HelloWorld {
+            static void Main(string[] args)
+            {
+                System.Console.WriteLine("Hello, World!");
+            }
+        }
+    }
 
 
+	

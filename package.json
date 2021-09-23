@@ -1,13 +1,14 @@
 {
 	"name": "runmany",
 	"displayName": "RunMany",
-	"description": "Syntax highlighting for the RunMany Python package that can run multiple programming languages from one file.",
-	"version": "0.0.4",
+	"description": "Syntax highlighting for RunMany, a tool that can run multiple programming languages from one file.",
+	"version": "0.0.5",
 	"author": {
 		"name": "discretegames",
 		"url": "https://github.com/discretegames",
 		"email": "discretizedgames@gmail.com"
 	},
+	"homepage": "https://marketplace.visualstudio.com/items?itemName=discretegames.runmany",
 	"publisher": "discretegames",
 	"license": "MIT",
 	"repository": {

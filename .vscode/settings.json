@@ -1,19 +1,13 @@
 {
 	"cSpell.words": [
-		"helloworld",
-		"myfile",
-		"objc",
-		"runmany",
-		"vbscript",
-		"visualbasic"
+		"runmany"
 	],
 	"files.exclude": {
 		"desktop.ini": true,
 		"package-lock.json": true,
 		"node_modules/": true
 	},
-	"editor.bracketPairColorization.enabled": true,
-	"editor.renderWhitespace": "selection",
+	"editor.bracketPairColorization.enabled": false,
 	"editor.semanticHighlighting.enabled": false,
 	"editor.tokenColorCustomizations": {
 		"textMateRules": [
