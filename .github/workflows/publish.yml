@@ -20,5 +20,5 @@ jobs:
           python src/syntax_maker.py
           git config --global user.name 'GitHub Publish Action'
           git add syntaxes/many.tmLanguage.json
-          git commit -m "Auto-created syntaxes/many.tmLanguage.json."
+          git commit -m "Automatically made many.tmLanguage.json syntax."
           git push
