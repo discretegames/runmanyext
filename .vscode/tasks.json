@@ -3,11 +3,24 @@
 	"tasks": [
 		{
 			"label": "makesyntax",
-			"command": "python src/syntax_maker.py",
+			"command": "python syntax_maker/syntax_maker.py",
 			"type": "shell",
 			"presentation": {
 				"reveal": "silent",
 				"clear": true
+			}
+		},
+		{
+			"type": "npm",
+			"script": "watch",
+			"problemMatcher": "$tsc-watch",
+			"isBackground": true,
+			"presentation": {
+				"reveal": "never"
+			},
+			"group": {
+				"kind": "build",
+				"isDefault": true
 			}
 		}
 	]

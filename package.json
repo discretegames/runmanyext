@@ -20,7 +20,7 @@
 		"color": "#dadada"
 	},
 	"engines": {
-		"vscode": "^1.45.1"
+		"vscode": "^1.52.0"
 	},
 	"categories": [
 		"Programming Languages",
@@ -33,7 +33,19 @@
 		"chrestomathy",
 		"polyglot"
 	],
+	"dependencies": {},
+	"devDependencies": {},
+	"main": "./out/extension.js",
+	"activationEvents": [
+		"onDebug"
+	],
+	"scripts": {
+		"vscode:prepublish": "npm run compile",
+		"compile": "tsc -p ./",
+		"watch": "tsc -watch -p ./"
+	},
 	"contributes": {
+		"menus": {},
 		"languages": [
 			{
 				"id": "many",
@@ -55,8 +67,7 @@
 				"path": "./syntaxes/many.tmLanguage.json",
 				"embeddedLanguages": {}
 			}
-		]
-	},
-	"devDependencies": {},
-	"dependencies": {}
+		],
+		"debuggers": []
+	}
 }

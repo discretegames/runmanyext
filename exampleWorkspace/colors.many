@@ -1,14 +1,14 @@
 % File to test custom settings for RunMany syntax highlighting.
 
-Argv for Python, Python 2:
-	Argv content.
+Argv for Python, Python 2: Argv content.
+	More lines.
 % Comment.
 Also:
 	More argv.
 % Comment.
 
-Stdin for Python, Python 2:
-	Stdin content.
+Stdin for Python, Python 2: Stdin content.
+	More lines.
 % Comment.
 Also:
 	More stdin.
@@ -29,10 +29,6 @@ Also:
 % Comment.
 
 Exit.
-
-
-umm
 Comment.
 Stdin:
 	Not used.
-z

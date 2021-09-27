@@ -3,11 +3,10 @@
 todo.txt
 supported-languages.csv
 
-src/
-testproject/
+syntax_maker/
 assets/
-node_modules/
+src/
 .github/
 .vscode/
 .vscode-test/
-.idea/
+exampleWorkspace/
