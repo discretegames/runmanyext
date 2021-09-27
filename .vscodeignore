@@ -1,10 +1,10 @@
 .gitignore
 .prettierignore
-todo.txt
+notes.txt
+icon.afdesign
 supported-languages.csv
 
 syntax_maker/
-assets/
 src/
 .github/
 .vscode/

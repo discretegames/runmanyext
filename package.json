@@ -2,7 +2,7 @@
 	"name": "runmany",
 	"displayName": "RunMany",
 	"description": "Syntax highlighting for RunMany, a tool that can run multiple programming languages from one file.",
-	"version": "0.0.5",
+	"version": "0.0.6",
 	"author": {
 		"name": "discretegames",
 		"url": "https://github.com/discretegames",
@@ -33,11 +33,18 @@
 		"chrestomathy",
 		"polyglot"
 	],
-	"dependencies": {},
-	"devDependencies": {},
+	"dependencies": {
+		"vscode-debugadapter": "^1.49.0"
+	},
+	"devDependencies": {
+		"@types/node": "^12.12.0",
+		"@types/vscode": "^1.34.0",
+		"typescript": "^4.2.2"
+	},
 	"main": "./out/extension.js",
 	"activationEvents": [
-		"onDebug"
+		"onDebug",
+		"onCommand:extension.runmany.run"
 	],
 	"scripts": {
 		"vscode:prepublish": "npm run compile",
@@ -45,7 +52,6 @@
 		"watch": "tsc -watch -p ./"
 	},
 	"contributes": {
-		"menus": {},
 		"languages": [
 			{
 				"id": "many",
@@ -68,6 +74,93 @@
 				"embeddedLanguages": {}
 			}
 		],
-		"debuggers": []
+		"menus": {
+			"editor/title/run": [
+				{
+					"command": "extension.runmany.run",
+					"when": "resourceLangId == many"
+				}
+			],
+			"commandPalette": [
+				{
+					"command": "extension.runmany.run",
+					"when": "resourceLangId == many"
+				}
+			]
+		},
+		"commands": [
+			{
+				"command": "extension.runmany.run",
+				"title": "Run File",
+				"category": "RunMany",
+				"icon": "$(debug-start)"
+			}
+		],
+		"debuggers": [
+			{
+				"type": "runmany",
+				"label": "RunMany",
+				"languages": [
+					"many"
+				],
+				"runtime": "node",
+				"configurationAttributes": {
+					"launch": {
+						"required": [
+							"program"
+						],
+						"properties": {
+							"program": {
+								"type": "string",
+								"description": "The path to the RunMany file to run.",
+								"default": "${file}"
+							},
+							"settingsFile": {
+								"type": "string",
+								"description": "The optional path to the settings JSON file to use. Leave empty for none.",
+								"default": ""
+							},
+							"outputFile": {
+								"type": "string",
+								"description": "The optional path to the file to redirect output to. Leave empty for none.",
+								"default": ""
+							}
+						}
+					}
+				},
+				"initialConfigurations": [
+					{
+						"name": "RunMany: Run Current File",
+						"type": "runmany",
+						"request": "launch",
+						"program": "${file}"
+					}
+				],
+				"configurationSnippets": [
+					{
+						"label": "RunMany: Run Current File",
+						"description": "Run the currently focused file with RunMany.",
+						"body": {
+							"name": "RunMany: Current File",
+							"type": "runmany",
+							"request": "launch",
+							"program": "${file}"
+						}
+					},
+					{
+						"label": "RunMany: Run Custom File",
+						"description": "Run a custom file with RunMany.",
+						"body": {
+							"name": "RunMany: Custom File",
+							"type": "runmany",
+							"request": "launch",
+							"program": "myfile.many",
+							"settingsFile": "",
+							"outputFile": ""
+						}
+					}
+				]
+			}
+		]
 	}
 }

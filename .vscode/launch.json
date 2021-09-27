@@ -17,7 +17,7 @@
 			"outFiles": [
 				"${workspaceFolder}/out/**/*.js"
 			],
-			"preLaunchTask": "makesyntax"
+			"preLaunchTask": "npm: watch"
 		}
 	]
 }

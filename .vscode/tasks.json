@@ -2,15 +2,6 @@
 	"version": "2.0.0",
 	"tasks": [
 		{
-			"label": "makesyntax",
-			"command": "python syntax_maker/syntax_maker.py",
-			"type": "shell",
-			"presentation": {
-				"reveal": "silent",
-				"clear": true
-			}
-		},
-		{
 			"type": "npm",
 			"script": "watch",
 			"problemMatcher": "$tsc-watch",
@@ -21,6 +12,15 @@
 			"group": {
 				"kind": "build",
 				"isDefault": true
+			}
+		},
+		{
+			"label": "makesyntax",
+			"command": "python src/syntax_maker.py",
+			"type": "shell",
+			"presentation": {
+				"reveal": "silent",
+				"clear": true
 			}
 		}
 	]
