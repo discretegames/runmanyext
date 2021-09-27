@@ -9,7 +9,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [0.0.6] - 2021-09-27
 
-- TODO
+- Added ways to run RunMany files directly in VSCode:
+  - By hitting F5 (or run/debug keybind) to run current file directly.
+  - On command palette and in title menu.
+  - Via launch.json configurations that may optionally have `"settingsFile"` and `"outputFile"`.
+- Updated readme describing ways to run.
 
 ## [0.0.5] - 2021-09-23
 

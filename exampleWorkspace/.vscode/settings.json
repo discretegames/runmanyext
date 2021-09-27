@@ -1,4 +1,5 @@
 {
+	// Color customizations for RunMany files - work best on a dark mode theme:
 	"editor.tokenColorCustomizations": {
 		"textMateRules": [
 			{
