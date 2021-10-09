@@ -2,7 +2,7 @@
 	"name": "runmany",
 	"displayName": "RunMany",
 	"description": "Syntax highlighting for RunMany, a tool that can run multiple programming languages from one file.",
-	"version": "1.0.0",
+	"version": "1.0.1",
 	"author": {
 		"name": "discretegames",
 		"url": "https://github.com/discretegames",
