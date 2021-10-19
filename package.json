@@ -2,7 +2,7 @@
 	"name": "runmany",
 	"displayName": "RunMany",
 	"description": "Syntax highlighting for RunMany, a tool that can run multiple programming languages from one file.",
-	"version": "1.0.1",
+	"version": "1.0.2",
 	"author": {
 		"name": "discretegames",
 		"url": "https://github.com/discretegames",
@@ -130,7 +130,7 @@
 				},
 				"initialConfigurations": [
 					{
-						"name": "RunMany: Run Current File",
+						"name": "RunMany: Current File",
 						"type": "runmany",
 						"request": "launch",
 						"program": "${file}"
@@ -138,18 +138,8 @@
 				],
 				"configurationSnippets": [
 					{
-						"label": "RunMany: Run Current File",
-						"description": "Run the currently focused file with RunMany.",
-						"body": {
-							"name": "RunMany: Current File",
-							"type": "runmany",
-							"request": "launch",
-							"program": "${file}"
-						}
-					},
-					{
-						"label": "RunMany: Run Custom File",
-						"description": "Run a custom file with RunMany.",
+						"label": "RunMany: Run File",
+						"description": "Run a .many file with RunMany.",
 						"body": {
 							"name": "RunMany: Custom File",
 							"type": "runmany",
