@@ -57,10 +57,7 @@
 		},
 
 		"also-header": {
-			"name": "meta.also-header.many",
-			"match": "^(Also)\\s*(:)",
-			"captures": {
-				"1": { "name": "keyword.control.also.many" },
+			"name": "meta.also-header.mtrol.also.many" },
 				"2": { "name": "punctuation.definition.header.end.many" }
 			}
 		},

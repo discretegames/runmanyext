@@ -1,11 +1,15 @@
 <NAME>       , <ID>        , <SOURCE>
 Ada          , ada         , ada
+ARM		     , arm         , arm
+Bash         , bash        , shell
+Batch		 , batch       , batchfile
 C            , c           , c
 C#           , csharp      , cs
 Clojure      , clojure     , clojure
 COBOL        , cobol       , cobol
 C\\+\\+      , cpp         , cpp
 Dart         , dart        , dart
+Erlang	     , erlang      , erlang
 Fortran      , fortran     , fortran.modern
 F#           , fsharp      , fsharp
 Go           , go          , go
@@ -17,10 +21,13 @@ Julia        , julia       , julia
 Kotlin       , kotlin      , kotlin
 Lisp         , lisp        , lisp
 Lua          , lua         , lua
+MIPS 	     , mips        , mips
 Objective-C  , objectivec  , objc
+OCaml        , ocaml       , ocaml
 Pascal       , pascal      , pascal
 Perl         , perl        , perl
 PHP          , php         , php
+PowerShell   , powershell  , powershell
 Python       , python      , python
 Python 2     , python2     , python
 R            , r           , r
@@ -31,5 +38,6 @@ Scala        , scala       , scala
 Scheme       , scheme      , scheme
 Swift        , swift       , swift
 TypeScript   , typescript  , ts
+x86          , x86         , asm.x86_64
 VBScript     , vbscript    , vbs
 Visual Basic , visualbasic , asp.vb.net

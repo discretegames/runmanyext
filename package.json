@@ -2,7 +2,7 @@
 	"name": "runmany",
 	"displayName": "RunMany",
 	"description": "Syntax highlighting for RunMany, a tool that can run multiple programming languages from one file.",
-	"version": "1.0.2",
+	"version": "2.0.0",
 	"author": {
 		"name": "discretegames",
 		"url": "https://github.com/discretegames",
@@ -70,7 +70,7 @@
 			{
 				"language": "many",
 				"scopeName": "source.many",
-				"path": "./syntaxes/many.tmLanguage.json",
+				"path": "./syntax_maker/dev.many.tmLanguage.json",
 				"embeddedLanguages": {}
 			}
 		],
