@@ -1,0 +1,33 @@
+VSCode built-in syntax highlighting colors
+from Developer: Inspect Editor Tokens and Scopes (ctrl+shift+alt+I)
+
+1. dark blue = keyword. OR storage. OR constant.language.
+2. purple = keyword.control.
+3. turquoise = entity.name.type.
+4. maroon = string.
+5. dark green = comment.
+6. light blue = variable. OR entity.other.attribute-name.
+7. medium blue = variable.other.constant
+8. light yellow = support.function.
+9. light green = constant.numeric.
+10. pure red = invalid.
+11. dark red = string.regexp.
+
+10 colors overall, and not counting bracket colors nor white which is used for anything else
+
+Colors RunMany needs:
+- % comments  = dark green comment
+- %%% comments = dark green comment
+- post-STOP., pre-START: = dark green comment (though pre-START: requires semantic highlighting sadly)
+- Argv snippet = light green? dark red ?
+- Stdin snippet = maroon string
+- Settings/Stdin/Argv/for/Also/End keywords = purple or dark blue
+- language names in stdin/argv sections = turquoise? light blue?
+- language names in code sections = purple? turquoise?
+- START/STOP keywords = dark green? light yellow?
+- ! ?
+- @ ?
+- other 
+not using light yellow, medium blue
+
+

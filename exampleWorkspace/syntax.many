@@ -57,12 +57,15 @@ Also: baz %%% an also in an argv or stdin section is given as an additional inpu
 % "Stdin:" or "Stdin for <comma separated language names>:" starts an stdin section
 Stdin for Python: 123
 Also: 456
+
 	
 
 Python:
 	import sys
 	print('Argv was', sys.argv[1])
 	print('Stdin was', input())
+Also:
+	pass
 
 JavaScript:
 	console.log('Argv was', process.argv[2])

@@ -1,6 +1,6 @@
 {
 	"comments": {
-		"lineComment": "%" // Limited because Ctrl+/ doesn't always add the % to the very front of the line.
+		"lineComment": "%%%"
 	},
 	// symbols used as brackets
 	"brackets": [
