@@ -4,32 +4,38 @@
 	"name": "RunMany",
 	"fileTypes": [".many", ".runmany"],
 	"patterns": [
-		{ "include": "#start" },
-		{ "include": "#stop" },
-		{ "include": "#comment" },
-		{ "include": "#disabled-section" },
-		{ "include": "#enabled-section" },
+		{ "include": "#test-lang" },
+		{ "include": "start" },
+		{ "include": "stop" },
+		{ "include": "comment" },
+		{ "include": "disabled-section" },
 		{ "include": "settings-section" },
-		{ "include": "argv-section-list" },
-		{ "include": "stdin-section-list" },
-		{ "include": "python-section-list" },
-		{ "include": "unknown-section-list" },
-		{ "include": "#invalid-header" }
+		{ "include": "invalid-header" }
 	],
 	"repository": {
+		"test-lang": {
+			"name": "meta.test-lang",
+			"begin": "^LANG:",
+			"while": "(^%.*$)|(?<=(DDD.*$))|^(?= {4}|\\t|\\s*$)",
+			"whileCaptures": {
+				"1": { "patterns": [{ "include": "#comment" }] },
+				"2": { "name": "comment.block.umm" }
+			},
+			"patterns": [{ "include": "source.json" }]
+		},
+
 		"start": {
 			"name": "comment.block.start.many",
-			"match": "^(START\\s*:)\\s*(%%%.*)?$",
+			"match": "^(START\\s*:)(?=\\s*(?:%%%.*)?$)",
 			"captures": {
-				"1": { "name": "comment.block.definition.start.many" },
-				"2": { "patterns": [{ "include": "#inline-comment" }] }
+				"1": { "name": "keyword.control.definition.start.many" }
 			}
 		},
 		"stop": {
 			"name": "comment.block.stop.many",
-			"begin": "^(STOP\\s*\\.)\\s*(?:%%%.*)?$",
+			"begin": "^(STOP\\s*\\.)(?=\\s*(?:%%%.*)?$)",
 			"beginCaptures": {
-				"1": { "name": "comment.block.definition.stop.many" }
+				"1": { "name": "keyword.control.definition.stop.many" }
 			},
 			"while": ""
 		},
@@ -41,11 +47,18 @@
 				"2": { "name": "punctuation.definition.comment.inline.many" }
 			}
 		},
+		"section": {
+			"name": "string.meta.section.many",
+			"begin": "(?=^(?=\\S)(?![!@]?\\s*Also\\s*:)[^:]*:)",
+			"end": "(?=^(?=\\S)(?![!@]?\\s*Also\\s*:)[^:]*:)|(^End\\s*\\.)(?=\\s*(?:%%%.*)?$)|(?=STOP\\s*\\.\\s*(?:%%%.*)?$)",
+			"patterns": [{ "include": "#comment" }, { "include": "#dis" }, { "include": "#invalid-header" }]
+		},
+
 		"disabled-section": {
 			"name": "support.function.section.disabled.many",
 			"begin": "^(!!)[^:]*:",
 			"beginCaptures": { "1": { "name": "punctuation.definition.section.disabled.begin.many" } },
-			"end": "^(End\\s*\\.)\\s*(%%%.*)?$|(?=^STOP\\s*.\\s*(?:%%%.*)?$)|(?=^(?![!@]?Also\\s*:)[^:]*:)",
+			"end": "(^End\\s*\\.)(?=\\s*(?:%%%.*)?$)|(?=STOP\\s*\\.\\s*(?:%%%.*)?$)|(?=^(?=\\S)(?![!@]?\\s*Also\\s*:)[^:]*:)",
 			"patterns": [
 				{ "include": "#comment" },
 				{ "match": "^[!@]?(Also)\\s*(:)" },
@@ -53,19 +66,31 @@
 			]
 		},
 
-		"enabled-section": {
-			"name": "string.meta.section.enabled.many",
-			"begin": "^[^:]*:",
-			"end": "^(End\\s*\\.)\\s*(%%%.*)?$|(?=^STOP\\s*.\\s*(?:%%%.*)?$)|(?=^(?![!@]?Also\\s*:)[^:]*:)"
+		"settings-section": {
+			"name": "meta.TO-NAME.block.json",
+			"begin": "^(?=\\S)(?:@@)?\\s*[!@]?\\s*Settings\\s*:",
+			"end": "(^End\\s*\\.)(?=\\s*(?:%%%.*)?$)|(?=STOP\\s*\\.\\s*(?:%%%.*)?$)|(?=^(?=\\S)(?![!@]?\\s*Also\\s*:)[^:]*:)",
+			"patterns": [{ "include": "#disabled-settings-snippet" }, { "include": "#settings-snippet" }]
 		},
 
-		"settings-json": {
-			"name": "meta.embedded.block.json",
-			"begin": "(?=^(?: {4}|\\t)\\s*\\{)",
-			"while": "(^%.*$)|^(?= {4}|\\t|\\s*$)",
-			"whileCaptures": { "1": { "patterns": [{ "include": "#leading-comment" }] } },
-			"patterns": [{ "include": "source.json" }, { "include": "#after-settings-json" }]
+		"disabled-settings-snippet": {
+			"name": "support.function.TO-NAME.snippet.disabled.settings.many",
+			"begin": "(?<=^(?:@@)?\\s*!\\s*Settings\\s*:)|^!\\s*Also\\s*:",
+			"end": "(?=^End\\s*\\.\\s*(?:%%%.*)?$)|(?=STOP\\s*\\.\\s*(?:%%%.*)?$)|(?=^(?=\\S)[^:]*:)",
+			"patterns": [{ "include": "#comment" }, { "include": "#invalid-header" }]
 		},
+
+		"settings-snippet": {
+			"name": "meta.numeric.TO-NAME.snippet.settings.many",
+			"begin": "(?<=^(?:@@)?\\s*[!@]?\\s*Settings\\s*:)|^(?=\\S)[!@]?\\s*(Also)\\s*:",
+			"beginCaptures": {
+				"1": { "name": "keyword.control.also" }
+			},
+			"while": ".*",
+			"end": "(?=^End\\s*\\.\\s*(?:%%%.*)?$)|(?=STOP\\s*\\.\\s*(?:%%%.*)?$)|(?=^(?=\\S)[^:]*:)",
+			"patterns": [{ "include": "#comment" }, { "include": "#invalid-header" }, { "include": "source.json" }]
+		},
+
 		"after-settings-json": {
 			"name": "invalid.illegal.expected-end-of-json.many",
 			"begin": "(?<=\\})",

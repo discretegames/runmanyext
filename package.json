@@ -70,7 +70,7 @@
 			{
 				"language": "many",
 				"scopeName": "source.many",
-				"path": "./syntax_maker/dev.many.tmLanguage.json",
+				"path": "./syntax_maker/new.dev.many.tmLanguage.json",
 				"embeddedLanguages": {}
 			}
 		],

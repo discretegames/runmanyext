@@ -1,8 +1,29 @@
-Settings:
 
 
 
-%hello???
+
+
+START  : %%%jfjk
+
+STOP   . %%% ok
+Python:
+	print(9) %%%ooih
+%hmm
+
+S:
+	%%%fff
+STOP.
+End. %%% fine
+
+% foo
+
+
+STOP. %%% ok
+
+%f umm
+
+Python:
+	foo
 
 !!Argv:
  	%%%
