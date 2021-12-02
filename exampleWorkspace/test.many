@@ -2,12 +2,14 @@
 
 
 
-Section: blah
+@@@Settings: blah
 	foo
 %% comment
  %% comment
 	bar
-!Also: aaa
+End   .
+
+HmmAlso: aaa
 	baz
 Also   :
 End.

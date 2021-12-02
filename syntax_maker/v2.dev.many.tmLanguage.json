@@ -42,7 +42,7 @@
 		},
 		"section": {
 			"name": "meta.section.many",
-			"begin": "^(?=\\S)(?=(?!(?:!!\\s*)?(?:[!@]\\s*)?Also\\s*:)[^:]*:)",
+			"begin": "^(?=\\S)(?=(?!(?:(?:!!|@@)\\s*)?(?:[!@]\\s*)?Also\\s*:)[^:]*:)",
 			"while": "^(?=(\\s*%%.*$)| {4}|\\t|\\s*$|(?:[!@]\\s*)?Also\\s*:|End\\s*\\.\\s*$)",
 			"whileCaptures": { "1": { "patterns": [{ "include": "#comment" }] } },
 			"patterns": [{ "include": "#disabled-section" }, { "include": "#enabled-section" }]
@@ -61,10 +61,11 @@
 			"while": ""
 		},
 		"enabled-section": {
-			"name": "keyword.enabled-section.many",
-			"begin": "",
+			"name": "meta.enabled-section.many",
+			"begin": "^(@@\\s*)?",
 			"while": "",
-			"patterns": [{ "include": "#enabled-end" }]
+			"beginCaptures": { "1": { "name": "variable.other.constant.punctuation.definition.solo-section.many" } },
+			"patterns": [{ "include": "#enabled-end" }, { "include": "#settings-section" }]
 		},
 		"enabled-end": {
 			"name": "meta.enabled-end.many",
@@ -78,10 +79,9 @@
 		},
 
 		"settings-section": {
-			"name": "meta.TO-NAME.block.json",
-			"begin": "^(?=\\S)(?:@@)?\\s*[!@]?\\s*Settings\\s*:",
-			"end": "(^End\\s*\\.)(?=\\s*(?:%%%.*)?$)|(?=STOP\\s*\\.\\s*(?:%%%.*)?$)|(?=^(?=\\S)(?![!@]?\\s*Also\\s*:)[^:]*:)",
-			"patterns": [{ "include": "#disabled-settings-snippet" }, { "include": "#settings-snippet" }]
+			"name": "entity.name.type.setting-section.many",
+			"begin": "\\G(?=(?:[!@]\\s*)?Settings:)",
+			"while": "^(?!End\\s*\\.)"
 		},
 
 		"disabled-settings-snippet": {
