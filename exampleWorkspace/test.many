@@ -2,35 +2,32 @@
 
 
 
-@@!Settings: blah
-	foo
-%% comment
- %% comment
-	bar
+Settings:
+	{
+	"foo": 7777,
+%% " }
+	"a": [2
+		1, 2, 3
+	]
+	}
+	foooo
 	
-!Also:
-	foo
-
-@Also: foo
-End   .
-
-HmmAlso: aaa
-	baz
-Also   :
-End.
-End.
 Also:
-	oo:
-%% comment
+ %% comment
 	foo
-
-STOP.
-End.
-%%comment
-
-
-
-!!Also:
+!Also:
+	%% comment
+	foo
+	
 
 End.
 
+!!sAlso:
+
+%% comment:
+	foo
+%% comment
+Also: foo
+%% comment:
+
+	End.

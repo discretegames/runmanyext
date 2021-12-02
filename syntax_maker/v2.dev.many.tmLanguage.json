@@ -32,9 +32,7 @@
 		"comment": {
 			"name": "comment.line.many",
 			"match": "^\\s*(%%).*$",
-			"captures": {
-				"1": { "name": "punctuation.definition.comment.many" }
-			}
+			"captures": { "1": { "name": "punctuation.definition.comment.many" } }
 		},
 		"invalid-headerTODO": {
 			"name": "invalid.illegal.unrecognized-header.many",
@@ -43,8 +41,8 @@
 		"section": {
 			"name": "meta.section.many",
 			"begin": "^(?=\\S)(?=(?!(?:(?:!!|@@)\\s*)?(?:[!@]\\s*)?Also\\s*:)[^:]*:)",
-			"while": "^(?=(\\s*%%.*$)| {4}|\\t|\\s*$|(?:[!@]\\s*)?Also\\s*:|End\\s*\\.\\s*$)",
-			"whileCaptures": { "1": { "patterns": [{ "include": "#comment" }] } },
+			"while": "^(?=\\s*%%.*$| {4}|\\t|\\s*$|(?:[!@]\\s*)?Also\\s*:|End\\s*\\.\\s*$)",
+			"TODOwhileCaptures": { "1": { "patterns": [{ "include": "#comment" }] } },
 			"patterns": [{ "include": "#disabled-section" }, { "include": "#enabled-section" }]
 		},
 		"disabled-section": {
@@ -62,7 +60,7 @@
 		},
 		"enabled-section": {
 			"name": "meta.enabled-section.many",
-			"begin": "^(@@\\s*)?",
+			"begin": "^(?:(@@)\\s*)?",
 			"while": "",
 			"beginCaptures": { "1": { "name": "variable.other.constant.punctuation.definition.solo-section.many" } },
 			"patterns": [{ "include": "#enabled-end" }, { "include": "#settings-section" }]
@@ -73,40 +71,37 @@
 			"begin": "^(End)\\s*(\\.)",
 			"while": "",
 			"beginCaptures": {
-				"1": { "name": "keyword.control.end.many" },
+				"1": { "name": "keyword.section.end.many" },
 				"2": { "name": "punctuation.definition.end.many" }
 			}
 		},
-		"settings-section": {
-			"name": "entity.name.type.setting-section.many",
-			"begin": "\\G(?=(?:[!@]\\s*)?Settings:)",
-			"while": "^(?!End\\s*\\.)",
-			"patterns": [{ "include": "#disabled-snippet" }, { "include": "#settings-snippet" }]
-		},
-
 		"disabled-snippet": {
 			"name": "support.function.disabled-snippet.many",
 			"begin": "\\G(!)",
 			"while": "^(?!(?:[!@]\\s*)?Also\\s*:)",
 			"beginCaptures": { "1": { "name": "punctuation.definition.disabled-snippet.many" } }
 		},
-
-		"settings-snippet-old": {
-			"name": "meta.numeric.TO-NAME.snippet.settings.many",
-			"begin": "(?<=^(?:@@)?\\s*[!@]?\\s*Settings\\s*:)|^(?=\\S)[!@]?\\s*(Also)\\s*:",
+		"settings-section": {
+			"name": "meta.setting-section.many",
+			"begin": "\\G(?=(?:[!@]\\s*)?Settings:)",
+			"while": "^(?!End\\s*\\.)",
+			"patterns": [{ "include": "#disabled-snippet" }, { "include": "#settings-snippet" }]
+		},
+		"settings-snippet": {
+			"name": "meta.settings-snippet.many",
+			"begin": "\\G(?:(@)\\s*)?(?:(Settings)|(Also))\\s*(:)",
+			"while": "(^\\s*%%.*$)|^(?!(?:[!@]\\s*)?Also\\s*:)",
+			"whileCaptures": { "1": { "patterns": [{ "include": "#comment" }] } },
 			"beginCaptures": {
-				"1": { "name": "keyword.control.also" }
+				"1": { "name": "variable.other.constant.punctuation.definition.solo-snippet.many" },
+				"2": { "name": "keyword.section.settings.many" },
+				"3": { "name": "keyword.section.also.many" },
+				"4": { "name": "punctuation.definition.header-end.many" }
 			},
-			"while": ".*",
-			"end": "(?=^End\\s*\\.\\s*(?:%%%.*)?$)|(?=STOP\\s*\\.\\s*(?:%%%.*)?$)|(?=^(?=\\S)[^:]*:)",
-			"patterns": [{ "include": "#comment" }, { "include": "#invalid-header" }, { "include": "source.json" }]
+			"patterns": [{ "include": "source.json" }]
 		},
 
-		"after-settings-json": {
-			"name": "invalid.illegal.expected-end-of-json.many",
-			"begin": "(?<=\\})",
-			"while": ""
-		},
+		"TODO maybe have settings-header and also-header, then argv header, etc ?": {},
 
 		"language-list": {
 			"name": "meta.language-list.many",
@@ -138,14 +133,6 @@
 				"1": { "name": "storage.section.input-also.many" },
 				"2": { "name": "punctuation.definition.header.end.many" }
 			}
-		},
-
-		"disabled-also-section": {
-			"name": "comment.block.also-section.disabled.many",
-			"begin": "^(!)\\s*Also\\s*:",
-			"beginCaptures": { "1": { "name": "punctuation.definition.disabled.begin.many" } },
-			"while": "(^%.*$)|^(?= {4}|\\t|\\s*$)",
-			"whileCaptures": { "1": { "patterns": [{ "include": "#leading-comment" }] } }
 		},
 
 		"argv-section-list": {
