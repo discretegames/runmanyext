@@ -1,9 +1,16 @@
 
+Also:
+@@@Argv	for fjj:
+	dfjkjd
+	%% test
+
+@Also:
 
 
-
-Settings:
+%%:
+@@  @ Settings:
 	{"f": "fpp",
+%%Settings:
 %%:
 	"f": "fpp"}
 Also:
@@ -14,7 +21,18 @@ Also:
 		1, 2, 3
 	]
 	}
-Also: hmm
+%%:
+Also: "ok"
+
+
+Settings:
+%%:
+	[1, 2, 3]
+%%:
+%%:
+Also:
+	%%:
+	[1, 2, {"":""}]
 
 !Also:
 	%% hmm

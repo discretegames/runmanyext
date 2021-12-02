@@ -94,22 +94,38 @@
 		},
 		"settings-snippet": {
 			"name": "meta.settings-snippet.many",
-			"begin": "\\G(?:(@)\\s*)?(?:(Settings)|(Also))\\s*(:)",
+			"begin": "\\G(?:(@)\\s*)?(?:(Also)\\s*|(Settings)\\s*)(:)",
 			"while": "(^\\s*%%.*$)|^(?!(?:[!@]\\s*)?Also\\s*:)",
 			"whileCaptures": { "1": { "patterns": [{ "include": "#comment" }] } },
 			"beginCaptures": {
 				"1": { "name": "variable.other.constant.punctuation.definition.solo-snippet.many" },
-				"2": { "name": "keyword.section.settings.many" },
-				"3": { "name": "keyword.section.also.many" },
+				"2": { "name": "keyword.section.also.many" },
+				"3": { "name": "keyword.section.settings.many" },
 				"4": { "name": "punctuation.definition.header-end.many" }
 			},
+			"contentName": "meta.settings-snippet.content.many",
 			"patterns": [{ "include": "source.json" }]
 		},
 		"argv-section": {
 			"name": "meta.argv-section.many",
-			"begin": "\\G(?=(?:[!@]\\s*)?Argv\\s*(?:\bfor(?=[\\s:])[^:]*)?:)",
+			"begin": "\\G(?=(?:[!@]\\s*)?Argv\\s*(?:\\bfor(?=[\\s:])[^:]*)?:)",
 			"while": "^(?!End\\s*\\.)",
 			"patterns": [{ "include": "#disabled-snippet" }, { "include": "#argv-snippet" }]
+		},
+		"argv-snippet": {
+			"name": "meta.argv-snippet.many",
+			"begin": "\\G(?:(@)\\s*)?(?:(Also)\\s*|(Argv)\\s*(?:\\b(for)(?=[\\s:])([^:]*))?)(:)",
+			"while": "(^\\s*%%.*$)|^(?!(?:[!@]\\s*)?Also\\s*:)",
+			"whileCaptures": { "1": { "patterns": [{ "include": "#comment" }] } },
+			"beginCaptures": {
+				"1": { "name": "variable.other.constant.punctuation.definition.solo-snippet.many" },
+				"2": { "name": "keyword.section.also.many" },
+				"3": { "name": "keyword.section.argv.many" },
+				"4": { "name": "keyword.section.for.many" },
+				"5": { "name": "comment.TODO.list" },
+				"6": { "name": "punctuation.definition.header-end.many" }
+			},
+			"contentName": "string.argv-snippet.content.many"
 		},
 
 		"language-list": {
