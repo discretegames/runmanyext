@@ -2,7 +2,7 @@
 
 
 
-Settings:
+!!!Settings: 
 	{
 	"foo": 7777,
 %% " }
@@ -10,16 +10,15 @@ Settings:
 		1, 2, 3
 	]
 	}
-	foooo
-	
-Also:
- %% comment
-	foo
 !Also:
+	%% hmm
+	{"d": 4}%% comment
+	foo
+@Also:
 	%% comment
 	foo
-	
-
+End.
+	foo
 End.
 
 !!sAlso:

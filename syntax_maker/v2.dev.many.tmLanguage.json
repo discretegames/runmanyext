@@ -42,13 +42,13 @@
 			"name": "meta.section.many",
 			"begin": "^(?=\\S)(?=(?!(?:(?:!!|@@)\\s*)?(?:[!@]\\s*)?Also\\s*:)[^:]*:)",
 			"while": "^(?=\\s*%%.*$| {4}|\\t|\\s*$|(?:[!@]\\s*)?Also\\s*:|End\\s*\\.\\s*$)",
-			"TODOwhileCaptures": { "1": { "patterns": [{ "include": "#comment" }] } },
 			"patterns": [{ "include": "#disabled-section" }, { "include": "#enabled-section" }]
 		},
 		"disabled-section": {
-			"name": "support.function.disabled-section.many",
+			"name": "string.regexp.disabled-section.many",
 			"begin": "^(!!)",
-			"while": "",
+			"while": "(^\\s*%%.*$)?",
+			"whileCaptures": { "1": { "patterns": [{ "include": "#comment" }] } },
 			"beginCaptures": { "1": { "name": "punctuation.definition.disabled-section.many" } },
 			"patterns": [{ "include": "#disabled-end" }]
 		},
@@ -62,7 +62,7 @@
 			"name": "meta.enabled-section.many",
 			"begin": "^(?:(@@)\\s*)?",
 			"while": "",
-			"beginCaptures": { "1": { "name": "variable.other.constant.punctuation.definition.solo-section.many" } },
+			"beginCaptures": { "1": { "name": "variable.other.punctuation.definition.solo-section.many" } },
 			"patterns": [{ "include": "#enabled-end" }, { "include": "#settings-section" }]
 		},
 		"enabled-end": {
@@ -76,9 +76,10 @@
 			}
 		},
 		"disabled-snippet": {
-			"name": "support.function.disabled-snippet.many",
+			"name": "string.regexp.disabled-snippet.many",
 			"begin": "\\G(!)",
-			"while": "^(?!(?:[!@]\\s*)?Also\\s*:)",
+			"while": "(^\\s*%%.*$)|^(?!(?:[!@]\\s*)?Also\\s*:)",
+			"whileCaptures": { "1": { "patterns": [{ "include": "#comment" }] } },
 			"beginCaptures": { "1": { "name": "punctuation.definition.disabled-snippet.many" } }
 		},
 		"settings-section": {
