@@ -2,7 +2,9 @@
 
 
 
-!!!Settings: 
+@Settingsf:
+	{"f": "fpp"}
+Also:
 	{
 	"foo": 7777,
 %% " }
@@ -10,6 +12,8 @@
 		1, 2, 3
 	]
 	}
+Also: hmm
+
 !Also:
 	%% hmm
 	{"d": 4}%% comment

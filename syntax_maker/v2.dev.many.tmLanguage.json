@@ -102,6 +102,23 @@
 			"patterns": [{ "include": "source.json" }]
 		},
 
+		"settings-snippet-2": {
+			"name": "meta.settings-snippet.many",
+			"begin": "\\G(?:(@)\\s*)?(Settings:)",
+			"while": "(^\\s*%%.*$)|^(?!(?:[!@]\\s*)?Also\\s*:)",
+			"whileCaptures": { "1": { "patterns": [{ "include": "#comment" }] } },
+			"beginCaptures": {
+				"1": { "name": "variable.other.constant.punctuation.definition.solo-snippet.many" },
+				"2": { "patterns": [{ "include": "#header" }] }
+			},
+			"patterns": [{ "include": "source.json" }]
+		},
+
+		"header": {
+			"name": "constant.numeric.header.many",
+			"match": ".*"
+		},
+
 		"TODO maybe have settings-header and also-header, then argv header, etc ?": {},
 
 		"language-list": {
