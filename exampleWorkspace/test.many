@@ -1,20 +1,12 @@
 
+
+
 START:
 
 
-Python:
+
+
+!!Soo:
 	foo
+	%% hmm (
 End.
-
-!Also:
-%% hmm
-End.
-foo
-
-
-Python, foothon:
-START:
-
-STOP.
-
-foo

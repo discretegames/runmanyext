@@ -12,15 +12,13 @@ Python:
 
 S:
 	%%%fff
-STOP.
 End. %%% fine
 
-% foo
+%% foo
 
 
-STOP. %%% ok
 
-%f umm
+%%f umm
 
 Python:
 	foo
