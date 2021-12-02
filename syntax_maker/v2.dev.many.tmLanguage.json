@@ -4,39 +4,29 @@
 	"name": "RunMany",
 	"fileTypes": [".many", ".runmany"],
 	"patterns": [
-		{ "include": "#test-lang" },
-		{ "include": "start" },
-		{ "include": "stop" },
+		{ "include": "#start" },
+		{ "include": "#stop" },
 		{ "include": "comment" },
 		{ "include": "disabled-section" },
 		{ "include": "settings-section" },
 		{ "include": "invalid-header" }
 	],
 	"repository": {
-		"test-lang": {
-			"name": "meta.test-lang",
-			"begin": "^LANG:",
-			"hmm-while": "(^\\s*%%.*$)|^(?= {4}|\\t|\\s*$)",
-			"while": "(?=.*$(?<=(%%%.*)$))|^(?= {4}|\\t|\\s*$)",
-			"whileCaptures": {
-				"1111": { "patterns": [{ "include": "#comment" }] },
-				"1": { "name": "comment.test" }
-			},
-			"patterns": [{ "include": "source.json" }]
-		},
-
 		"start": {
-			"name": "comment.block.start.many",
-			"match": "^(START\\s*:)(?=\\s*(?:%%%.*)?$)",
+			"name": "meta.start.many",
+			"match": "^(START)\\s*(:)\\s*$",
 			"captures": {
-				"1": { "name": "keyword.control.definition.start.many" }
+				"1": { "name": "keyword.control.definition.start.many" },
+				"2": { "name": "punctuation.definition.start.many" }
 			}
 		},
 		"stop": {
-			"name": "comment.block.stop.many",
-			"begin": "^(STOP\\s*\\.)(?=\\s*(?:%%%.*)?$)",
+			"name": "meta.stop.many",
+			"contentName": "comment.block.stop.many",
+			"begin": "^(STOP)\\s*(\\.)\\s*$",
 			"beginCaptures": {
-				"1": { "name": "keyword.control.definition.stop.many" }
+				"1": { "name": "keyword.control.definition.stop.many" },
+				"2": { "name": "punctuation.definition.stop.many" }
 			},
 			"while": ""
 		},
