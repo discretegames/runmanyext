@@ -2,8 +2,10 @@
 
 
 
-@Settingsf:
-	{"f": "fpp"}
+Settings:
+	{"f": "fpp",
+%%:
+	"f": "fpp"}
 Also:
 	{
 	"foo": 7777,

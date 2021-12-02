@@ -63,7 +63,11 @@
 			"begin": "^(?:(@@)\\s*)?",
 			"while": "",
 			"beginCaptures": { "1": { "name": "variable.other.punctuation.definition.solo-section.many" } },
-			"patterns": [{ "include": "#enabled-end" }, { "include": "#settings-section" }]
+			"patterns": [
+				{ "include": "#enabled-end" },
+				{ "include": "#settings-section" },
+				{ "include": "#argv-section" }
+			]
 		},
 		"enabled-end": {
 			"name": "meta.enabled-end.many",
@@ -83,8 +87,8 @@
 			"beginCaptures": { "1": { "name": "punctuation.definition.disabled-snippet.many" } }
 		},
 		"settings-section": {
-			"name": "meta.setting-section.many",
-			"begin": "\\G(?=(?:[!@]\\s*)?Settings:)",
+			"name": "meta.settings-section.many",
+			"begin": "\\G(?=(?:[!@]\\s*)?Settings\\s*:)",
 			"while": "^(?!End\\s*\\.)",
 			"patterns": [{ "include": "#disabled-snippet" }, { "include": "#settings-snippet" }]
 		},
@@ -101,25 +105,12 @@
 			},
 			"patterns": [{ "include": "source.json" }]
 		},
-
-		"settings-snippet-2": {
-			"name": "meta.settings-snippet.many",
-			"begin": "\\G(?:(@)\\s*)?(Settings:)",
-			"while": "(^\\s*%%.*$)|^(?!(?:[!@]\\s*)?Also\\s*:)",
-			"whileCaptures": { "1": { "patterns": [{ "include": "#comment" }] } },
-			"beginCaptures": {
-				"1": { "name": "variable.other.constant.punctuation.definition.solo-snippet.many" },
-				"2": { "patterns": [{ "include": "#header" }] }
-			},
-			"patterns": [{ "include": "source.json" }]
+		"argv-section": {
+			"name": "meta.argv-section.many",
+			"begin": "\\G(?=(?:[!@]\\s*)?Argv\\s*(?:\bfor(?=[\\s:])[^:]*)?:)",
+			"while": "^(?!End\\s*\\.)",
+			"patterns": [{ "include": "#disabled-snippet" }, { "include": "#argv-snippet" }]
 		},
-
-		"header": {
-			"name": "constant.numeric.header.many",
-			"match": ".*"
-		},
-
-		"TODO maybe have settings-header and also-header, then argv header, etc ?": {},
 
 		"language-list": {
 			"name": "meta.language-list.many",
@@ -135,24 +126,6 @@
 				{ "name": "punctuation.separator.input-language-list.many", "match": "," }
 			]
 		},
-
-		"also-header": {
-			"name": "meta.also-header.many",
-			"match": "^[!@]?(Also)\\s*(:)",
-			"captures": {
-				"1": { "name": "keyword.control.also.many" },
-				"2": { "name": "punctuation.definition.header.end.many" }
-			}
-		},
-		"input-also-header": {
-			"name": "meta.input-also-header.many",
-			"match": "^(Also)\\s*(:)",
-			"captures": {
-				"1": { "name": "storage.section.input-also.many" },
-				"2": { "name": "punctuation.definition.header.end.many" }
-			}
-		},
-
 		"argv-section-list": {
 			"name": "meta.section-list.input.argv.many",
 			"begin": "^(Argv)\\s*(?:\\b(for)\\b([^:]*))?(:)",
