@@ -43,7 +43,7 @@
 		"section": {
 			"name": "string.meta.section.many",
 			"begin": "^(?=\\S)(?=(?!(?:!!\\s*)?(?:[!@]\\s*)?Also\\s*:)[^:]*:)",
-			"while": "^(?=(\\s*%%.*$)| {4}|\\t|\\s*$|(?:[!@]\\s*)?Also\\s*:|End\\s*\\.)",
+			"while": "^(?=(\\s*%%.*$)| {4}|\\t|\\s*$|(?:[!@]\\s*)?Also\\s*:|End\\s*\\.\\s*$)",
 			"whileCaptures": { "1": { "patterns": [{ "include": "#comment" }] } },
 			"patterns": [{ "include": "#disabled-section" }]
 		},
@@ -51,9 +51,17 @@
 			"name": "support.function.section.disabled.many",
 			"begin": "^(!!)",
 			"while": "",
-			"beginCaptures": { "1": { "name": "punctuation.definition.disabled-section.many" } }
+			"beginCaptures": { "1": { "name": "punctuation.definition.disabled-section.many" } },
+			"patterns": [{ "include": "#disabled-end" }]
+		},
+		"disabled-end": {
+			"name": "meta.disabled-end.many",
+			"contentName": "invalid.illegal.section-after-end.many",
+			"begin": "^End\\s*\\.",
+			"while": ""
 		},
 
+		"enabled-sectionTODO?": {},
 		"settings-section": {
 			"name": "meta.TO-NAME.block.json",
 			"begin": "^(?=\\S)(?:@@)?\\s*[!@]?\\s*Settings\\s*:",

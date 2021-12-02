@@ -1,12 +1,19 @@
 
 
-
-START:
-
-
-
-
-!!Soo:
+!!!!Section: blah
 	foo
-	%% hmm (
+%% comment
+ %% comment
+	bar
+!Also: aaa
+	baz
+STOP.
 End.
+%%comment
+
+
+
+!!Also:
+
+End.
+
