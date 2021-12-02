@@ -77,21 +77,21 @@
 				"2": { "name": "punctuation.definition.end.many" }
 			}
 		},
-
 		"settings-section": {
 			"name": "entity.name.type.setting-section.many",
 			"begin": "\\G(?=(?:[!@]\\s*)?Settings:)",
-			"while": "^(?!End\\s*\\.)"
+			"while": "^(?!End\\s*\\.)",
+			"patterns": [{ "include": "#disabled-snippet" }, { "include": "#settings-snippet" }]
 		},
 
-		"disabled-settings-snippet": {
-			"name": "support.function.TO-NAME.snippet.disabled.settings.many",
-			"begin": "(?<=^(?:@@)?\\s*!\\s*Settings\\s*:)|^!\\s*Also\\s*:",
-			"end": "(?=^End\\s*\\.\\s*(?:%%%.*)?$)|(?=STOP\\s*\\.\\s*(?:%%%.*)?$)|(?=^(?=\\S)[^:]*:)",
-			"patterns": [{ "include": "#comment" }, { "include": "#invalid-header" }]
+		"disabled-snippet": {
+			"name": "support.function.disabled-snippet.many",
+			"begin": "\\G(!)",
+			"while": "^(?!(?:[!@]\\s*)?Also\\s*:)",
+			"beginCaptures": { "1": { "name": "punctuation.definition.disabled-snippet.many" } }
 		},
 
-		"settings-snippet": {
+		"settings-snippet-old": {
 			"name": "meta.numeric.TO-NAME.snippet.settings.many",
 			"begin": "(?<=^(?:@@)?\\s*[!@]?\\s*Settings\\s*:)|^(?=\\S)[!@]?\\s*(Also)\\s*:",
 			"beginCaptures": {

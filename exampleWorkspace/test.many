@@ -2,11 +2,16 @@
 
 
 
-@@@Settings: blah
+@@!Settings: blah
 	foo
 %% comment
  %% comment
 	bar
+	
+!Also:
+	foo
+
+@Also: foo
 End   .
 
 HmmAlso: aaa
