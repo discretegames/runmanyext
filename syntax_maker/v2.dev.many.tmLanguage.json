@@ -7,7 +7,7 @@
 		{ "include": "#start" },
 		{ "include": "#stop" },
 		{ "include": "#comment" },
-		{ "include": "disabled-section" },
+		{ "include": "#section" },
 		{ "include": "settings-section" },
 		{ "include": "invalid-header" }
 	],
@@ -37,11 +37,15 @@
 				"1": { "name": "punctuation.definition.comment.many" }
 			}
 		},
+		"invalid-headerTODO": {
+			"name": "invalid.illegal.unrecognized-header.many",
+			"match": "^(?: {1,3}\\t?(?!%%%))?\\S.*$"
+		},
+
 		"section": {
 			"name": "string.meta.section.many",
-			"begin": "(?=^(?=\\S)(?![!@]?\\s*Also\\s*:)[^:]*:)",
-			"end": "(?=^(?=\\S)(?![!@]?\\s*Also\\s*:)[^:]*:)|(^End\\s*\\.)(?=\\s*(?:%%%.*)?$)|(?=STOP\\s*\\.\\s*(?:%%%.*)?$)",
-			"patterns": [{ "include": "#comment" }, { "include": "#dis" }, { "include": "#invalid-header" }]
+			"begin": "(?=^(?!(?:[!@]\\s*)?Also\\s:)[^:]*:)",
+			"while": "^(?=%| {4}|\\t|\\s*$|(?:[!@]\\s*)?Also\\s*:|End\\s*\\.)"
 		},
 
 		"disabled-section": {
@@ -125,11 +129,6 @@
 			"beginCaptures": { "1": { "name": "punctuation.definition.disabled.begin.many" } },
 			"while": "(^%.*$)|^(?= {4}|\\t|\\s*$)",
 			"whileCaptures": { "1": { "patterns": [{ "include": "#leading-comment" }] } }
-		},
-
-		"invalid-header": {
-			"name": "invalid.illegal.unrecognized-header.many",
-			"match": "^(?: {1,3}\\t?(?!%%%))?\\S.*$"
 		},
 
 		"argv-section-list": {

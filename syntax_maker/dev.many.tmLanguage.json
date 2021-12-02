@@ -14,7 +14,7 @@
 		{ "include": "stdin-section-list" },
 		{ "include": "python-section-list" },
 		{ "include": "unknown-section-list" },
-		{ "include": "#invalid-header" }
+		{ "include": "invalid-header" }
 	],
 	"repository": {
 		"start": {

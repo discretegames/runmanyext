@@ -2,9 +2,19 @@
 START:
 
 
-%% foo
-	 		   	%% comment
+Python:
+	foo
+End.
 
+!Also:
+%% hmm
+End.
+foo
+
+
+Python, foothon:
+START:
 
 STOP.
+
 foo
