@@ -62,7 +62,7 @@
 			"name": "meta.enabled-section.many",
 			"begin": "^(?:(@@)\\s*)?",
 			"while": "",
-			"beginCaptures": { "1": { "name": "variable.other.punctuation.definition.solo-section.many" } },
+			"beginCaptures": { "1": { "name": "constant.numeric.punctuation.definition.solo-section.many" } },
 			"patterns": [
 				{ "include": "#enabled-end" },
 				{ "include": "#settings-section" },
@@ -98,7 +98,7 @@
 			"while": "(^\\s*%%.*$)|^(?!(?:[!@]\\s*)?Also\\s*:)",
 			"whileCaptures": { "1": { "patterns": [{ "include": "#comment" }] } },
 			"beginCaptures": {
-				"1": { "name": "variable.other.constant.punctuation.definition.solo-snippet.many" },
+				"1": { "name": "support.function.punctuation.definition.solo-snippet.many" },
 				"2": { "name": "keyword.section.also.many" },
 				"3": { "name": "keyword.section.settings.many" },
 				"4": { "name": "punctuation.definition.header-end.many" }
@@ -118,51 +118,29 @@
 			"while": "(^\\s*%%.*$)|^(?!(?:[!@]\\s*)?Also\\s*:)",
 			"whileCaptures": { "1": { "patterns": [{ "include": "#comment" }] } },
 			"beginCaptures": {
-				"1": { "name": "variable.other.constant.punctuation.definition.solo-snippet.many" },
+				"1": { "name": "support.function.punctuation.definition.solo-snippet.many" },
 				"2": { "name": "keyword.section.also.many" },
 				"3": { "name": "keyword.section.argv.many" },
 				"4": { "name": "keyword.section.for.many" },
-				"5": { "name": "comment.TODO.list" },
+				"5": { "patterns": [{ "include": "#input-languages" }] },
 				"6": { "name": "punctuation.definition.header-end.many" }
 			},
 			"contentName": "string.argv-snippet.content.many"
 		},
+		"input-languages": {
+			"name": "meta.input-languages.many",
+			"patterns": [
+				{ "name": "variable.other.input-languages.many", "match": "[^,:]+" },
+				{ "name": "punctuation.separator.input-languages.many", "match": "," }
+			]
+		},
 
-		"language-list": {
+		"languages": {
 			"name": "meta.language-list.many",
 			"patterns": [
 				{ "name": "entity.name.type.language-name.many", "match": "[^,:]+" },
 				{ "name": "punctuation.separator.language-list.many", "match": "," }
 			]
-		},
-		"input-language-list": {
-			"name": "meta.input-language-list.many",
-			"patterns": [
-				{ "name": "variable.other.constant.input-language-name.many", "match": "[^,:]+" },
-				{ "name": "punctuation.separator.input-language-list.many", "match": "," }
-			]
-		},
-		"argv-section-list": {
-			"name": "meta.section-list.input.argv.many",
-			"begin": "^(Argv)\\s*(?:\\b(for)\\b([^:]*))?(:)",
-			"beginCaptures": {
-				"1": { "name": "storage.section.argv.many" },
-				"2": { "name": "storage.section.argv-for.many" },
-				"3": { "patterns": [{ "include": "#input-language-list" }] },
-				"4": { "name": "punctuation.definition.header.end.many" }
-			},
-			"while": "^(?=%| {4}|\\t|\\s*$|(?:!\\s*)?Also\\s*:)",
-			"patterns": [
-				{ "include": "#disabled-also-section" },
-				{ "include": "#input-also-header" },
-				{ "include": "#argv-block" }
-			]
-		},
-		"argv-block": {
-			"name": "string.unquoted.block.argv.many",
-			"begin": "",
-			"while": "(^%.*$)|^(?= {4}|\\t|\\s*$)",
-			"whileCaptures": { "1": { "patterns": [{ "include": "#leading-comment" }] } }
 		},
 
 		"stdin-section-list": {
