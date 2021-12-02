@@ -1,12 +1,22 @@
 
 
-!!!!Section: blah
+
+
+Section: blah
 	foo
 %% comment
  %% comment
 	bar
 !Also: aaa
 	baz
+Also   :
+End.
+End.
+Also:
+	oo:
+%% comment
+	foo
+
 STOP.
 End.
 %%comment
