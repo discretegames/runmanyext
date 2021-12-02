@@ -6,7 +6,7 @@
 	"patterns": [
 		{ "include": "#start" },
 		{ "include": "#stop" },
-		{ "include": "comment" },
+		{ "include": "#comment" },
 		{ "include": "disabled-section" },
 		{ "include": "settings-section" },
 		{ "include": "invalid-header" }
@@ -32,11 +32,9 @@
 		},
 		"comment": {
 			"name": "comment.line.many",
-			"old-match": "^(%).*$|(%%%).*$",
 			"match": "^\\s*(%%).*$",
 			"captures": {
-				"1": { "name": "punctuation.definition.comment.leading.many" },
-				"2": { "name": "punctuation.definition.comment.inline.many" }
+				"1": { "name": "punctuation.definition.comment.many" }
 			}
 		},
 		"section": {
