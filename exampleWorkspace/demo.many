@@ -1,9 +1,20 @@
 
-froo
+   
+   d
+foo:
+	froo
+ d
+ d
+ Also:
+!@ Argv:
 
-@@ @ Argv:
 
+	a
 End.
+
+		djdd
+
+
 
 %%goo
 
@@ -54,8 +65,9 @@ Argv for a, b, c:
 
 Stdin for 1, 2, 3:
 
-
-
+End.
+	ok
+ok
 STOP.
 Python:
 	print(9) %%%ooih
