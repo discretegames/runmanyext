@@ -111,7 +111,7 @@
 				"4": { "name": "punctuation.definition.header-end.many" }
 			},
 			"contentName": "meta.settings-snippet.content.many",
-			"patterns": [{ "include": "source.json" }]
+			"patterns": [{ "include": "source.json" }, { "name": "meta.dummy-source.many" }]
 		},
 		"input-languages": {
 			"name": "meta.input-languages.many",

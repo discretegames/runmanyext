@@ -349,6 +349,9 @@
             "patterns": [
                 {
                     "include": "source.json"
+                },
+                {
+                    "name": "meta.dummy-source.many"
                 }
             ]
         },
