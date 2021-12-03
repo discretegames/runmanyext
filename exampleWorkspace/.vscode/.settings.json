@@ -46,14 +46,14 @@
 				"name": "RunMany Argv Content",
 				"scope": "string.unquoted.block.argv.many",
 				"settings": {
-					"foreground": "#eb8985",
+					"foreground": "#eb8985"
 				}
 			},
 			{
 				"name": "RunMany Stdin Content",
 				"scope": "string.unquoted.block.stdin.many",
 				"settings": {
-					"foreground": "#dacc7e",
+					"foreground": "#dacc7e"
 				}
 			},
 			{
@@ -63,7 +63,7 @@
 					"comment.block.also-section.disabled.many"
 				],
 				"settings": {
-					"foreground": "#858585",
+					"foreground": "#858585"
 				}
 			},
 			{

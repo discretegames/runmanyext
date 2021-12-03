@@ -16,7 +16,7 @@
 			"name": "meta.start.many",
 			"match": "^(START)\\s*(:)\\s*$",
 			"captures": {
-				"1": { "name": "keyword.control.start.many" },
+				"1": { "name": "keyword.control.start.many emphasis" },
 				"2": { "name": "punctuation.definition.start.many" }
 			}
 		},

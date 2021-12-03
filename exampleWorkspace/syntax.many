@@ -15,7 +15,7 @@ Also:
 
 
 %% everything before the last "START:" line in a file is ignored
-START:
+START       :                   
 
 
 %% "Settings:" starts a settings section where the settings JSON may be hardcoded
@@ -78,7 +78,7 @@ Python, JavaScript:
 
 
 %% everything after the first "STOP." line in a file is ignored
-STOP.
+STOP                                                                                                  .      
 
 %% The output of running this syntax.many file should be the following:
 

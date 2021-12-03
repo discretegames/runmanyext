@@ -13,19 +13,17 @@
 	"repository": {
 		"start": {
 			"name": "meta.start.many",
-			"match": "^(START)\\s*(:)\\s*$",
+			"match": "^START\\s*:\\s*$",
 			"captures": {
-				"1": { "name": "keyword.control.start.many" },
-				"2": { "name": "punctuation.definition.start.many" }
+				"0": { "name": "keyword.control markup.underline" }
 			}
 		},
 		"stop": {
 			"name": "meta.stop.many",
 			"contentName": "comment.block.stop.many",
-			"begin": "^(STOP)\\s*(\\.)\\s*$",
+			"begin": "^STOP\\s*\\.\\s*$",
 			"beginCaptures": {
-				"1": { "name": "keyword.control.stop.many" },
-				"2": { "name": "punctuation.definition.stop.many" }
+				"0": { "name": "keyword.control.stop.many markup.underline" }
 			},
 			"while": ""
 		},
