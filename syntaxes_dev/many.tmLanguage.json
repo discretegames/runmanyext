@@ -29,7 +29,7 @@
 			"while": ""
 		},
 		"comment": {
-			"name": "comment.line.many",
+			"name": "comment.line.many emphasis",
 			"match": "^\\s*(%%).*$",
 			"captures": { "1": { "name": "punctuation.definition.comment.many" } }
 		},

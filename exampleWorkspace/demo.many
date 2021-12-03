@@ -1,5 +1,5 @@
 %% Programs that print "Hello, World!" to stdout.
-%% Languages disabled with "!" are not built-in to RunMany but do have syntax highlighting support with the RunMany VSCode extension.
+START:
 
 Settings:
 	{
@@ -42,6 +42,8 @@ C#:
             }
         }
     }
+End.
+%% Languages disabled with "!" are not built-in to RunMany but do have syntax highlighting support with the RunMany VSCode extension.
 
 !Clojure: (println "Hello, World!")
 
