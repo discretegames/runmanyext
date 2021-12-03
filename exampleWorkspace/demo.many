@@ -1,9 +1,46 @@
 
 
+@@ @ Argv:
+
+froo
+
+%%goo
+
+Stdin for Python:
+
+Also:
+Also:
+Also:
+Also:
+Also:
+
+Settings:
+	pass
+Also:
+	pass
 
 
 
-START  : %%%jfjk
+Python:
+	%%hmm:
+Also:
+
+	foo
+
+Sett:
+	print(999)
+Also:
+	%% ok
+
+	print(999)
+End.
+	print(999)
+	foo
+	End:
+	%% test
+
+START:
+
 
 STOP   . %%% ok
 Python:

@@ -66,14 +66,16 @@
 			"patterns": [
 				{ "include": "#enabled-end" },
 				{ "include": "#settings-section" },
-				{ "include": "#input-section" }
+				{ "include": "#input-section" },
+				{ "include": "#unknown-section" }
 			]
 		},
 		"enabled-end": {
 			"name": "meta.enabled-end.many",
 			"contentName": "invalid.illegal.section-after-end.many",
 			"begin": "^(End)\\s*(\\.)",
-			"while": "",
+			"while": "(^\\s*%%.*$)?",
+			"whileCaptures": { "1": { "patterns": [{ "include": "#comment" }] } },
 			"beginCaptures": {
 				"1": { "name": "keyword.section.end.many" },
 				"2": { "name": "punctuation.definition.end.many" }
@@ -106,6 +108,13 @@
 			"contentName": "meta.settings-snippet.content.many",
 			"patterns": [{ "include": "source.json" }]
 		},
+		"input-languages": {
+			"name": "meta.input-languages.many",
+			"patterns": [
+				{ "name": "variable.other.input-languages.many", "match": "[^,:]+" },
+				{ "name": "punctuation.separator.input-languages.many", "match": "," }
+			]
+		},
 		"input-section": {
 			"name": "meta.input-section.many",
 			"begin": "\\G(?=(?:[!@]\\s*)?(?:Argv|Stdin)\\s*(?:\\bfor(?=[\\s:])[^:]*)?:)",
@@ -128,115 +137,55 @@
 			},
 			"contentName": "string.input-snippet.content.many"
 		},
-		"input-languages": {
-			"name": "meta.input-languages.many",
-			"patterns": [
-				{ "name": "variable.other.input-languages.many", "match": "[^,:]+" },
-				{ "name": "punctuation.separator.input-languages.many", "match": "," }
-			]
-		},
-
 		"languages": {
-			"name": "meta.language-list.many",
+			"name": "meta.languages.many",
 			"patterns": [
-				{ "name": "entity.name.type.language-name.many", "match": "[^,:]+" },
-				{ "name": "punctuation.separator.language-list.many", "match": "," }
+				{ "name": "entity.name.type.languages.many", "match": "[^,:]+" },
+				{ "name": "punctuation.separator.languages.many", "match": "," }
 			]
+		},
+		"unknown-section": {
+			"name": "meta.code-section.unknown.many",
+			"begin": "\\G",
+			"while": "^(?!End\\s*\\.)",
+			"patterns": [{ "include": "#disabled-snippet" }, { "include": "#unknown-snippet" }]
+		},
+		"unknown-snippet": {
+			"name": "meta.code-snippet.unknown.many",
+			"begin": "\\G(?:(@)\\s*)?(?:(Also)\\s*|([^:]*))(:)",
+			"while": "(^\\s*%%.*$)|^(?!(?:[!@]\\s*)?Also\\s*:)",
+			"whileCaptures": { "1": { "patterns": [{ "include": "#comment" }] } },
+			"beginCaptures": {
+				"1": { "name": "support.function.punctuation.definition.solo-snippet.many" },
+				"2": { "name": "keyword.section.also.many" },
+				"3": { "patterns": [{ "include": "#languages" }] },
+				"4": { "name": "punctuation.definition.header-end.many" }
+			},
+			"contentName": "meta.code-snippet.unknown.content.many"
 		},
 
-		"stdin-section-list": {
-			"name": "meta.section-list.input.stdin.many",
-			"begin": "^(Stdin)\\s*(?:\\b(for)\\b([^:]*))?(:)",
+		"TODOpython-section": {
+			"name": "meta.code-section.python.many",
+			"begin": "\\G(?=(?:[!@]\\s*)?(?:Argv|Stdin)\\s*(?:\\bfor(?=[\\s:])[^:]*)?:)",
+			"while": "^(?!End\\s*\\.)",
+			"patterns": [{ "include": "#disabled-snippet" }, { "include": "#python-snippet" }]
+		},
+		"python-snippet": {
+			"name": "meta.code-snippet.python.many",
+			"begin": "\\G(?:(@)\\s*)?(?:(Also)\\s*|(?:(Argv)|(Stdin))\\s*(?:\\b(for)(?=[\\s:])([^:]*))?)(:)",
+			"while": "(^\\s*%%.*$)|^(?!(?:[!@]\\s*)?Also\\s*:)",
+			"whileCaptures": { "1": { "patterns": [{ "include": "#comment" }] } },
 			"beginCaptures": {
-				"1": { "name": "storage.section.stdin.many" },
-				"2": { "name": "storage.section.stdin-for.many" },
-				"3": { "patterns": [{ "include": "#input-language-list" }] },
-				"4": { "name": "punctuation.definition.header.end.many" }
+				"1": { "name": "support.function.punctuation.definition.solo-snippet.many" },
+				"2": { "name": "keyword.section.also.many" },
+				"3": { "name": "keyword.section.argv.many" },
+				"4": { "name": "keyword.section.stdin.many" },
+				"5": { "name": "keyword.section.for.many" },
+				"6": { "patterns": [{ "include": "#languages" }] },
+				"7": { "name": "punctuation.definition.header-end.many" }
 			},
-			"while": "^(?=%| {4}|\\t|\\s*$|(?:!\\s*)?Also\\s*:)",
-			"patterns": [
-				{ "include": "#disabled-also-section" },
-				{ "include": "#input-also-header" },
-				{ "include": "#stdin-block" }
-			]
-		},
-		"stdin-block": {
-			"name": "string.unquoted.block.stdin.many",
-			"begin": "",
-			"while": "(^%.*$)|^(?= {4}|\\t|\\s*$)",
-			"whileCaptures": { "1": { "patterns": [{ "include": "#leading-comment" }] } }
-		},
-
-		"unknown-section-list": {
-			"name": "meta.section-list.code.unknown.many",
-			"begin": "^(?=\\S)(?!Also)([^:]*)(:)",
-			"beginCaptures": {
-				"1": { "patterns": [{ "include": "#language-list" }] },
-				"2": { "name": "punctuation.definition.header.end.many" }
-			},
-			"while": "^(?=%| {4}|\\t|\\s*$|(?:!\\s*)?Also\\s*:)",
-			"patterns": [
-				{ "include": "#disabled-also-section" },
-				{ "include": "#also-header" },
-				{ "include": "#unknown-block" }
-			]
-		},
-		"unknown-block": {
-			"name": "meta.embedded.block.unknown",
-			"begin": "",
-			"while": "(^%.*$)|^(?= {4}|\\t|\\s*$)",
-			"whileCaptures": { "1": { "patterns": [{ "include": "#leading-comment" }] } }
-		},
-
-		"python-section-list": {
-			"name": "meta.section-list.code.python.many",
-			"begin": "(?i)^(?=Python\\s*[,:])([^:]*)(:)",
-			"beginCaptures": {
-				"1": {
-					"patterns": [
-						{
-							"include": "#language-list"
-						}
-					]
-				},
-				"2": {
-					"name": "punctuation.definition.header.end.many"
-				}
-			},
-			"while": "^(?=%| {4}|\\t|\\s*$|(?:!\\s*)?Also\\s*:)",
-			"patterns": [
-				{
-					"include": "#disabled-also-section"
-				},
-				{
-					"include": "#also-header"
-				},
-				{
-					"include": "#python-block"
-				}
-			]
-		},
-		"python-block": {
-			"name": "meta.embedded.block.python",
-			"begin": "",
-			"while": "(^%.*$)|^(?=.*(%%%.*$))|^(?= {4}|\\t|\\s*$)",
-			"whileCaptures": {
-				"1": {
-					"patterns": [
-						{
-							"include": "#leading-comment"
-						}
-					]
-				}
-			},
-			"patterns": [
-				{
-					"include": "#inline-comment"
-				},
-				{
-					"include": "source.python"
-				}
-			]
+			"contentName": "meta.code-snippet.python.content.many",
+			"patterns": [{ "include": "source.python" }]
 		}
 	}
 }
