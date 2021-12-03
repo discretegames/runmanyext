@@ -1,5 +1,18 @@
+
 %% Programs that print "Hello, World!" to stdout.
 %% Languages disabled with "!" are not built-in to RunMany but do have syntax highlighting support with the RunMany VSCode extension.
+
+	foo
+
+print:
+	foo
+End.
+
+START:
+	foo
+
+print:
+	foo
 
 Ada:
     with Text_IO; use Text_IO;
@@ -13,7 +26,12 @@ Also:
     begin
         Put_Line("Hello, World!");
     end HelloWorld;
+End.
+%%ok
 
+	fooo
+End.
+	fooo
 
 ARM:
 	.text        
