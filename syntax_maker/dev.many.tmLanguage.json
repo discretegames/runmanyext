@@ -60,7 +60,9 @@
 			"name": "meta.enabled-section.many",
 			"begin": "^(?:(@@)\\s*)?",
 			"while": "",
-			"beginCaptures": { "1": { "name": "constant.numeric.punctuation.definition.solo-section.many" } },
+			"beginCaptures": {
+				"1": { "name": "variable.other.constant.punctuation.definition.solo-section.many strong" }
+			},
 			"patterns": [
 				{ "include": "#enabled-end" },
 				{ "include": "#settings-section" },
@@ -76,6 +78,7 @@
 			"while": "(^\\s*%%.*$)?",
 			"whileCaptures": { "1": { "patterns": [{ "include": "#comment" }] } },
 			"beginCaptures": {
+				"0": { "name": "strong" },
 				"1": { "name": "keyword.section.end.many" },
 				"2": { "name": "punctuation.definition.end.many" }
 			}
@@ -99,6 +102,7 @@
 			"while": "(^\\s*%%.*$)|^(?!(?:[!@]\\s*)?Also\\s*:)",
 			"whileCaptures": { "1": { "patterns": [{ "include": "#comment" }] } },
 			"beginCaptures": {
+				"0": { "name": "strong" },
 				"1": { "name": "support.function.punctuation.definition.solo-snippet.many" },
 				"2": { "name": "keyword.section.also.many" },
 				"3": { "name": "keyword.section.settings.many" },
@@ -110,8 +114,8 @@
 		"input-languages": {
 			"name": "meta.input-languages.many",
 			"patterns": [
-				{ "name": "variable.other.input-language.many", "match": "[^,:]+" },
-				{ "name": "punctuation.separator.input-languages.many", "match": "," }
+				{ "name": "variable.other.input-language.many strong", "match": "[^,:]+" },
+				{ "name": "punctuation.separator.input-languages.many strong", "match": "," }
 			]
 		},
 		"input-section": {
@@ -126,6 +130,7 @@
 			"while": "(^\\s*%%.*$)|^(?!(?:[!@]\\s*)?Also\\s*:)",
 			"whileCaptures": { "1": { "patterns": [{ "include": "#comment" }] } },
 			"beginCaptures": {
+				"0": { "name": "strong" },
 				"1": { "name": "support.function.punctuation.definition.solo-snippet.many" },
 				"2": { "name": "keyword.section.also.many" },
 				"3": { "name": "keyword.section.argv.many" },
@@ -139,8 +144,8 @@
 		"languages": {
 			"name": "meta.languages.many",
 			"patterns": [
-				{ "name": "entity.name.type.language.many", "match": "[^,:]+" },
-				{ "name": "punctuation.separator.languages.many", "match": "," }
+				{ "name": "entity.name.type.language.many strong", "match": "[^,:]+" },
+				{ "name": "punctuation.separator.languages.many strong", "match": "," }
 			]
 		},
 		"unknown-section": {
@@ -155,6 +160,7 @@
 			"while": "(^\\s*%%.*$)|^(?!(?:[!@]\\s*)?Also\\s*:)",
 			"whileCaptures": { "1": { "patterns": [{ "include": "#comment" }] } },
 			"beginCaptures": {
+				"0": { "name": "strong" },
 				"1": { "name": "support.function.punctuation.definition.solo-snippet.many" },
 				"2": { "name": "keyword.section.also.many" },
 				"3": { "patterns": [{ "include": "#languages" }] },
@@ -174,6 +180,7 @@
 			"while": "(^\\s*%%.*$)|^(?!(?:[!@]\\s*)?Also\\s*:)",
 			"whileCaptures": { "1": { "patterns": [{ "include": "#comment" }] } },
 			"beginCaptures": {
+				"0": { "name": "strong" },
 				"1": { "name": "support.function.punctuation.definition.solo-snippet.many" },
 				"2": { "name": "keyword.section.also.many" },
 				"3": { "patterns": [{ "include": "#languages" }] },

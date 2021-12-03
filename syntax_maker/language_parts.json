@@ -11,6 +11,7 @@
 		"while": "(^\\s*%%.*$)|^(?!(?:[!@]\\s*)?Also\\s*:)",
 		"whileCaptures": { "1": { "patterns": [{ "include": "#comment" }] } },
 		"beginCaptures": {
+			"0": { "name": "strong" },
 			"1": { "name": "support.function.punctuation.definition.solo-snippet.many" },
 			"2": { "name": "keyword.section.also.many" },
 			"3": { "patterns": [{ "include": "#languages" }] },

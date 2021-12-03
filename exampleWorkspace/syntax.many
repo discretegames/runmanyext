@@ -18,18 +18,21 @@ Also:
 START       :                   
 
 
+%% "!!" before a section header disables the entire section
 %% "Settings:" starts a settings section where the settings JSON may be hardcoded
 Settings:
+
 	{
 		"show_code": true,
 		"languages": [{"name": "JavaScript", "show_code": false}],
 		"show_equal": false
 	}
+Also:
+End.
 End.
 %% "End." can be used to explicitly end a section but is not required
 
 
-%% "!!" before a section header disables the entire section
 !!Python: print('disabled')
 Also: print('also disabled')
 
@@ -52,14 +55,17 @@ Also: print('not disabled')
 Argv: foo
 		%% test
 
-Argv for JavaScript, TypeScript: bar
-Also: baz
+Argv for JavaScript, TypeScript:
+	bar
+Also:
+	baz
 %% an "Also:"" in an argv or stdin section is given as an additional input case
 
 
 %% "Stdin:" or "Stdin for <comma separated language names>:" starts an stdin section
 Stdin for Python: 123
 Also: 456
+End.
 	
 
 Python:
@@ -75,6 +81,8 @@ JavaScript:
 Python, JavaScript:
     1//1; console = {'log': print}
     console['log']('This program runs in both Python and JS!')
+Also:
+
 
 
 %% everything after the first "STOP." line in a file is ignored

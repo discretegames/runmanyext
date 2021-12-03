@@ -20,35 +20,26 @@
             "include": "#section"
         },
         {
-            "include": "#invalid-header"
-        },
-        {
-            "include": "#invalid-content"
+            "include": "#invalid-line"
         }
     ],
     "repository": {
         "start": {
             "name": "meta.start.many",
-            "match": "^(START)\\s*(:)\\s*$",
+            "match": "^START\\s*:\\s*$",
             "captures": {
-                "1": {
-                    "name": "keyword.control.start.many"
-                },
-                "2": {
-                    "name": "punctuation.definition.start.many"
+                "0": {
+                    "name": "keyword.control markup.underline"
                 }
             }
         },
         "stop": {
             "name": "meta.stop.many",
             "contentName": "comment.block.stop.many",
-            "begin": "^(STOP)\\s*(\\.)\\s*$",
+            "begin": "^STOP\\s*\\.\\s*$",
             "beginCaptures": {
-                "1": {
-                    "name": "keyword.control.stop.many"
-                },
-                "2": {
-                    "name": "punctuation.definition.stop.many"
+                "0": {
+                    "name": "keyword.control.stop.many markup.underline"
                 }
             },
             "while": ""
@@ -62,13 +53,9 @@
                 }
             }
         },
-        "invalid-header": {
-            "name": "invalid.illegal.unrecognized-header.many",
-            "match": "^\\S.*$"
-        },
-        "invalid-content": {
-            "name": "invalid.illegal.badly-indented-content.many",
-            "match": "^ {1,3}\\t?\\S.*$"
+        "invalid-line": {
+            "name": "invalid.illegal.unrecognized-line.many",
+            "match": "^\\s*\\S.*$"
         },
         "section": {
             "name": "meta.section.many",
@@ -119,7 +106,7 @@
             "while": "",
             "beginCaptures": {
                 "1": {
-                    "name": "constant.numeric.punctuation.definition.solo-section.many"
+                    "name": "variable.other.constant.punctuation.definition.solo-section.many strong"
                 }
             },
             "patterns": [
@@ -278,6 +265,9 @@
                 }
             },
             "beginCaptures": {
+                "0": {
+                    "name": "strong"
+                },
                 "1": {
                     "name": "keyword.section.end.many"
                 },
@@ -332,6 +322,9 @@
                 }
             },
             "beginCaptures": {
+                "0": {
+                    "name": "strong"
+                },
                 "1": {
                     "name": "support.function.punctuation.definition.solo-snippet.many"
                 },
@@ -359,11 +352,11 @@
             "name": "meta.input-languages.many",
             "patterns": [
                 {
-                    "name": "variable.other.input-language.many",
+                    "name": "variable.other.input-language.many strong",
                     "match": "[^,:]+"
                 },
                 {
-                    "name": "punctuation.separator.input-languages.many",
+                    "name": "punctuation.separator.input-languages.many strong",
                     "match": ","
                 }
             ]
@@ -395,6 +388,9 @@
                 }
             },
             "beginCaptures": {
+                "0": {
+                    "name": "strong"
+                },
                 "1": {
                     "name": "support.function.punctuation.definition.solo-snippet.many"
                 },
@@ -427,11 +423,11 @@
             "name": "meta.languages.many",
             "patterns": [
                 {
-                    "name": "entity.name.type.language.many",
+                    "name": "entity.name.type.language.many strong",
                     "match": "[^,:]+"
                 },
                 {
-                    "name": "punctuation.separator.languages.many",
+                    "name": "punctuation.separator.languages.many strong",
                     "match": ","
                 }
             ]
@@ -463,6 +459,9 @@
                 }
             },
             "beginCaptures": {
+                "0": {
+                    "name": "strong"
+                },
                 "1": {
                     "name": "support.function.punctuation.definition.solo-snippet.many"
                 },
@@ -509,6 +508,9 @@
                 }
             },
             "beginCaptures": {
+                "0": {
+                    "name": "strong"
+                },
                 "1": {
                     "name": "support.function.punctuation.definition.solo-snippet.many"
                 },
@@ -563,6 +565,9 @@
                 }
             },
             "beginCaptures": {
+                "0": {
+                    "name": "strong"
+                },
                 "1": {
                     "name": "support.function.punctuation.definition.solo-snippet.many"
                 },
@@ -617,6 +622,9 @@
                 }
             },
             "beginCaptures": {
+                "0": {
+                    "name": "strong"
+                },
                 "1": {
                     "name": "support.function.punctuation.definition.solo-snippet.many"
                 },
@@ -671,6 +679,9 @@
                 }
             },
             "beginCaptures": {
+                "0": {
+                    "name": "strong"
+                },
                 "1": {
                     "name": "support.function.punctuation.definition.solo-snippet.many"
                 },
@@ -725,6 +736,9 @@
                 }
             },
             "beginCaptures": {
+                "0": {
+                    "name": "strong"
+                },
                 "1": {
                     "name": "support.function.punctuation.definition.solo-snippet.many"
                 },
@@ -779,6 +793,9 @@
                 }
             },
             "beginCaptures": {
+                "0": {
+                    "name": "strong"
+                },
                 "1": {
                     "name": "support.function.punctuation.definition.solo-snippet.many"
                 },
@@ -833,6 +850,9 @@
                 }
             },
             "beginCaptures": {
+                "0": {
+                    "name": "strong"
+                },
                 "1": {
                     "name": "support.function.punctuation.definition.solo-snippet.many"
                 },
@@ -887,6 +907,9 @@
                 }
             },
             "beginCaptures": {
+                "0": {
+                    "name": "strong"
+                },
                 "1": {
                     "name": "support.function.punctuation.definition.solo-snippet.many"
                 },
@@ -941,6 +964,9 @@
                 }
             },
             "beginCaptures": {
+                "0": {
+                    "name": "strong"
+                },
                 "1": {
                     "name": "support.function.punctuation.definition.solo-snippet.many"
                 },
@@ -995,6 +1021,9 @@
                 }
             },
             "beginCaptures": {
+                "0": {
+                    "name": "strong"
+                },
                 "1": {
                     "name": "support.function.punctuation.definition.solo-snippet.many"
                 },
@@ -1049,6 +1078,9 @@
                 }
             },
             "beginCaptures": {
+                "0": {
+                    "name": "strong"
+                },
                 "1": {
                     "name": "support.function.punctuation.definition.solo-snippet.many"
                 },
@@ -1103,6 +1135,9 @@
                 }
             },
             "beginCaptures": {
+                "0": {
+                    "name": "strong"
+                },
                 "1": {
                     "name": "support.function.punctuation.definition.solo-snippet.many"
                 },
@@ -1157,6 +1192,9 @@
                 }
             },
             "beginCaptures": {
+                "0": {
+                    "name": "strong"
+                },
                 "1": {
                     "name": "support.function.punctuation.definition.solo-snippet.many"
                 },
@@ -1211,6 +1249,9 @@
                 }
             },
             "beginCaptures": {
+                "0": {
+                    "name": "strong"
+                },
                 "1": {
                     "name": "support.function.punctuation.definition.solo-snippet.many"
                 },
@@ -1265,6 +1306,9 @@
                 }
             },
             "beginCaptures": {
+                "0": {
+                    "name": "strong"
+                },
                 "1": {
                     "name": "support.function.punctuation.definition.solo-snippet.many"
                 },
@@ -1319,6 +1363,9 @@
                 }
             },
             "beginCaptures": {
+                "0": {
+                    "name": "strong"
+                },
                 "1": {
                     "name": "support.function.punctuation.definition.solo-snippet.many"
                 },
@@ -1373,6 +1420,9 @@
                 }
             },
             "beginCaptures": {
+                "0": {
+                    "name": "strong"
+                },
                 "1": {
                     "name": "support.function.punctuation.definition.solo-snippet.many"
                 },
@@ -1427,6 +1477,9 @@
                 }
             },
             "beginCaptures": {
+                "0": {
+                    "name": "strong"
+                },
                 "1": {
                     "name": "support.function.punctuation.definition.solo-snippet.many"
                 },
@@ -1481,6 +1534,9 @@
                 }
             },
             "beginCaptures": {
+                "0": {
+                    "name": "strong"
+                },
                 "1": {
                     "name": "support.function.punctuation.definition.solo-snippet.many"
                 },
@@ -1535,6 +1591,9 @@
                 }
             },
             "beginCaptures": {
+                "0": {
+                    "name": "strong"
+                },
                 "1": {
                     "name": "support.function.punctuation.definition.solo-snippet.many"
                 },
@@ -1589,6 +1648,9 @@
                 }
             },
             "beginCaptures": {
+                "0": {
+                    "name": "strong"
+                },
                 "1": {
                     "name": "support.function.punctuation.definition.solo-snippet.many"
                 },
@@ -1643,6 +1705,9 @@
                 }
             },
             "beginCaptures": {
+                "0": {
+                    "name": "strong"
+                },
                 "1": {
                     "name": "support.function.punctuation.definition.solo-snippet.many"
                 },
@@ -1697,6 +1762,9 @@
                 }
             },
             "beginCaptures": {
+                "0": {
+                    "name": "strong"
+                },
                 "1": {
                     "name": "support.function.punctuation.definition.solo-snippet.many"
                 },
@@ -1751,6 +1819,9 @@
                 }
             },
             "beginCaptures": {
+                "0": {
+                    "name": "strong"
+                },
                 "1": {
                     "name": "support.function.punctuation.definition.solo-snippet.many"
                 },
@@ -1805,6 +1876,9 @@
                 }
             },
             "beginCaptures": {
+                "0": {
+                    "name": "strong"
+                },
                 "1": {
                     "name": "support.function.punctuation.definition.solo-snippet.many"
                 },
@@ -1859,6 +1933,9 @@
                 }
             },
             "beginCaptures": {
+                "0": {
+                    "name": "strong"
+                },
                 "1": {
                     "name": "support.function.punctuation.definition.solo-snippet.many"
                 },
@@ -1913,6 +1990,9 @@
                 }
             },
             "beginCaptures": {
+                "0": {
+                    "name": "strong"
+                },
                 "1": {
                     "name": "support.function.punctuation.definition.solo-snippet.many"
                 },
@@ -1967,6 +2047,9 @@
                 }
             },
             "beginCaptures": {
+                "0": {
+                    "name": "strong"
+                },
                 "1": {
                     "name": "support.function.punctuation.definition.solo-snippet.many"
                 },
@@ -2021,6 +2104,9 @@
                 }
             },
             "beginCaptures": {
+                "0": {
+                    "name": "strong"
+                },
                 "1": {
                     "name": "support.function.punctuation.definition.solo-snippet.many"
                 },
@@ -2075,6 +2161,9 @@
                 }
             },
             "beginCaptures": {
+                "0": {
+                    "name": "strong"
+                },
                 "1": {
                     "name": "support.function.punctuation.definition.solo-snippet.many"
                 },
@@ -2129,6 +2218,9 @@
                 }
             },
             "beginCaptures": {
+                "0": {
+                    "name": "strong"
+                },
                 "1": {
                     "name": "support.function.punctuation.definition.solo-snippet.many"
                 },
@@ -2183,6 +2275,9 @@
                 }
             },
             "beginCaptures": {
+                "0": {
+                    "name": "strong"
+                },
                 "1": {
                     "name": "support.function.punctuation.definition.solo-snippet.many"
                 },
@@ -2237,6 +2332,9 @@
                 }
             },
             "beginCaptures": {
+                "0": {
+                    "name": "strong"
+                },
                 "1": {
                     "name": "support.function.punctuation.definition.solo-snippet.many"
                 },
@@ -2291,6 +2389,9 @@
                 }
             },
             "beginCaptures": {
+                "0": {
+                    "name": "strong"
+                },
                 "1": {
                     "name": "support.function.punctuation.definition.solo-snippet.many"
                 },
@@ -2345,6 +2446,9 @@
                 }
             },
             "beginCaptures": {
+                "0": {
+                    "name": "strong"
+                },
                 "1": {
                     "name": "support.function.punctuation.definition.solo-snippet.many"
                 },
@@ -2399,6 +2503,9 @@
                 }
             },
             "beginCaptures": {
+                "0": {
+                    "name": "strong"
+                },
                 "1": {
                     "name": "support.function.punctuation.definition.solo-snippet.many"
                 },
@@ -2453,6 +2560,9 @@
                 }
             },
             "beginCaptures": {
+                "0": {
+                    "name": "strong"
+                },
                 "1": {
                     "name": "support.function.punctuation.definition.solo-snippet.many"
                 },
@@ -2507,6 +2617,9 @@
                 }
             },
             "beginCaptures": {
+                "0": {
+                    "name": "strong"
+                },
                 "1": {
                     "name": "support.function.punctuation.definition.solo-snippet.many"
                 },
@@ -2561,6 +2674,9 @@
                 }
             },
             "beginCaptures": {
+                "0": {
+                    "name": "strong"
+                },
                 "1": {
                     "name": "support.function.punctuation.definition.solo-snippet.many"
                 },
@@ -2615,6 +2731,9 @@
                 }
             },
             "beginCaptures": {
+                "0": {
+                    "name": "strong"
+                },
                 "1": {
                     "name": "support.function.punctuation.definition.solo-snippet.many"
                 },
@@ -2669,6 +2788,9 @@
                 }
             },
             "beginCaptures": {
+                "0": {
+                    "name": "strong"
+                },
                 "1": {
                     "name": "support.function.punctuation.definition.solo-snippet.many"
                 },
@@ -2723,6 +2845,9 @@
                 }
             },
             "beginCaptures": {
+                "0": {
+                    "name": "strong"
+                },
                 "1": {
                     "name": "support.function.punctuation.definition.solo-snippet.many"
                 },
