@@ -16,7 +16,7 @@ jobs:
           python-version: "3.9"
       - name: Run syntax maker
         run: |
-          python syntax_maker/syntax_maker.py
+          python syntaxes_dev/syntax_maker.py
           git config --global user.name 'GitHub Publish Action'
           git add syntaxes/many.tmLanguage.json
           if [[ `git status --porcelain` ]]; then

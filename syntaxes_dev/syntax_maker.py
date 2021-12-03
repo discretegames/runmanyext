@@ -9,11 +9,6 @@ ID_PLACEHOLDER = '<ID>'
 SOURCE_PLACEHOLDER = '<SOURCE>'
 
 
-def load_raw_json(raw_json):
-    with open(raw_json) as file:
-        return json.load(file)
-
-
 def load_languages(languages_csv):
     languages = []
     with open(languages_csv) as file:
@@ -47,20 +42,29 @@ def save_final_json(final_json, syntax):
         json.dump(syntax, file, indent=4)
 
 
-def make_syntax(languages_csv, raw_json, parts_json, final_json):
-    syntax = load_raw_json(raw_json)
+def make_syntax(languages_csv, dev_syntax, parts_json, final_json):
     languages = load_languages(languages_csv)
     for index, (name, id, source) in enumerate(languages, PATTERNS_INSERT_INDEX):
         include = make_include_object(id)
         parts = make_language_parts(parts_json, name, id, source)
-        insert_language_parts(syntax, include, parts, index)
-    save_final_json(final_json, syntax)
+        insert_language_parts(dev_syntax, include, parts, index)
+    save_final_json(final_json, dev_syntax)
+
+
+def load_dev_syntax(dev_json, keys_to_remove, index_to_remove=PATTERNS_INSERT_INDEX):
+    with open(dev_json) as file:
+        dev_json = json.load(file)
+    del dev_json['repository']['enabled-section']['patterns'][index_to_remove]
+    for key in keys_to_remove:
+        del dev_json['repository'][key]
+    return dev_json
 
 
 if __name__ == '__main__':
     path = Path(__file__)
     languages_csv = path.parent.with_name('supported-languages.csv')
-    raw_json = path.with_name('raw.many.tmLanguage.json')
+    dev_json = path.with_name('many.tmLanguage.json')
+    dev_syntax = load_dev_syntax(dev_json, ('ada-section', 'ada-snippet'))
     parts_json = path.with_name('language_parts.json')
     final_json = path.parent.parent / 'syntaxes' / 'many.tmLanguage.json'
-    make_syntax(languages_csv, raw_json, parts_json, final_json)
+    make_syntax(languages_csv, dev_syntax, parts_json, final_json)

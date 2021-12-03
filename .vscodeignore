@@ -4,7 +4,7 @@ notes.txt
 icon.afdesign
 supported-languages.csv
 
-syntax_maker/
+syntaxes_dev/
 src/
 .github/
 .vscode/

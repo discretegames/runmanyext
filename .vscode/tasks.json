@@ -16,7 +16,7 @@
 		},
 		{
 			"label": "makesyntax",
-			"command": "python src/syntax_maker.py",
+			"command": "python syntaxes_dev/syntax_maker.py",
 			"type": "shell",
 			"presentation": {
 				"reveal": "silent",

@@ -4,11 +4,14 @@
 
 	foo
 
-print:
-	foo
+Python:
+	"""
+	d
+START:
+	d
+	"""
 End.
 
-START:
 	foo
 
 print:
@@ -54,6 +57,9 @@ C:
         printf("Hello, World!\n");
         return 0;
     }
+Also:
+	pass
+%% yep
 
 C#:
     namespace Hello {
@@ -147,6 +153,7 @@ Objective-C:
 		NSLog(@"Hello, World!");
         return 0;
     }
+End.
 
 OCaml:
 	print_string "Hello, World!\n";;
@@ -226,3 +233,5 @@ Visual Basic:
             Console.WriteLine("Hello, World!")
         End Sub 
     End Module
+
+
