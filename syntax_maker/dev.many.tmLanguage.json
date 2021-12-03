@@ -36,7 +36,7 @@
 		},
 		"invalid-line": {
 			"name": "invalid.illegal.unrecognized-line.many",
-			"match": "^.*\\S.*$"
+			"match": "^\\s*\\S.*$"
 		},
 		"section": {
 			"name": "meta.section.many",

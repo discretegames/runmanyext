@@ -4,7 +4,7 @@ from pathlib import Path
 from itertools import islice
 
 PATTERNS_INSERT_INDEX = 5
-NAME_PLACEHOLDER = '<NAME>'
+PATTERN_PLACEHOLDER = '<PATTERN>'
 ID_PLACEHOLDER = '<ID>'
 SOURCE_PLACEHOLDER = '<SOURCE>'
 
@@ -29,7 +29,7 @@ def make_include_object(id):
 def make_language_parts(parts_json, name, id, source):
     with open(parts_json) as file:
         content = file.read()
-        content = content.replace(NAME_PLACEHOLDER, name)
+        content = content.replace(PATTERN_PLACEHOLDER, name)
         content = content.replace(ID_PLACEHOLDER, id)
         content = content.replace(SOURCE_PLACEHOLDER, source)
         return json.loads(content)
