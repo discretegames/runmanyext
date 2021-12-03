@@ -1,8 +1,9 @@
 
+froo
 
 @@ @ Argv:
 
-froo
+End.
 
 %%goo
 
@@ -27,7 +28,7 @@ Also:
 
 	foo
 
-Sett:
+pyThon, foo:
 	print(999)
 Also:
 	%% ok
@@ -41,8 +42,18 @@ End.
 
 START:
 
+@@ @ Python :
+	print(999)
+@ Also :
 
-STOP   . %%% ok
+Argv for a, b, c:
+	print(1000)
+
+Stdin for 1, 2, 3:
+
+
+
+STOP.
 Python:
 	print(9) %%%ooih
 %hmm

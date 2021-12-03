@@ -50,6 +50,7 @@ Also: print('not disabled')
 
 %% "Argv:" or "Argv for <comma separated language names>:" starts an argv section
 Argv: foo
+		%% test
 
 Argv for JavaScript, TypeScript: bar
 Also: baz
@@ -78,7 +79,6 @@ Python, JavaScript:
 
 %% everything after the first "STOP." line in a file is ignored
 STOP.
-
 
 %% The output of running this syntax.many file should be the following:
 
