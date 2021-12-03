@@ -22,8 +22,11 @@ Also:
 
 
 
-Python:
+@   Python, foo:
 	%%hmm:
+Also:
+
+
 Also:
 
 	foo
@@ -42,7 +45,7 @@ End.
 
 START:
 
-@@ @ Python :
+@@ @ Python, ehih :
 	print(999)
 @ Also :
 
