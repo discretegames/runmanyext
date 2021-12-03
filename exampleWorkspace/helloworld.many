@@ -1,25 +1,29 @@
 %% Programs that print "Hello, World!" to stdout.
 %% Languages disabled with "!" are not built-in to RunMany but do have syntax highlighting support with the RunMany VSCode extension.
 
-Settings:
-	{
-		"foo": "bar"
-	}
-	""
-
 Ada:
-	with Text_IO; use Text_IO;
+    with Text_IO; use Text_IO;
     procedure HelloWorld is
     begin
         Put_Line("Hello, World!");
     end HelloWorld;
 Also:
+    with Text_IO; use Text_IO;
+    procedure HelloWorld is
+    begin
+        Put_Line("Hello, World!");
+    end HelloWorld;
+
+
+ARM:
+	.text        
+	.global _start
+	_start:
+        
 
 Bash:
 	#!/bin/bash
 	echo "Hello, World!"
-Also:
-	pass
 
 Batch:
 	@echo off
@@ -43,9 +47,9 @@ C#:
         }
     }
 
-!Clojure: (println "Hello, World!")
+Clojure: (println "Hello, World!")
 
-!COBOL:
+COBOL:
     program-id. helloworld.
     procedure division.
         display "Hello, World!".
@@ -64,7 +68,7 @@ Dart:
         print('Hello, World!');
     }
 
-!Erlang:
+Erlang:
 	-module(helloworld).
 	-export([start/0]).
 	start() -> io:fwrite("Hello, World!\n").
@@ -74,7 +78,7 @@ Fortran:
         write(*, "(a)") "Hello, World!"
     end program
 
-!F#: printfn "Hello, World!"
+F#: printfn "Hello, World!"
 
 Go:
     package main
@@ -119,7 +123,7 @@ MIPS:
 	li $v0, 10
 	syscall
 
-!Objective-C:
+Objective-C:
     #import <Foundation/Foundation.h>
 
     int main(int argc, char * argv[]) {
@@ -127,8 +131,9 @@ MIPS:
         return 0;
     }
 
-!OCaml:
+OCaml:
 	print_string "Hello, World!\n";;
+	while true do () done;;
 
 Pascal:
     program helloworld;
@@ -167,13 +172,34 @@ Rust:
 
 Scala: println("Hello, World!")
 
-!Scheme:
+Scheme:
     (display "Hello, World!")
     (newline)
 
-!Swift: print("Hello, World!")
+Swift: print("Hello, World!")
 
 TypeScript: console.log("Hello, World!")
+
+x86:
+	global _start
+
+	section .text
+
+	_start:
+	mov rax, 1        ; write(
+	mov rdi, 1        ;   STDOUT_FILENO,
+	mov rsi, msg      ;   "Hello, world!\n",
+	mov rdx, msglen   ;   sizeof("Hello, world!\n")
+	syscall           ; );
+
+	mov rax, 60       ; exit(
+	mov rdi, 0        ;   EXIT_SUCCESS
+	syscall           ; );
+
+	section .rodata
+	msg: db "Hello, world!", 10
+	msglen: equ $ - msg
+
 
 VBScript: WScript.Echo "Hello, World!"
 

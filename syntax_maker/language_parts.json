@@ -17,6 +17,6 @@
 			"4": { "name": "punctuation.definition.header-end.many" }
 		},
 		"contentName": "meta.code-snippet.<ID>.content.many",
-		"patterns": [{ "include": "source.<SOURCE>" }]
+		"patterns": [{ "include": "source.<SOURCE>" }, { "name": "meta.dummy-source.many" }]
 	}
 }

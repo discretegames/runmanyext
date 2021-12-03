@@ -67,7 +67,7 @@
 				{ "include": "#enabled-end" },
 				{ "include": "#settings-section" },
 				{ "include": "#input-section" },
-				{ "include": "#python-section" },
+				{ "include": "#ada-section" },
 				{ "include": "#unknown-section" }
 			]
 		},
@@ -107,7 +107,7 @@
 				"4": { "name": "punctuation.definition.header-end.many" }
 			},
 			"contentName": "meta.settings-snippet.content.many",
-			"patterns": [{ "include": "source.json" }]
+			"patterns": [{ "include": "source.json" }, { "name": "meta.dummy-source.many" }]
 		},
 		"input-languages": {
 			"name": "meta.input-languages.many",
@@ -164,14 +164,14 @@
 			},
 			"contentName": "meta.code-snippet.unknown.content.many"
 		},
-		"python-section": {
-			"name": "meta.code-section.python.many",
-			"begin": "\\G(?=(?:[!@]\\s*)?(?i)Python\\s*(?=[,:])[^:]*:)",
+		"ada-section": {
+			"name": "meta.code-section.ada.many",
+			"begin": "\\G(?=(?:[!@]\\s*)?(?i)Ada\\s*(?=[,:])[^:]*:)",
 			"while": "^(?!End\\s*\\.)",
-			"patterns": [{ "include": "#disabled-snippet" }, { "include": "#python-snippet" }]
+			"patterns": [{ "include": "#disabled-snippet" }, { "include": "#ada-snippet" }]
 		},
-		"python-snippet": {
-			"name": "meta.code-snippet.python.many",
+		"ada-snippet": {
+			"name": "meta.code-snippet.ada.many",
 			"begin": "\\G(?:(@)\\s*)?(?:(Also)\\s*|([^:]*))(:)",
 			"while": "(^\\s*%%.*$)|^(?!(?:[!@]\\s*)?Also\\s*:)",
 			"whileCaptures": { "1": { "patterns": [{ "include": "#comment" }] } },
@@ -181,8 +181,8 @@
 				"3": { "patterns": [{ "include": "#languages" }] },
 				"4": { "name": "punctuation.definition.header-end.many" }
 			},
-			"contentName": "meta.code-snippet.python.content.many",
-			"patterns": [{ "include": "source.python" }]
+			"contentName": "meta.code-snippet.ada.content.many",
+			"patterns": [{ "include": "source.ada" }, { "name": "meta.dummy-source.many" }]
 		}
 	}
 }

@@ -3,7 +3,7 @@ import json
 from pathlib import Path
 from itertools import islice
 
-PATTERNS_INSERT_INDEX = 5
+PATTERNS_INSERT_INDEX = 3
 PATTERN_PLACEHOLDER = '<PATTERN>'
 ID_PLACEHOLDER = '<ID>'
 SOURCE_PLACEHOLDER = '<SOURCE>'
@@ -23,7 +23,7 @@ def load_languages(languages_csv):
 
 
 def make_include_object(id):
-    return {'include': f'#{id}-section-list'}
+    return {'include': f'#{id}-section'}
 
 
 def make_language_parts(parts_json, name, id, source):
@@ -36,7 +36,7 @@ def make_language_parts(parts_json, name, id, source):
 
 
 def insert_language_parts(syntax, include, parts, index):
-    syntax['patterns'].insert(index, include)
+    syntax['repository']['enabled-section']['patterns'].insert(index, include)
     for key, value in parts.items():
         syntax['repository'][key] = value
 
