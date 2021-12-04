@@ -44,7 +44,7 @@ from one file. This extension provides quick ways to run RunMany files (file ext
 > Swift,
 > TypeScript,
 > x86,
-> VBScript, and
+> VBScript,
 > Visual Basic
 
 Languages not [built into VSCode](https://github.com/microsoft/vscode/tree/main/extensions) such as Ada and Pascal
