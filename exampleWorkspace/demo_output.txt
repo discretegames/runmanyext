@@ -1,5 +1,5 @@
 ************************************************************
-1. Python (0.066s)
+1. Python (0.053s)
 ---------------------- code at line 3 ----------------------
 print('Hello snake.')
 -------------------- output from line 3 --------------------
@@ -7,7 +7,7 @@ Hello snake.
 
 
 ************************************************************
-2. JavaScript (0.092s)
+2. JavaScript (0.118s)
 ---------------------- code at line 5 ----------------------
 console.log('Hello coffee.')
 -------------------- output from line 5 --------------------
@@ -15,6 +15,6 @@ Hello coffee.
 
 
 ************************************************************
-2/2 programs successfully run in 0.164s!
+2/2 programs successfully run in 0.177s!
 1/2 had the exact same stdout. Equal runs grouped: [1] [2]
 ************************************************************
