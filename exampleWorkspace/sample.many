@@ -1,4 +1,5 @@
-% Various "Hello, World!" Programs:
+%% A RunMany file with 12 "Hello, World!" programs written in 12 programming languages.
+%% Hit F5 or press the play button in the top right to run them all.
 
 Python:	print('Hello, World!')
 

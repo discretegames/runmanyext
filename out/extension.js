@@ -60,7 +60,7 @@ class InlineDebugAdapterFactory {
         const terminal = getTerminal();
         terminal.show();
         const programArg = `"${session.configuration.program}"`;
-        const settingsArg = session.configuration.settingsFile && ` -j "${session.configuration.settingsFile}"`;
+        const settingsArg = session.configuration.settingsFile && ` -s "${session.configuration.settingsFile}"`;
         const outputArg = session.configuration.outputFile && ` -o "${session.configuration.outputFile}"`;
         terminal.sendText(`runmany ${programArg}${settingsArg}${outputArg}`);
         return new vscode.DebugAdapterInlineImplementation(new DummyDebugSession());

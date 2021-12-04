@@ -1,7 +1,7 @@
 {
 	"<ID>-section": {
 		"name": "meta.code-section.<ID>.many",
-		"begin": "\\G(?=(?:[!@]\\s*)?(?i)<PATTERN>\\s*(?=[,:])[^:]*:)",
+		"begin": "\\G(?=(?:[!@]\\s*)?(?i)<NAME>\\s*(?=[,:])[^:]*:)",
 		"while": "^(?!End\\s*\\.)",
 		"patterns": [{ "include": "#disabled-snippet" }, { "include": "#<ID>-snippet" }]
 	},

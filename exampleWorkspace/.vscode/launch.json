@@ -11,7 +11,7 @@
 			"program": "${file}",
 		},
 		{
-			"name": "RunMany: Run Demo File",
+			"name": "RunMany: Run demo.many",
 			"type": "runmany",
 			"request": "launch",
 			"program": "demo.many",

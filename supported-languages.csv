@@ -1,4 +1,4 @@
-<PATTERN>    , <ID>        , <SOURCE>
+<NAME>       , <ID>        , <SOURCE>
 Ada          , ada         , ada
 ARM		     , arm         , arm
 Bash         , bash        , shell

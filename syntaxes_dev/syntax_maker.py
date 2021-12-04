@@ -3,8 +3,8 @@ import json
 from pathlib import Path
 from itertools import islice
 
-PATTERNS_INSERT_INDEX = 3
-PATTERN_PLACEHOLDER = '<PATTERN>'
+NAMES_INSERT_INDEX = 3
+NAME_PLACEHOLDER = '<NAME>'
 ID_PLACEHOLDER = '<ID>'
 SOURCE_PLACEHOLDER = '<SOURCE>'
 
@@ -24,7 +24,7 @@ def make_include_object(id):
 def make_language_parts(parts_json, name, id, source):
     with open(parts_json) as file:
         content = file.read()
-        content = content.replace(PATTERN_PLACEHOLDER, name)
+        content = content.replace(NAME_PLACEHOLDER, name)
         content = content.replace(ID_PLACEHOLDER, id)
         content = content.replace(SOURCE_PLACEHOLDER, source)
         return json.loads(content)
@@ -44,14 +44,14 @@ def save_final_json(final_json, syntax):
 
 def make_syntax(languages_csv, dev_syntax, parts_json, final_json):
     languages = load_languages(languages_csv)
-    for index, (name, id, source) in enumerate(languages, PATTERNS_INSERT_INDEX):
+    for index, (name, id, source) in enumerate(languages, NAMES_INSERT_INDEX):
         include = make_include_object(id)
         parts = make_language_parts(parts_json, name, id, source)
         insert_language_parts(dev_syntax, include, parts, index)
     save_final_json(final_json, dev_syntax)
 
 
-def load_dev_syntax(dev_json, keys_to_remove, index_to_remove=PATTERNS_INSERT_INDEX):
+def load_dev_syntax(dev_json, keys_to_remove, index_to_remove=NAMES_INSERT_INDEX):
     with open(dev_json) as file:
         dev_json = json.load(file)
     del dev_json['repository']['enabled-section']['patterns'][index_to_remove]

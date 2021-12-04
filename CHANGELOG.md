@@ -7,9 +7,30 @@ will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [2.1.0] - 2021-12-03
+## [2.0.0] - 2021-12-03
 
-Updated extension to match new syntax of RunMany version 2.1.0. TODO: update changelog.
+Updated extension to work with all the new syntax of the [RunMany Python package](https://pypi.org/project/runmany/)
+version [2.1.0](https://pypi.org/project/runmany/2.1.0/) and above.
+
+This includes:
+
+- `%%` comment syntax (replacing `%` comments)
+
+- `START:` and `STOP.` syntax (replacing `Exit.`)
+
+- `Settings:` section syntax for embedded JSONs
+
+- `End.` syntax to end sections
+
+- `!!` disabled section and `!` disabled snippet syntax
+
+- `@@` solo section and `@` solo snippet syntax
+
+- Better syntax highlighting and styling overall, removing the need for custom theming
+
+Additionally, these languages have been given embedded syntax highlighting support:
+
+> ARM, Bash, Batch, Erlang, MIPS, OCaml, PowerShell, x86
 
 ## [1.0.2] - 2021-10-19
 
